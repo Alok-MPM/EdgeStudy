@@ -1,0 +1,339 @@
+[
+  {
+    "id": 1,
+    "title": "Solving System of Linear Equations using Matrix Method",
+    "category": "Matrices and Determinants",
+    "rank": 1,
+    "triggers": [
+      "solve the system of equations",
+      "using matrix method",
+      "AX = B",
+      "find inverse and solve"
+    ],
+    "bypass": "Step 1: Write system as AX = B where A is coefficient matrix, X is [x,y,z], B is constant column matrix. Step 2: Calculate determinant |A|. If non-zero, calculate adj(A). Step 3: Compute A inverse = adj(A)/|A| and find solution X = (A inverse) * B.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 2,
+    "title": "Shortest Distance Between Skew Lines",
+    "category": "3D Geometry",
+    "rank": 2,
+    "triggers": [
+      "shortest distance between lines",
+      "r = a1 + lambda b1",
+      "vector equation of line",
+      "skew lines"
+    ],
+    "bypass": "Use formula: d = |(a2 - a1) dot (b1 cross b2)| / |b1 cross b2|. Step 1: Extract vectors a1, a2, b1, b2. Step 2: Find cross product b1 cross b2 using determinant. Step 3: Find dot product of (a2 - a1) with (b1 cross b2) and divide by magnitude of (b1 cross b2).",
+    "graph_visuals": "Two non-intersecting non-parallel lines in 3D space with a perpendicular line segment PQ joining them."
+  },
+  {
+    "id": 3,
+    "title": "Bayes' Theorem Applications",
+    "category": "Probability",
+    "rank": 3,
+    "triggers": [
+      "given that the item is defective",
+      "what is the probability that it was produced by",
+      "found to suffer from",
+      "Baye's theorem"
+    ],
+    "bypass": "Step 1: Identify partition events E1, E2, E3 (e.g. choice of machine/group) such that sum of P(Ei) = 1. Step 2: Identify result event A (e.g. defective, disease). Step 3: Apply formula P(Ei|A) = [P(Ei) * P(A|Ei)] / sum[P(Ek) * P(A|Ek)].",
+    "graph_visuals": "Tree diagram representing partition events E1, E2, E3 branching into condition event A and A-bar with corresponding probabilities."
+  },
+  {
+    "id": 4,
+    "title": "Bounded Feasible Region Optimization in LPP",
+    "category": "Linear Programming",
+    "rank": 4,
+    "triggers": [
+      "Maximise Z =",
+      "Minimise Z =",
+      "subject to constraints",
+      "feasible region corner points"
+    ],
+    "bypass": "Step 1: Plot inequality boundary lines on 2D plane and shade the common bounded feasible region. Step 2: Find coordinates of all corner points (intersections). Step 3: Evaluate objective function Z = ax + by at each corner point to identify maximum or minimum value.",
+    "graph_visuals": "Draw LPP feasible region bounded by constraint lines in the first quadrant with marked corner points A, B, C, D."
+  },
+  {
+    "id": 5,
+    "title": "Area Bounded by Curves using Integration",
+    "category": "Application of Integrals",
+    "rank": 5,
+    "triggers": [
+      "area of the region enclosed by",
+      "bounded by parabola and line",
+      "area in first quadrant",
+      "bounded by circle and line"
+    ],
+    "bypass": "Step 1: Solve curve equations simultaneously to find point(s) of intersection. Step 2: Set up integral: Area = integral of (y_upper - y_lower) dx or integral of x dy between lower and upper limits. Step 3: Evaluate integral using standard formulas like integral sqrt(a^2 - x^2) dx.",
+    "graph_visuals": "Draw intersection of curve (e.g. parabola y^2 = 4x or circle x^2 + y^2 = r^2) and straight line, shade the bounded region."
+  },
+  {
+    "id": 6,
+    "title": "Homogeneous Differential Equations",
+    "category": "Differential Equations",
+    "rank": 6,
+    "triggers": [
+      "dy/dx = f(x,y)/g(x,y)",
+      "homogeneous differential equation",
+      "function of (y/x)",
+      "x dx + y dy"
+    ],
+    "bypass": "Step 1: Check dy/dx = F(y/x). Substitute y = v*x, so dy/dx = v + x*(dv/dx). Step 2: Separate variables v and x. Step 3: Integrate both sides, then replace v with (y/x) to get general solution.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 7,
+    "title": "First-Order Linear Differential Equations",
+    "category": "Differential Equations",
+    "rank": 7,
+    "triggers": [
+      "dy/dx + Py = Q",
+      "integrating factor",
+      "particular solution given y(0)",
+      "dx/dy + Px = Q"
+    ],
+    "bypass": "Step 1: Identify P and Q as functions of x. Step 2: Compute Integrating Factor IF = e^(integral P dx). Step 3: Write solution as y * IF = integral (Q * IF) dx + C and apply initial conditions if particular solution is required.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 8,
+    "title": "Properties of Definite Integrals (King's Property)",
+    "category": "Integrals",
+    "rank": 8,
+    "triggers": [
+      "Evaluate integral from a to b of f(x) dx",
+      "integral from 0 to pi/2",
+      "f(a + b - x) = f(x)",
+      "log(1 + tan x)"
+    ],
+    "bypass": "Apply King's Property: I = integral from a to b of f(x) dx = integral from a to b of f(a + b - x) dx. Add the original integral I and converted integral I together (2I) to simplify terms like sin x and cos x or cancel terms in numerator/denominator.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 9,
+    "title": "Integration of Exponential Special Form e^x [f(x) + f'(x)]",
+    "category": "Integrals",
+    "rank": 9,
+    "triggers": [
+      "integral e^x * g(x) dx",
+      "(x-3)/(x-1)^3 * e^x",
+      "e^x (tan^-1 x + 1/(1+x^2))"
+    ],
+    "bypass": "Break integrand g(x) into two parts f(x) and f'(x) such that integrand becomes e^x * [f(x) + f'(x)]. Direct formula bailout: Result is e^x * f(x) + C.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 10,
+    "title": "Maxima and Minima Word Problems and Case Studies",
+    "category": "Application of Derivatives",
+    "rank": 10,
+    "triggers": [
+      "derive profit function P(x)",
+      "critical points",
+      "maximize revenue",
+      "second derivative test"
+    ],
+    "bypass": "Step 1: Express target variable (Profit, Area, Volume) as single-variable function f(x). Step 2: Solve f'(x) = 0 for critical points x. Step 3: Evaluate f''(x). If f''(x) < 0, x gives maximum; if f''(x) > 0, x gives minimum.",
+    "graph_visuals": "Graph of polynomial/quadratic profit function showing vertex as maximum point."
+  },
+  {
+    "id": 11,
+    "title": "Continuity of a Piecewise Function at a Point",
+    "category": "Continuity and Differentiability",
+    "rank": 11,
+    "triggers": [
+      "continuous at x = pi",
+      "find the value of k",
+      "LHL = RHL = f(c)"
+    ],
+    "bypass": "For continuity at x = c: Left Hand Limit = Right Hand Limit = f(c). Step 1: Find LHL = limit x->c- f(x). Step 2: Find RHL = limit x->c+ f(x). Step 3: Equate LHL = RHL = f(c) to solve directly for unknown k.",
+    "graph_visuals": "Piecewise continuous curve meeting smoothly at point x = c without breaks."
+  },
+  {
+    "id": 12,
+    "title": "Adjoint and Determinant Algebraic Properties",
+    "category": "Matrices and Determinants",
+    "rank": 12,
+    "triggers": [
+      "|adj A| =",
+      "A(adj A) =",
+      "|k A| =",
+      "order n square matrix"
+    ],
+    "bypass": "Core Formulas: 1) |adj A| = |A|^(n-1). 2) A * (adj A) = |A| * I. 3) |k A| = k^n * |A|. 4) |A inverse| = 1 / |A|.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 13,
+    "title": "Proving Equivalence Relations",
+    "category": "Relations and Functions",
+    "rank": 13,
+    "triggers": [
+      "equivalence relation",
+      "reflexive, symmetric, transitive",
+      "(a,b) R (c,d) iff ad = bc",
+      "a - b is divisible by k"
+    ],
+    "bypass": "Must prove 3 conditions: 1) Reflexive: Show (a,a) belongs to R for all a. 2) Symmetric: Assume (a,b) belongs to R and prove (b,a) belongs to R. 3) Transitive: Assume (a,b) and (b,c) belong to R and prove (a,c) belongs to R.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 14,
+    "title": "Vector Projection and Perpendicular Vectors",
+    "category": "Vector Algebra",
+    "rank": 14,
+    "triggers": [
+      "projected length",
+      "projection of vector a on vector b",
+      "orthogonal vectors",
+      "a dot b = 0"
+    ],
+    "bypass": "1) Projection of vector a on vector b = (a dot b) / |b|. 2) Two non-zero vectors a and b are perpendicular/orthogonal if and only if a dot b = 0.",
+    "graph_visuals": "Right-angled vector triangle showing projection of vector a along line of vector b."
+  },
+  {
+    "id": 15,
+    "title": "Foot of Perpendicular and Image of a Point in 3D",
+    "category": "3D Geometry",
+    "rank": 15,
+    "triggers": [
+      "foot of perpendicular from point",
+      "image of point with respect to line/plane",
+      "distance from line parallel to z-axis"
+    ],
+    "bypass": "Step 1: Write parametric coordinates of general point L on line in terms of parameter lambda. Step 2: Find direction ratios of PL (where P is given point) and set (direction ratios of PL) dot (direction ratios of line) = 0 to solve for lambda. Step 3: L is foot of perpendicular; Image Q is given by midpoint formula L = (P + Q)/2.",
+    "graph_visuals": "Diagram showing point P, perpendicular line segment dropping to line/plane at foot L, and extended to image point Q."
+  },
+  {
+    "id": 16,
+    "title": "Intervals of Increasing and Decreasing Functions",
+    "category": "Application of Derivatives",
+    "rank": 16,
+    "triggers": [
+      "increasing on the interval",
+      "strictly decreasing in",
+      "f'(x) >= 0"
+    ],
+    "bypass": "Step 1: Compute first derivative f'(x). Step 2: Find critical numbers where f'(x) = 0. Step 3: Use number line sign test. Function is strictly increasing where f'(x) > 0 and strictly decreasing where f'(x) < 0.",
+    "graph_visuals": "Number line sign chart indicating positive and negative regions of f'(x)."
+  },
+  {
+    "id": 17,
+    "title": "Rate of Change of Quantities",
+    "category": "Application of Derivatives",
+    "rank": 17,
+    "triggers": [
+      "volume decreases at rate directly proportional to surface area",
+      "rate at which radius decreases",
+      "moving horizontally at rate"
+    ],
+    "bypass": "Step 1: Write formula relating variables (e.g. Volume V = 4/3 * pi * r^3, Surface Area S = 4 * pi * r^2). Step 2: Differentiate with respect to time t: dV/dt = 4 * pi * r^2 * (dr/dt). Step 3: Substitute given proportionalities to solve for dr/dt.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 18,
+    "title": "Checking One-One (Injective) and Onto (Surjective) Functions",
+    "category": "Relations and Functions",
+    "rank": 18,
+    "triggers": [
+      "is f one-one and onto",
+      "bijective function",
+      "f(x1) = f(x2) implies x1 = x2"
+    ],
+    "bypass": "1) One-One: Set f(x1) = f(x2) and simplify algebraically to prove x1 = x2. 2) Onto: Express x in terms of y (x = g(y)) and verify if x belongs to domain for every y in codomain.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 19,
+    "title": "Integration using Partial Fractions",
+    "category": "Integrals",
+    "rank": 19,
+    "triggers": [
+      "integral dx / [(x-a)(x-b)]",
+      "resolving into partial fractions",
+      "A/(x-1) + B/(x+1)"
+    ],
+    "bypass": "Step 1: Decompose integrand P(x)/Q(x) into A/(x-a) + B/(x-b) + ... Step 2: Multiply by denominator and compare coefficients or plug roots of linear factors to find A, B. Step 3: Integrate each log term: integral A/(x-a) dx = A * log|x-a|.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 20,
+    "title": "Principal Value Branch and Domain of Inverse Trig Functions",
+    "category": "Inverse Trigonometric Functions",
+    "rank": 20,
+    "triggers": [
+      "domain of cos^-1(3x - 2)",
+      "principal value branch of sin^-1 x",
+      "evaluate tan(tan^-1(-1) + pi/3)"
+    ],
+    "bypass": "Core Rules: 1) Domain of sin^-1(g(x)) or cos^-1(g(x)) is -1 <= g(x) <= 1. 2) Range (Principal Value Branch) of sin^-1 x is [-pi/2, pi/2], cos^-1 x is [0, pi], tan^-1 x is (-pi/2, pi/2).",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 21,
+    "title": "Area of Parallelogram and Triangle Using Vectors",
+    "category": "Vector Algebra",
+    "rank": 21,
+    "triggers": [
+      "area of parallelogram formed by adjacent sides",
+      "area of triangle OAB",
+      "a cross b"
+    ],
+    "bypass": "1) Area of Parallelogram with adjacent side vectors a and b = |a cross b|. 2) Area of Triangle with adjacent side vectors a and b = 0.5 * |a cross b|. Use determinant method for cross product.",
+    "graph_visuals": "Parallelogram OACB formed by adjacent vectors a (OA) and b (OB)."
+  },
+  {
+    "id": 22,
+    "title": "Order and Degree of Differential Equations",
+    "category": "Differential Equations",
+    "rank": 22,
+    "triggers": [
+      "sum of order and degree",
+      "degree of differential equation",
+      "d^2y/dx^2"
+    ],
+    "bypass": "Order = Highest derivative present in the equation. Degree = Power of the highest derivative after polynomializing the equation (freeing derivatives from radicals/fractions). Degree is undefined if derivatives are inside trigonometric or log functions.",
+    "graph_visuals": "None"
+  },
+  {
+    "id": 23,
+    "title": "Unbounded Feasible Region LPP Optimization",
+    "category": "Linear Programming",
+    "rank": 23,
+    "triggers": [
+      "feasible region is unbounded",
+      "open half plane has points in common",
+      "ax + by < m"
+    ],
+    "bypass": "Step 1: Identify corner points of unbounded region and calculate objective value Z at each. Let M be candidate minimum. Step 2: Graph open half-plane ax + by < M. Step 3: If open half-plane shares NO common points with feasible region, M is minimum. If it shares common points, Z has NO minimum value.",
+    "graph_visuals": "Unbounded feasible region shaded outwards with open dashed boundary line ax + by < M crossing the graph."
+  },
+  {
+    "id": 24,
+    "title": "Independent Events and Probability Operations",
+    "category": "Probability",
+    "rank": 24,
+    "triggers": [
+      "independent of each other",
+      "probability of selection of at least one",
+      "P(A intersection B) = P(A)P(B)"
+    ],
+    "bypass": "Core Formulas for Independent Events A and B: 1) P(A intersection B) = P(A) * P(B). 2) P(exactly one occurs) = P(A)P(B') + P(B)P(A'). 3) P(at least one occurs) = 1 - P(A') * P(B').",
+    "graph_visuals": "Venn diagram representing independent events A and B with intersecting and complement regions."
+  },
+  {
+    "id": 25,
+    "title": "Logarithmic Differentiation for Variable Powers",
+    "category": "Continuity and Differentiability",
+    "rank": 25,
+    "triggers": [
+      "x^y = e^(x-y)",
+      "differentiate (cos x)^x",
+      "y = u^v"
+    ],
+    "bypass": "Step 1: Take natural logarithm on both sides: log y = v * log u. Step 2: Differentiate implicitly with respect to x: (1/y) * dy/dx = v' * log u + v * (u'/u). Step 3: Multiply by y to isolate dy/dx and substitute y = u^v.",
+    "graph_visuals": "None"
+  }
+]

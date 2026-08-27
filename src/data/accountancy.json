@@ -1,0 +1,255 @@
+[
+  {
+    "id": 1,
+    "title": "Pro-rata Allotment and Forfeiture of Shares",
+    "category": "Company Accounts",
+    "rank": 1,
+    "triggers": ["pro-rata allotment", "failed to pay allotment money", "shares were forfeited", "applied for"],
+    "bypass": "Step 1: Calculate excess application money = (Applied - Allotted) * Application Rate. Step 2: Amount due on allotment = Allotted shares * Allotment Rate. Step 3: Unpaid Allotment = Amount due - Excess money adjusted. Forfeiture Entry: Debit Share Capital (called up), Credit Calls-in-Arrears, Credit Share Forfeiture (amount actually received excluding premium).",
+    "visual_blueprint": "Draw a 6-column Pro-rata Table: Applied Shares, Allotted Shares, Application Money Received, Application Money Transferred to Capital, Excess Adjusted to Allotment, Refund."
+  },
+  {
+    "id": 2,
+    "title": "Re-issue of Forfeited Shares and Capital Reserve",
+    "category": "Company Accounts",
+    "rank": 2,
+    "triggers": ["re-issued as fully paid", "transferred to Capital Reserve", "maximum possible discount"],
+    "bypass": "Step 1: Re-issue entry: Bank A/c Dr (amount received), Share Forfeiture A/c Dr (discount allowed), To Share Capital A/c. Step 2: Calculate proportionate forfeited amount for re-issued shares = (Total Forfeited Amount / Total Forfeited Shares) * Re-issued Shares. Step 3: Capital Reserve = Proportionate Forfeited Amount - Discount allowed on re-issue.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 3,
+    "title": "Issue of Debentures with Terms of Redemption",
+    "category": "Company Accounts",
+    "rank": 3,
+    "triggers": ["issued at discount redeemable at premium", "Premium on Redemption of Debentures"],
+    "bypass": "Record the loss at the time of issue itself. Entry: Bank A/c Dr. to Debenture Application & Allotment A/c. Next Entry: Deb. App & Allotment A/c Dr., Loss on Issue of Debentures A/c Dr. (Discount + Premium on Redemption) TO % Debentures A/c TO Premium on Redemption of Debentures A/c.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 4,
+    "title": "Writing off Loss on Issue of Debentures",
+    "category": "Company Accounts",
+    "rank": 4,
+    "triggers": ["write off Loss on Issue of Debentures", "existing balance of Securities Premium"],
+    "bypass": "As per Companies Act, Loss on Issue of Debentures must be written off in the first year itself. Step 1: Use Securities Premium Reserve (SPR) completely first. Step 2: If SPR falls short, use the balance from Statement of Profit & Loss. Entry: Securities Premium A/c Dr., Statement of P&L Dr. TO Loss on Issue of Debentures A/c.",
+    "visual_blueprint": "T-shape Ledger Account for Loss on Issue of Debentures showing Premium on Redemption on Debit side and SPR / Statement of P&L on Credit side."
+  },
+  {
+    "id": 5,
+    "title": "Debentures Issued as Collateral Security",
+    "category": "Company Accounts",
+    "rank": 5,
+    "triggers": ["collateral security", "loan taken from bank", "Debenture Suspense Account"],
+    "bypass": "Method 1: Pass no entry for debentures, just show bank loan in Balance Sheet. Method 2: Pass Entry -> Debenture Suspense A/c Dr. TO % Debentures A/c. In Balance Sheet (Notes to Accounts): Show % Debentures and deduct Debenture Suspense A/c from it to make the net effect zero.",
+    "visual_blueprint": "Notes to Accounts extract showing Long-Term Borrowings: Secured Bank Loan listed first, followed by Debentures less Debenture Suspense."
+  },
+  {
+    "id": 6,
+    "title": "Company Balance Sheet - Schedule III",
+    "category": "Financial Statements",
+    "rank": 6,
+    "triggers": ["Schedule III of Companies Act 2013", "Major heads and Sub-heads", "Share Capital disclosure"],
+    "bypass": "Key mappings: 1) Loose Tools/Spares -> Current Assets -> Inventories. 2) Provision for Tax -> Current Liabilities -> Short-term Provisions. 3) Unpaid Dividend -> Current Liabilities -> Other Current Liabilities. 4) Capital Advances -> Non-Current Assets -> Long-Term Loans & Advances.",
+    "visual_blueprint": "Classification Matrix Table mapping given items to their exact Major Head and Sub-head as per Schedule III."
+  },
+  {
+    "id": 7,
+    "title": "Comparative and Common-Size Statements",
+    "category": "Financial Statements",
+    "rank": 7,
+    "triggers": ["Comparative Statement of Profit and Loss", "Common Size Statement", "percentage change"],
+    "bypass": "Comparative: Find Absolute Change (Current Year - Previous Year). Find % Change = (Absolute Change / Previous Year) * 100. Common-Size: For P&L, take Revenue from Operations as 100% and calculate % for all other items. For Balance Sheet, take Total Assets/Liabilities as 100%.",
+    "visual_blueprint": "4-Column Table: Previous Year Data, Current Year Data, Absolute Change (B-A), Percentage Change ((B-A)/A * 100)."
+  },
+  {
+    "id": 8,
+    "title": "Accounting Ratios - Liquidity and Solvency",
+    "category": "Financial Statements",
+    "rank": 8,
+    "triggers": ["Current Ratio", "Liquid Ratio", "Debt-Equity Ratio", "Interest Coverage Ratio"],
+    "bypass": "1) Current Ratio = Current Assets / Current Liabilities. 2) Liquid/Quick Ratio = (Current Assets - Inventory - Prepaid Exp) / Current Liabilities. 3) Debt-Equity = Long-Term Debt / Shareholders Funds. 4) Interest Coverage = Earnings Before Interest and Tax (EBIT) / Interest Expense.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 9,
+    "title": "Accounting Ratios - Activity and Profitability",
+    "category": "Financial Statements",
+    "rank": 9,
+    "triggers": ["Inventory Turnover Ratio", "Trade Receivables Turnover", "Gross Profit Ratio"],
+    "bypass": "1) Inventory Turnover Ratio = Cost of Revenue from Operations (COGS) / Average Inventory. 2) Trade Receivables Turnover = Net Credit Sales / Average Trade Receivables. 3) Gross Profit Ratio = (Gross Profit / Net Revenue from Operations) * 100.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 10,
+    "title": "Cash Flow Statement - Operating Activities",
+    "category": "Financial Statements",
+    "rank": 10,
+    "triggers": ["Cash flow from Operating Activities", "Net Profit before tax and extraordinary items"],
+    "bypass": "Step 1: Net Profit Before Tax = Closing Surplus - Opening Surplus + Proposed Dividend (Prev Year) + Interim Dividend + Provision for Tax (Current Year). Step 2: Add Non-Cash/Non-Operating Expenses (Depreciation, Goodwill amortised, Interest paid). Step 3: Adjust for Working Capital (Add decrease in CA / increase in CL). Step 4: Less Tax Paid.",
+    "visual_blueprint": "Vertical Statement format dividing calculation into Net Profit Before Tax, Adjustments for Non-Cash Items, Working Capital Changes, and Tax Paid."
+  },
+  {
+    "id": 11,
+    "title": "Cash Flow Statement - Investing Activities",
+    "category": "Financial Statements",
+    "rank": 11,
+    "triggers": ["Cash flow from Investing Activities", "Accumulated Depreciation Account", "Machinery sold"],
+    "bypass": "Step 1: Open Fixed Asset A/c and Accumulated Depreciation A/c. Step 2: Credit Asset A/c with sale proceeds, loss on sale, and accumulated dep of sold asset. Balancing figure on Debit is Purchases. Step 3: Inflows = Sale of Assets + Dividend/Interest received. Outflows = Purchase of Assets.",
+    "visual_blueprint": "Two T-shape ledger accounts side-by-side: Fixed Asset Account (at cost) and Accumulated Depreciation Account."
+  },
+  {
+    "id": 12,
+    "title": "Past Adjustments in Partnership Accounts",
+    "category": "Partnership",
+    "rank": 12,
+    "triggers": ["distributed without providing for", "pass an adjustment entry", "interest on capital omitted"],
+    "bypass": "Step 1: Draw an Analytical Table with Dr/Cr columns for each partner and a Firm column. Step 2: Credit partners with omitted items (Interest on Capital, Salary) and Debit the Firm. Step 3: Debit partners for wrongly distributed profits and Credit the Firm. Step 4: Balance the Firm column and distribute the final difference to partners in profit sharing ratio to find the net single adjusting entry.",
+    "visual_blueprint": "Multi-column Adjustment Table showing Debit and Credit columns for each partner and the Firm, ending with Net Effect row."
+  },
+  {
+    "id": 13,
+    "title": "Partnership Fundamentals - P&L Appropriation",
+    "category": "Partnership",
+    "rank": 13,
+    "triggers": ["Profit and Loss Appropriation Account", "Interest on Capital", "Salary to partner"],
+    "bypass": "Net Profit is transferred from P&L A/c to P&L App A/c (Credit side). Debit side records appropriations: Interest on Capital, Partner Salary, Partner Commission, and Transfer to Reserve. Credit side records Interest on Drawings. Balance is Divisible Profit distributed in Profit Sharing Ratio.",
+    "visual_blueprint": "T-shape Profit and Loss Appropriation Account."
+  },
+  {
+    "id": 14,
+    "title": "Guarantee of Profit to a Partner",
+    "category": "Partnership",
+    "rank": 14,
+    "triggers": ["guaranteed that his share of profits will not be less than", "Deficiency if any will be borne by"],
+    "bypass": "Step 1: Calculate actual profit share of the guaranteed partner. Step 2: Compare actual share with guaranteed amount. Difference is 'Deficiency'. Step 3: Deduct this deficiency from the guaranteeing partners in their agreed ratio and add it to the guaranteed partner's share.",
+    "visual_blueprint": "T-shape P&L Appropriation Account showing inside-column deductions and additions for the guaranteed deficiency."
+  },
+  {
+    "id": 15,
+    "title": "Valuation of Goodwill",
+    "category": "Partnership",
+    "rank": 15,
+    "triggers": ["capitalization of average profit", "super profit method", "Normal Rate of Return"],
+    "bypass": "Super Profit Method: Goodwill = Super Profit * No. of years' purchase. Super Profit = Average Adjusted Profit - Normal Profit. Normal Profit = Capital Employed * (NRR/100). Capitalisation Method: Goodwill = (Average Profit * 100 / NRR) - Capital Employed.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 16,
+    "title": "Treatment of Workmen Compensation Reserve (WCR)",
+    "category": "Partnership",
+    "rank": 16,
+    "triggers": ["Workmen Compensation Reserve", "Workmen Claim amounted to"],
+    "bypass": "If Claim < Reserve: Transfer excess reserve to Old Partners in Old Ratio. If Claim > Reserve: Debit entire WCR, Debit Revaluation A/c for the shortfall, and Credit Provision for Claim with total claim amount. Revaluation loss is borne by Old Partners.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 17,
+    "title": "Admission/Retirement - Capital Adjustment",
+    "category": "Partnership",
+    "rank": 17,
+    "triggers": ["capitals will be adjusted on the basis of", "opening necessary current accounts"],
+    "bypass": "Step 1: Calculate Total Capital of the new firm based on new partner's capital and share. Step 2: Calculate new required capitals of all partners in New Profit Sharing Ratio. Step 3: Compare with adjusted old capitals. Difference is paid off/brought in via Cash A/c or transferred to Current A/c.",
+    "visual_blueprint": "Multi-column Partners' Capital Account showing balance b/d, all adjustments (revaluation, goodwill, reserves), and balancing figures mapping to Cash or Current A/c."
+  },
+  {
+    "id": 18,
+    "title": "Death of Partner - Calculation of Profit Share",
+    "category": "Partnership",
+    "rank": 18,
+    "triggers": ["died on", "share of profit till the date of death on the basis of Sales", "Profit and Loss Suspense A/c"],
+    "bypass": "Time Basis: Profit = Prev Year Profit * (Months alive / 12) * Partner's Share. Sales Basis: Profit = (Prev Year Profit / Prev Year Sales) * Sales till date of death * Partner's Share. Journal Entry: P&L Suspense A/c Dr. To Deceased Partner's Capital A/c.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 19,
+    "title": "Deceased/Retiring Partner's Executor's Loan Account",
+    "category": "Partnership",
+    "rank": 19,
+    "triggers": ["paid in equal annual instalments together with interest", "Executor's Account"],
+    "bypass": "Step 1: Transfer final balance from Capital A/c to Executor's/Loan A/c. Step 2: Calculate Interest = Outstanding Balance * Rate * Time. Credit it to Loan A/c. Step 3: Installment paid = Principal portion + Interest calculated. Debit it to Loan A/c. Repeat until zero balance.",
+    "visual_blueprint": "T-shape Executor's/Loan Account showing opening balance, yearly interest addition on Cr side, and installment payments (Principal + Interest) on Dr side."
+  },
+  {
+    "id": 20,
+    "title": "Cash Flow from Financing Activities",
+    "category": "Financial Statements",
+    "rank": 20,
+    "triggers": [
+      "Cash Flow from Financing Activities",
+      "proceeds from issue of shares",
+      "interim dividend paid",
+      "redemption of preference shares"
+    ],
+    "bypass": "Inflows (+): Proceeds from Issue of Shares/Debentures (at net price received including premium / less discount/issue expenses), Increase in Bank Overdraft/Cash Credit. Outflows (-): Redemption of Preference Shares/Debentures (including redemption premium paid), Dividend Paid (Proposed dividend of previous year + Interim dividend of current year), Interest Paid on Debentures/Loans (calculated on opening balance if issued at year-end).",
+    "visual_blueprint": "Structured 2-column Cash Flow Sub-section detailing Cash Inflows and Outflows from Financing Activities resulting in Net Financing Cash Flow."
+  },
+  {
+    "id": 21,
+    "title": "Calculation of Interest on Partner's Drawings",
+    "category": "Partnership",
+    "rank": 21,
+    "triggers": [
+      "withdrew a fixed amount",
+      "beginning of each month",
+      "end of each quarter",
+      "Interest on Drawings @ % p.a."
+    ],
+    "bypass": "Formula: Interest on Drawings = Total Annual Drawings * (Rate / 100) * (Average Period / 12). Average Period Rules: 1) Monthly: Beginning = 6.5 months, Middle = 6 months, End = 5.5 months. 2) Quarterly: Beginning = 7.5 months, Middle = 6 months, End = 4.5 months. 3) Half-Yearly: Beginning = 3.5 months, Middle = 3 months, End = 2.5 months. If dates are not specified, charge interest for average 6 months.",
+    "visual_blueprint": "Quick reference matrix chart mapping Drawing Frequencies (Monthly, Quarterly) and Timing (Beginning, Middle, End) to Average Period months."
+  },
+  {
+    "id": 22,
+    "title": "Calculation of Hidden Goodwill on Reconstitution",
+    "category": "Partnership",
+    "rank": 22,
+    "triggers": [
+      "hidden goodwill",
+      "brings proportionate capital",
+      "capital of new firm based on new partner"
+    ],
+    "bypass": "Step 1: Total Capital of New Firm = New Partner's Capital * (Reciprocal of New Partner's Share). Step 2: Total Combined Capital of All Partners = Existing Partners' Capitals (after all adjustments for reserves, revaluation, P&L) + New Partner's Capital. Step 3: Total Hidden Goodwill of Firm = Total Capital of New Firm - Total Combined Capital. Step 4: New Partner's Share of Goodwill = Total Hidden Goodwill * New Partner's Share.",
+    "visual_blueprint": "Working Note calculation block displaying step 1 Total Capital minus step 2 Combined Capital yielding Hidden Goodwill."
+  },
+  {
+    "id": 23,
+    "title": "Dissolution - Realisation Expenses and Remuneration to Partners",
+    "category": "Partnership",
+    "rank": 23,
+    "triggers": [
+      "allowed remuneration of",
+      "realisation expenses paid by partner on behalf of firm",
+      "percent of total assets realised"
+    ],
+    "bypass": "Rules: 1) Fixed Remuneration allowed to partner: Realisation A/c Dr. to Partner's Capital A/c. 2) Realisation expenses agreed to be borne by partner but paid by firm: Partner's Capital A/c Dr. to Bank A/c. 3) Realisation expenses paid by firm on its own behalf: Realisation A/c Dr. to Bank A/c. 4) Remuneration as % of assets realised: Commission = Assets Realised (excluding cash) * Rate / 100.",
+    "visual_blueprint": "Summary table mapping scenario descriptions (who bears vs who pays) to exact Journal Entries for dissolution expenses and commissions."
+  },
+  {
+    "id": 24,
+    "title": "Provisions in Absence of Partnership Deed and Interest on Partner's Loan",
+    "category": "Partnership",
+    "rank": 24,
+    "triggers": [
+      "in the absence of partnership deed",
+      "interest on loan @ 6% p.a.",
+      "deed is silent",
+      "charge against profit"
+    ],
+    "bypass": "Provisions of Indian Partnership Act 1932 (when deed is silent): 1) Profit/Loss sharing: EQUAL (1:1). 2) Interest on Capital: NIL. 3) Interest on Drawings: NIL. 4) Salary/Commission to Partner: NIL. 5) Interest on Partner's Loan: Allowed @ 6% p.a. as a CHARGE AGAINST PROFIT (debited to P&L A/c, NOT P&L Appropriation A/c).",
+    "visual_blueprint": "Comparison table contrasting Default Legal Provisions (No Deed) versus Express Deed terms across key partnership items."
+  },
+  {
+    "id": 25,
+    "title": "Revaluation Account Entries and Treatment on Reconstitution",
+    "category": "Partnership",
+    "rank": 25,
+    "triggers": [
+      "unrecorded asset/liability",
+      "building overvalued/undervalued by",
+      "provision for doubtful debts created at",
+      "Revaluation Loss/Gain"
+    ],
+    "bypass": "Step 1: Calculate exact change amount (Watch wording: 'undervalued by 20%' means Book Value = 80% of true value). Step 2: Debit Revaluation A/c for decreases in assets, increases in liabilities. Step 3: Credit Revaluation A/c for increases in assets, decreases in liabilities. Step 4: Transfer net Gain/Loss to Old Partners in Old Ratio.",
+    "visual_blueprint": "T-shape Revaluation Ledger showing debit entries (losses/expenses) and credit entries (gains/assets) with profit/loss distribution balancing row."
+  }
+]

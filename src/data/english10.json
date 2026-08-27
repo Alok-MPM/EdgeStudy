@@ -1,0 +1,228 @@
+[
+  {
+    "id": 1,
+    "title": "Analytical Paragraph Writing (Data, Charts & SWOT)",
+    "category": "Creative Writing Skills",
+    "rank": 1,
+    "triggers": ["Write a paragraph in not more than 120 words, analysing", "SWOT notes", "concept chart", "analyse the given argument"],
+    "bypass": "Step 1: Introduction (1-2 lines) - State what the chart/data/argument is about. Step 2: Body (4-5 lines) - Compare, contrast, and highlight major trends or key arguments (use phrases like 'In contrast', 'A striking difference', 'On the contrary'). Step 3: Conclusion (1-2 lines) - Give a concluding perspective or rationalized summary. Do not include personal opinions unless evaluating an argument.",
+    "visual_blueprint": "Single cohesive paragraph. No title needed. Flow: Topic Sentence -> Supporting Comparisons/Data -> Concluding Sentence."
+  },
+  {
+    "id": 2,
+    "title": "Formal Letter (Editor, Complaint, or Order)",
+    "category": "Creative Writing Skills",
+    "rank": 2,
+    "triggers": ["Write a letter to the editor", "letter of complaint", "placing an order", "enquiring about"],
+    "bypass": "Format: Sender's Address -> Date -> Receiver's Address -> Subject -> Salutation. Para 1: Purpose of writing ('Through the columns of your esteemed daily...' or 'This is to bring to your notice...'). Para 2: Details of issue/order/complaint (Causes, effects, item specifications). Para 3: Action required (Suggestions, replacement, timely delivery). Sign off: Yours truly/sincerely -> Name.",
+    "visual_blueprint": "Left-aligned block format. Subject must be underlined or bold. Exactly 3 paragraphs for the body."
+  },
+  {
+    "id": 3,
+    "title": "Grammar - Reported Speech (Dialogue Completion)",
+    "category": "Grammar",
+    "rank": 3,
+    "triggers": ["Report the dialogue", "complete the passage", "indirect speech"],
+    "bypass": "Rule 1: Change present tense to past tense (is/am/are -> was/were). Rule 2: Change pronouns according to the speaker. Rule 3: Change time words (today -> that day, tomorrow -> the next day). Rule 4: For questions, remove question marks, use 'if/whether' for Yes/No questions, and change sentence structure from interrogative to assertive (e.g., 'where he was going' NOT 'where was he going').",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 4,
+    "title": "Grammar - Error Correction & Omission",
+    "category": "Grammar",
+    "rank": 4,
+    "triggers": ["Identify the error and supply the correction", "error", "correction"],
+    "bypass": "Scan for the top 4 culprit areas: 1) Subject-Verb Agreement (Singular subject needs singular verb). 2) Tenses (Check if the passage is in past or present and ensure consistency). 3) Prepositions (in/on/at mismatches). 4) Determiners/Articles (a/an/the, much/many). Write the exact wrong word in 'Error' and the fix in 'Correction'.",
+    "visual_blueprint": "Two-column table: Left column 'Error', Right column 'Correction'."
+  },
+  {
+    "id": 5,
+    "title": "A Letter to God - Faith vs. Humanity",
+    "category": "Literature - First Flight (Prose)",
+    "rank": 5,
+    "triggers": ["Lencho had faith in God but lacked faith in humanity", "bunch of crooks", "postmaster's reaction"],
+    "bypass": "Value Points: 1) Lencho had immense, blind faith in God, prompting him to ask for 100 pesos. 2) The Postmaster represents empathy and humanity; he collected money to keep Lencho's faith alive. 3) The irony: Lencho received the money but called the post office employees 'crooks', showing his absolute trust in the divine but complete mistrust in his fellow human beings.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 6,
+    "title": "Nelson Mandela - Freedom and Twin Obligations",
+    "category": "Literature - First Flight (Prose)",
+    "rank": 6,
+    "triggers": ["Twin Obligations", "depths of oppression", "meaning of courage", "liberating both the oppressed and the oppressor"],
+    "bypass": "Value Points: 1) Twin obligations: To family/parents/wife AND to the people/community/country. 2) Courage is not the absence of fear, but the triumph over it. 3) Oppression creates heights of character (e.g., Oliver Tambo). 4) The oppressor is a prisoner of hatred and prejudice; true freedom requires liberating both the victim and the oppressor.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 7,
+    "title": "Two Stories About Flying - Overcoming Fear",
+    "category": "Literature - First Flight (Prose)",
+    "rank": 7,
+    "triggers": ["baby seagull's fear", "maiden flight", "black aeroplane", "monstrous terror"],
+    "bypass": "Value Points (Seagull): 1) Fear is a mental barrier; the seagull lacked confidence in his wings. 2) Hunger and the mother's trick (stopping with the fish) forced him to dive. 3) Family support and survival instinct led to his successful first flight. Value Points (Black Aeroplane): Illustrates taking risks and the mystery of the guiding conscience/hallucination in times of desperation.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 8,
+    "title": "From the Diary of Anne Frank - Loneliness & Expression",
+    "category": "Literature - First Flight (Prose)",
+    "rank": 8,
+    "triggers": ["paper has more patience than people", "incorrigible chatterbox", "completely alone in the world"],
+    "bypass": "Value Points: 1) Despite having a loving family and 30 friends, Anne felt lonely because she couldn't share her deepest, true feelings. 2) She treated her diary 'Kitty' as her closest confidante. 3) She used her intellect and humor to justify her talkative nature to Mr. Keesing, proving she was smart and observant.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 9,
+    "title": "Glimpses of India - Cultural Heritage",
+    "category": "Literature - First Flight (Prose)",
+    "rank": 9,
+    "triggers": ["traditional baker", "Coorg", "Tea from Assam", "cultural and social fabric"],
+    "bypass": "Baker: Essential for Goan culture (bol for marriages, sandwiches for engagements, paders in kabai). Coorg: Martial traditions, hospitality, Kodavus, biodiversity (Kaveri river, macaques, elephants). Assam: Largest concentration of tea plantations, legends of tea discovery (Chinese emperor, Bodhidharma). Highlights regional diversity and tourism potential.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 10,
+    "title": "Madam Rides the Bus - Meticulous Planning & Loss of Innocence",
+    "category": "Literature - First Flight (Prose)",
+    "rank": 10,
+    "triggers": ["Valli's unique maiden bus ride", "meticulous planning", "dead cow", "overcoming fear"],
+    "bypass": "Value Points: 1) Valli saved every stray coin, resisting temptations (peppermints, toys, merry-go-round) to gather the 60 paise fare. 2) She discreetly gathered information about bus timings. 3) The journey represents a transition from innocence to maturity; seeing the dead cow taught her the harsh reality of death and the fragility of life.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 11,
+    "title": "The Sermon at Benares - Inevitability of Death",
+    "category": "Literature - First Flight (Prose)",
+    "rank": 11,
+    "triggers": ["Kisa Gotami", "handful of mustard seeds", "inevitability of death", "peace of mind"],
+    "bypass": "Value Points: 1) Buddha asked Kisa Gotami for mustard seeds from a house where no one had died. 2) She realized death is universal and she was being selfish in her grief. 3) The sermon teaches that weeping and grieving only bring physical pain; true peace of mind comes from accepting the mortality of humans and detaching from worldly sorrow.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 12,
+    "title": "The Proposal - Farcical Comedy & Materialism",
+    "category": "Literature - First Flight (Drama)",
+    "rank": 12,
+    "triggers": ["maintaining an upper hand", "Lomov's decision to get married", "evaluate the play as a farce", "ridiculous and exaggerated"],
+    "bypass": "Value Points: 1) Lomov wants to marry Natalya not for love, but because he is 35, has palpitations, and wants a regular life. 2) Chubukov wants the marriage for economic security and social status. 3) It is a 'farce' because characters make a mountain out of a molehill, arguing violently over trivial things (Oxen Meadows, pet dogs Guess vs. Squeezer) right in the middle of a marriage proposal.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 13,
+    "title": "Poetry: Dust of Snow & Fire and Ice",
+    "category": "Literature - First Flight (Poetry)",
+    "rank": 13,
+    "triggers": ["negative symbols to create a positive effect", "world will primarily end in fire", "hemlock tree", "desire and hatred"],
+    "bypass": "Dust of Snow: Uses negative symbols (Crow, Hemlock tree) to show that nature's healing power can come from unexpected sources, changing the poet's mood. Fire and Ice: Fire symbolizes greed, lust, and desire; Ice symbolizes hatred, coldness, and indifference. Both emotions, if unchecked, have the power to destroy the world.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 14,
+    "title": "Poetry: A Tiger in the Zoo - Confinement vs Freedom",
+    "category": "Literature - First Flight (Poetry)",
+    "rank": 14,
+    "triggers": ["vivid imagery and metaphorical language", "confinement and oppression", "quiet rage", "brilliant stars"],
+    "bypass": "Value Points: 1) The poem contrasts the tiger's natural habitat (sliding through long grass, water hole) with his concrete cell. 2) Metaphor 'pads of velvet quiet' shows suppressed power; 'quiet rage' shows helpless anger against captivity. 3) Staring at 'brilliant stars' symbolizes his longing for freedom and connection to his lost wild nature.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 15,
+    "title": "Poetry: The Ball Poem - Epistemology of Loss",
+    "category": "Literature - First Flight (Poetry)",
+    "rank": 15,
+    "triggers": ["epistemology of loss", "money is external", "how to stand up", "boy learn by losing the ball"],
+    "bypass": "Value Points: 1) The ball represents the boy's innocence, childhood memories, and attachments. 2) 'Money is external' means money can buy a new ball, but it cannot buy back memories or emotions attached to the lost one. 3) The core lesson is the 'epistemology (understanding) of loss' - learning to cope with grief, let go, and stand up to face life's harsh realities.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 16,
+    "title": "Poetry: Amanda! - Escapism vs Parental Control",
+    "category": "Literature - First Flight (Poetry)",
+    "rank": 16,
+    "triggers": ["use of parentheses", "Amanda's responses", "speaker's expectations"],
+    "bypass": "Value Points: 1) The mother's constant nagging (don't bite nails, do your homework, don't eat chocolate) represents strict societal expectations and loss of freedom. 2) The parentheses (brackets) denote Amanda's inner thoughts and escapism. 3) She imagines herself as a mermaid, an orphan, or Rapunzel to find peace, silence, and freedom from the constant instructions.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 17,
+    "title": "Poetry: The Trees - Liberation and Breaking Boundaries",
+    "category": "Literature - First Flight (Poetry)",
+    "rank": 17,
+    "triggers": ["moving out into the forest", "themes of liberation", "women's liberation"],
+    "bypass": "Value Points: 1) The poem operates on a literal level (trees breaking out of a glasshouse) and a metaphorical level (women stepping out of domestic confines into the public sphere). 2) Breaking the glass/roots disengaging represents the struggle and pain of breaking patriarchal/societal norms to claim their rightful place in the world.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 18,
+    "title": "Poetry: The Tale of Custard the Dragon - Subversion of Stereotypes",
+    "category": "Literature - First Flight (Poetry)",
+    "rank": 18,
+    "triggers": ["more a fable than a ballad", "subversion of societal expectations", "cowardice vs bravery"],
+    "bypass": "Value Points: 1) Belinda and her other pets (Ink, Blink, Mustard) boasted of their bravery but fled when real danger (the pirate) arrived. 2) Custard the dragon, who constantly cried for a 'nice safe cage' and was ridiculed as a coward, actually fought and ate the pirate. 3) Message: True bravery is shown in actions during a crisis, not through boasting.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 19,
+    "title": "A Triumph of Surgery - Overindulgence & Responsible Pet Care",
+    "category": "Literature - Footprints Without Feet",
+    "rank": 19,
+    "triggers": ["importance of saying no", "Mrs. Pumphrey", "Dr. Herriot knew his patients", "overindulgence"],
+    "bypass": "Value Points: 1) Mrs. Pumphrey’s blind love and overfeeding made Tricki horribly obese and lethargic. 2) Dr. Herriot was practical and firm; he knew saying 'no' to food was the only cure. 3) He gave Tricki no medicine, just plenty of water, strict diet, and exercise with other dogs. 4) Highlights the theme that blind affection can be destructive; discipline is essential in care.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 20,
+    "title": "The Thief's Story - Grey Characters & Transformative Trust",
+    "category": "Literature - Footprints Without Feet",
+    "rank": 20,
+    "triggers": ["grey characters", "Values are caught, not taught", "Hari Singh's intention", "transformative role"],
+    "bypass": "Value Points: 1) Hari Singh is a grey character: a thief who lies and steals, yet possesses a conscience that feels guilt. 2) Anil is also grey: kind and trusting, but careless with money and ignores minor theft. 3) Anil’s absolute trust, empathy, and promise of education transform Hari Singh, proving that goodness can trigger a moral awakening without harsh punishment.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 21,
+    "title": "The Midnight Visitor - Misdirection & Brain over Brawn",
+    "category": "Literature - Footprints Without Feet",
+    "rank": 21,
+    "triggers": ["narrative technique of misdirection", "characterise Ausable as short and fat", "suspense"],
+    "bypass": "Value Points: 1) Ausable defies spy stereotypes (short, fat, speaks with an accent), proving that intellect and presence of mind are superior to physical strength. 2) He creates a fabricated story about a non-existent balcony and links a routine waiter's knock to the police. 3) Max relies on his gun (brawn), while Ausable uses psychology and misdirection (brain) to eliminate the threat without a weapon.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 22,
+    "title": "A Question of Trust - Honour Among Thieves",
+    "category": "Literature - Footprints Without Feet",
+    "rank": 22,
+    "triggers": ["Honour among thieves", "A Question of Trust as a story woven around this code", "Horace Danby"],
+    "bypass": "Value Points: 1) Horace Danby was a meticulous, 'good' thief who robbed once a year to buy rare books. 2) 'Honour among thieves' dictates that criminals don't betray each other. 3) The Lady in Red breaks this code; she poses as the house owner, uses Horace to open the safe, and lets him get arrested, showing that blind trust even within the same trade is dangerous.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 23,
+    "title": "The Making of a Scientist - Curiosity & Mother's Role",
+    "category": "Literature - Footprints Without Feet",
+    "rank": 23,
+    "triggers": ["small, fun learning tasks", "early successes", "Ebright's mother"],
+    "bypass": "Value Points: 1) Ebright's mother was his primary driving force; she bought him telescopes, microscopes, and the book 'The Travels of Monarch X' which opened the world of science to him. 2) His competitive spirit at science fairs pushed him to do real experiments rather than just neat displays. 3) Curiosity regarding the gold spots on the pupa led to the discovery of cell hormones and DNA reading.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 24,
+    "title": "The Necklace - Vanity, False Pride & Ruin",
+    "category": "Literature - Footprints Without Feet",
+    "rank": 24,
+    "triggers": ["dreadful life of necessity", "desire for material wealth", "significance of honesty"],
+    "bypass": "Value Points: 1) Matilda’s vanity and dissatisfaction with her middle-class life led her to borrow the necklace to appear wealthy. 2) Losing it and hiding the truth from Mme Forestier forced her into 10 years of crushing poverty and physical aging. 3) The tragedy could have been avoided with a simple, honest confession, highlighting that false pride and deceit lead to ruin.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 25,
+    "title": "Bholi - Transformative Role of Education",
+    "category": "Literature - Footprints Without Feet",
+    "rank": 25,
+    "triggers": ["education play a transformative role", "parents of Bholi", "teacher's comforting demeanour"],
+    "bypass": "Value Points: 1) Bholi suffered from neglect, discrimination, and a stammer due to childhood trauma. 2) Her parents viewed her as a burden. 3) Her teacher’s compassionate, encouraging, and non-judgmental approach gave her confidence. 4) Education transformed her from a 'dumb cow' into an empowered, self-respecting woman who rejected a greedy dowry-seeker and chose to serve her parents and teach.",
+    "visual_blueprint": "None"
+  }
+]
+

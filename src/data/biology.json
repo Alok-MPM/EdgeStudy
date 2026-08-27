@@ -1,0 +1,227 @@
+[
+{
+"id": 1,
+"title": "Transcription and Post-Transcriptional Modifications",
+"category": "Molecular Basis of Inheritance",
+"rank": 1,
+"triggers": ["hnRNA undergoes two additional processes", "capping and tailing", "splicing", "precursor mRNA"],
+"bypass": "Step 1: Eukaryotic transcription produces primary transcript (hnRNA) with both exons (coding) and introns (non-coding). Step 2: Splicing removes introns and joins exons together. Step 3: Capping adds methyl guanosine triphosphate to 5-prime end, and tailing adds 200-300 adenylate residues to 3-prime end to form mature mRNA.",
+"visual_blueprint": "Animate a long RNA strand where loops (introns) are cut out and removed, then a cap is attached to the 5-prime end and a long poly-A tail to the 3-prime end."
+},
+{
+"id": 2,
+"title": "The Lac Operon Mechanism",
+"category": "Molecular Basis of Inheritance",
+"rank": 2,
+"triggers": ["lac operon gets switched on", "repressor protein", "lactose is present", "binds to the operator"],
+"bypass": "Step 1: Repressor protein is continuously synthesized by the i gene. Step 2: If lactose (inducer) is absent, repressor binds to operator, blocking RNA polymerase (operon off). Step 3: If lactose is present, it binds to the repressor, inactivating it, allowing RNA polymerase to transcribe the genes (operon on).",
+"visual_blueprint": "Show a DNA segment where a block (repressor) sits on the operator stopping the polymerase machine, until a lactose molecule pulls the block away."
+},
+{
+"id": 3,
+"title": "Hardy-Weinberg Equilibrium",
+"category": "Evolution",
+"rank": 3,
+"triggers": ["Hardy Weinberg conditions", "frequency of heterozygous", "p square + 2pq + q square = 1", "allele frequency"],
+"bypass": "Step 1: Use p + q = 1 where p is dominant allele frequency and q is recessive allele frequency. Step 2: Use p square + 2pq + q square = 1 for genotype frequencies. Step 3: p square is homozygous dominant, q square is homozygous recessive, and 2pq represents the heterozygous percentage.",
+"visual_blueprint": "None"
+},
+{
+"id": 4,
+"title": "Menstrual Cycle and Hormonal Control",
+"category": "Human Reproduction",
+"rank": 4,
+"triggers": ["hormone secretion from beginning of menstruation", "peak on the 14th Day", "Luteinizing Hormone", "Corpus Luteum"],
+"bypass": "Step 1: FSH stimulates follicular growth and Estrogen secretion in the first half. Step 2: LH surge on the 14th day causes ovulation (release of ovum). Step 3: Ruptured follicle becomes Corpus Luteum, which secretes Progesterone to maintain the endometrium for pregnancy.",
+"visual_blueprint": "Line graph animation showing FSH and Estrogen rising early, a sudden sharp peak of LH at day 14 causing egg release, followed by a rise in Progesterone."
+},
+{
+"id": 5,
+"title": "Spermatogenesis and Oogenesis",
+"category": "Human Reproduction",
+"rank": 5,
+"triggers": ["hormonal regulation of spermatogenesis", "first meiotic division is completed", "primary oocyte", "Leydig cells"],
+"bypass": "Spermatogenesis: GnRH stimulates pituitary to release LH (acts on Leydig cells to secrete androgens) and FSH (acts on Sertoli cells for spermiogenesis). Oogenesis: Oocytes are formed before birth. First meiotic division completes in the primary oocyte prior to ovulation, forming a large secondary oocyte and a tiny polar body (unequal division).",
+"visual_blueprint": "Flowchart comparing continuous sperm production in males starting at puberty versus egg production in females starting before birth and arresting at prophase I."
+},
+{
+"id": 6,
+"title": "Assisted Reproductive Technology (ART)",
+"category": "Reproductive Health",
+"rank": 6,
+"triggers": ["In-vitro fertilization", "ZIFT", "intracytoplasmic sperm injection", "low sperm count"],
+"bypass": "Step 1: IVF involves fertilizing egg and sperm outside the body. Step 2: ZIFT transfers zygote or early embryo (up to 8 blastomeres) into the fallopian tube. IUT transfers embryos with more than 8 blastomeres into the uterus. Step 3: ICSI directly injects sperm into the ovum, useful for low sperm count.",
+"visual_blueprint": "Diagram showing sperm directly injected into an egg (ICSI), followed by the embryo being transferred either to the fallopian tube (ZIFT) or uterus (IUT)."
+},
+{
+"id": 7,
+"title": "Polymerase Chain Reaction (PCR)",
+"category": "Biotechnology: Principles and Processes",
+"rank": 7,
+"triggers": ["amplification of a small amount of DNA", "Denaturation", "Taq polymerase", "Annealing"],
+"bypass": "Step 1: Denaturation at high temperature separates the double-stranded DNA. Step 2: Annealing allows two sets of primers to attach to complementary regions. Step 3: Extension uses thermostable Taq polymerase to add nucleotides, amplifying DNA a billion times after 30 cycles.",
+"visual_blueprint": "Three-step cycle animation: DNA strands separating via heat, small primers attaching, and a polymerase enzyme zipping down the strand to copy it."
+},
+{
+"id": 8,
+"title": "Gel Electrophoresis",
+"category": "Biotechnology: Principles and Processes",
+"rank": 8,
+"triggers": ["DNA fragments can be isolated", "agarose gel", "anode", "ethidium bromide"],
+"bypass": "Step 1: DNA is negatively charged, so it moves towards the positive anode under an electric field. Step 2: Agarose gel provides a sieving effect; smaller fragments move faster and farther than larger ones. Step 3: Staining with ethidium bromide and exposure to UV light makes the DNA bands visible as bright orange.",
+"visual_blueprint": "Animation of a gel slab where negatively charged glowing orange DNA fragments race towards the positive end, with the smallest pieces winning the race."
+},
+{
+"id": 9,
+"title": "Recombinant DNA and Restriction Enzymes",
+"category": "Biotechnology: Principles and Processes",
+"rank": 9,
+"triggers": ["recognition sequence", "Eco R1 cuts the DNA", "palindromic sequence", "sticky ends"],
+"bypass": "Step 1: Restriction endonucleases inspect DNA length and cut at specific palindromic sequences (e.g., GAATTC for EcoRI). Step 2: Cutting both strands off-center creates overhanging single-stranded stretches called sticky ends. Step 3: DNA ligase joins the sticky ends of foreign DNA and vector DNA to form recombinant DNA.",
+"visual_blueprint": "Show molecular scissors cutting a DNA ladder in a staggered way, leaving sticky overhangs that perfectly match and lock into another cut DNA strand."
+},
+{
+"id": 10,
+"title": "Biotechnology Applications in Agriculture (Bt Crops)",
+"category": "Biotechnology and its Applications",
+"rank": 10,
+"triggers": ["spores of Bt", "Bacillus thuringiensis", "alkaline gut", "pest-resistant"],
+"bypass": "Step 1: Bt toxin genes (cry genes) are cloned into plants. Step 2: The toxin exists as an inactive protoxin. Step 3: Upon ingestion by an insect, the alkaline pH of the insect gut solubilizes and activates the toxin, which creates pores in midgut epithelial cells, causing lysis and insect death.",
+"visual_blueprint": "Show a caterpillar eating a leaf, the inactive crystals entering its stomach, dissolving in alkaline fluid, and punching holes in the stomach wall."
+},
+{
+"id": 11,
+"title": "Gene Therapy and ADA Deficiency",
+"category": "Biotechnology and its Applications",
+"rank": 11,
+"triggers": ["gene defect", "adenosine deaminase", "lymphocytes", "retroviral vector"],
+"bypass": "Step 1: ADA deficiency cripples the immune system. Step 2: Lymphocytes are extracted from patient blood and cultured. Step 3: A functional ADA cDNA is introduced into lymphocytes using a retroviral vector and returned to the patient. Permanent cure requires introducing the gene into embryonic stage cells.",
+"visual_blueprint": "None"
+},
+{
+"id": 12,
+"title": "Life Cycle of Plasmodium (Malaria)",
+"category": "Human Health and Disease",
+"rank": 12,
+"triggers": ["transmission of the pathogen", "Sporozoites", "Liver infection", "haemozoin"],
+"bypass": "Step 1: Female Anopheles mosquito bites and injects infective sporozoites into human blood. Step 2: Parasites multiply asexually in liver cells, then infect and rupture Red Blood Cells. Step 3: RBC rupture releases a toxic substance called haemozoin, causing recurring chills and high fever.",
+"visual_blueprint": "Circular life cycle diagram starting from mosquito bite, moving to human liver, then bursting out of red blood cells to cause fever, and finally forming gametocytes."
+},  
+{
+"id": 13,
+"title": "HIV Life Cycle and AIDS",
+"category": "Human Health and Disease",
+"rank": 13,
+"triggers": ["retrovirus enters a human being", "reverse transcriptase", "helper T-cells", "macrophages"],
+"bypass": "Step 1: HIV (a retrovirus) enters macrophages and uses reverse transcriptase to form viral DNA from its RNA genome. Step 2: Viral DNA incorporates into host DNA, turning macrophages into an HIV factory. Step 3: Virus attacks helper T-lymphocytes, destroying them over time and making the person highly immunodeficient.",
+"visual_blueprint": "Animation of a virus injecting RNA into a cell, an enzyme converting it into DNA, hiding inside the host nucleus, and producing new virus copies."
+},
+{
+"id": 14,
+"title": "Active and Passive Immunity",
+"category": "Human Health and Disease",
+"rank": 14,
+"triggers": ["Antibody concentration", "colostrum", "vaccine is administered", "primary immune response"],
+"bypass": "Passive Immunity: Ready-made antibodies (like IgA in colostrum) are directly given for quick, temporary protection but leave no memory. Active Immunity: Host immune system produces antibodies and memory cells upon exposure to antigens or vaccines; it is slow but provides long-term, highly intensified secondary responses upon reinfection.",
+"visual_blueprint": "Line graph showing antibodies from mother dropping quickly to zero, while a vaccine injection causes a slow primary bump followed by a massive secondary spike."
+},
+{
+"id": 15,
+"title": "Sewage Treatment and BOD",
+"category": "Microbes in Human Welfare",
+"rank": 15,
+"triggers": ["Biological Oxygen Demand", "primary effluent", "aeration tank", "flocs"],
+"bypass": "Step 1: Primary effluent goes to aeration tanks where aerobic microbes form flocs (bacteria + fungal filaments). Step 2: Flocs consume organic matter, significantly reducing the Biochemical Oxygen Demand (BOD). Lower BOD means less polluting potential. Step 3: Flocs are allowed to settle forming activated sludge.",
+"visual_blueprint": "None"
+},
+{
+"id": 16,
+"title": "Population Interactions",
+"category": "Organisms and Populations",
+"rank": 16,
+"triggers": ["inter-specific interaction", "competitively superior", "Gause's exclusion principle", "resource partitioning"],
+"bypass": "Gause's Principle: Two closely related species competing for identical resources cannot co-exist indefinitely; the inferior one is eliminated. Resource Partitioning: Competing species can avoid competition and co-exist by choosing different foraging times or patterns (e.g., Warbler birds on a tree). Mutualism: Both benefit (e.g., Fig and Wasp).",
+"visual_blueprint": "Two graphs comparing species grown alone (reaching carrying capacity) vs mixed culture (where one species drops to zero due to competitive exclusion)."
+},
+{
+"id": 17,
+"title": "Ecological Pyramids (Energy, Biomass, Number)",
+"category": "Ecosystem",
+"rank": 17,
+"triggers": ["pyramids of energy must always be upright", "standing crop", "inverted pyramid of biomass"],
+"bypass": "Energy Pyramid: ALWAYS upright because 90 percent energy is lost as heat at each trophic level (10 percent law). Biomass Pyramid: Upright in terrestrial, but INVERTED in aquatic ecosystems because a small biomass of phytoplankton supports a larger biomass of zooplankton/fishes. Number Pyramid: Inverted when insects feed on a single tree.",
+"visual_blueprint": "Visual comparison of a standard triangle pyramid (energy) versus an upside-down triangle (aquatic biomass) with labeled trophic levels."
+},
+{
+"id": 18,
+"title": "Biodiversity Conservation and The Evil Quartet",
+"category": "Biodiversity and Conservation",
+"rank": 18,
+"triggers": ["loss of biodiversity", "in situ conservation", "ex situ conservation", "alien species invasions"],
+"bypass": "Evil Quartet (Causes of extinction): 1. Habitat loss/fragmentation (primary cause), 2. Over-exploitation, 3. Alien species invasion (e.g., Nile perch), 4. Co-extinctions. In-situ (On-site): Protecting natural habitats (National Parks, Biosphere reserves). Ex-situ (Off-site): Protecting threatened species in specialized settings (Zoos, Seed banks).",
+"visual_blueprint": "None"
+},
+{
+"id": 19,
+"title": "Natural Selection Types",
+"category": "Evolution",
+"rank": 19,
+"triggers": ["natural selection has favoured", "statistical means", "disruptive", "directional"],
+"bypass": "Stabilizing Selection: Favors intermediate average traits, eliminating extremes (peak gets higher and narrower). Directional Selection: Favors one extreme trait over the other (peak shifts in one direction). Disruptive Selection: Favors both extremes against the average trait (forms two separate peaks).",
+"visual_blueprint": "Animation of a bell curve either squeezing tight in the middle (stabilizing), shifting left/right (directional), or splitting into a camel's two humps (disruptive)."
+},
+{
+"id": 20,
+"title": "Double Fertilization and Angiosperm Embryo Sac",
+"category": "Sexual Reproduction in Flowering Plants",
+"rank": 20,
+"triggers": ["primary endosperm nucleus", "female gametophyte", "synergids", "polar nuclei"],
+"bypass": "Step 1: Mature embryo sac is 7-celled, 8-nucleated (3 antipodals, 2 synergids, 1 egg, 1 central cell with 2 polar nuclei). Step 2: One male gamete fuses with egg to form diploid zygote (Syngamy). Step 3: Second male gamete fuses with two polar nuclei to form triploid Primary Endosperm Nucleus (PEN). This is Double Fertilization.",
+"visual_blueprint": "Diagram of an oval embryo sac showing pollen tube releasing two male gametes: one hitting the egg cell, the other hitting the center polar nuclei."
+},
+{
+"id": 21,
+"title": "Apomixis and Polyembryony",
+"category": "Sexual Reproduction in Flowering Plants",
+"rank": 21,
+"triggers": ["apomictic embryos", "Polyembryony", "developed without fertilisation", "nucellar cells"],
+"bypass": "Apomixis: Form of asexual reproduction that mimics sexual reproduction; seeds are produced without fertilization. Polyembryony: Occurrence of more than one embryo in a seed. Mechanism in Citrus/Mango: Diploid nucellar cells surrounding the embryo sac start dividing mitotically, protrude into the sac, and develop into multiple embryos.",
+"visual_blueprint": "None"
+},
+{
+"id": 22,
+"title": "Sex Determination Mechanisms",
+"category": "Principles of Inheritance and Variation",
+"rank": 22,
+"triggers": ["sex determination pattern in honey bees", "haploid having 32 chromosomes", "male and female"],
+"bypass": "Honey Bee (Haplo-diploid system): Females (Queen/Workers) are diploid (32 chromosomes) formed by fertilization of egg and sperm. Males (Drones) are haploid (16 chromosomes) developed unfertilized from eggs via parthenogenesis. Males produce sperms by mitosis. Humans/Drosophila: XX female, XY male.",
+"visual_blueprint": "None"
+},
+{
+"id": 23,
+"title": "Chromosomal Disorders and Aneuploidy",
+"category": "Principles of Inheritance and Variation",
+"rank": 23,
+"triggers": ["karyotype of a human being", "Down's syndrome", "Turner's syndrome", "failure of segregation of chromatids"],
+"bypass": "Cause: Aneuploidy arises from failure of chromatid segregation during cell division. Down's Syndrome: Trisomy 21 (gain of an extra copy of chromosome 21). Turner's Syndrome: Monosomy XO (45 chromosomes, absence of one X chromosome in females causing sterile, rudimentary ovaries). Klinefelter's Syndrome: XXY in males causing sterile condition and feminine traits.",
+"visual_blueprint": "A karyotype chart showing chromosomes arranged in pairs, highlighting a missing X chromosome or an extra chromosome at position 21."
+},
+{
+"id": 24,
+"title": "DNA Fingerprinting and VNTRs",
+"category": "Molecular Basis of Inheritance",
+"rank": 24,
+"triggers": ["radiolabeled VNTR as a probe", "DNA fingerprinting pattern", "minisatellites"],
+"bypass": "Step 1: Isolate DNA and digest with restriction endonucleases. Step 2: Separate fragments by gel electrophoresis and blot them onto synthetic membranes (nylon/nitrocellulose). Step 3: Hybridize using radiolabeled VNTR (Variable Number of Tandem Repeats / Minisatellites) probes. Step 4: Detect hybridized fragments using autoradiography to match patterns.",
+"visual_blueprint": "Comparison of DNA bands on an X-ray film showing matches between a child's bands and bands from both the mother and the suspected father."
+},
+{
+"id": 25,
+"title": "Translation and Genetic Code",
+"category": "Molecular Basis of Inheritance",
+"rank": 25,
+"triggers": ["process of aminoacylation of tRNA", "sequence of Amino acids", "stop codon", "polypeptide chain"],
+"bypass": "Step 1: Aminoacylation charges tRNA by linking it to its specific amino acid using ATP. Step 2: Small ribosomal subunit binds to mRNA at Start codon (AUG). Step 3: Charged tRNAs bring amino acids to the large subunit, reading triplet codons. Ribozyme forms peptide bonds until a Stop codon (UAA, UAG, UGA) terminates the chain.",
+"visual_blueprint": "Animation of a ribosome clamping onto a messenger RNA tape, while transport molecules drop off beads that link into a long protein chain."
+}
+]

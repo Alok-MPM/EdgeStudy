@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1,
+    "title": "Fayol's Principles of Management",
+    "category": "Principles of Management",
+    "rank": 1,
+    "triggers": ["one boss for every individual employee", "order and discipline", "remuneration is just and equitable", "esprit de corps"],
+    "bypass": "Hack: Read the case study ending first. If it says 'receive orders from one superior', it's Unity of Command. If it says 'place for everything', it's Order. If it mentions 'promoting team spirit', it's Esprit de Corps. CBSE expects you to quote the exact line from the case study, state the principle, and write a 2-line explanation.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 2,
+    "title": "Taylor's Scientific Management Techniques",
+    "category": "Principles of Management",
+    "rank": 2,
+    "triggers": ["Functional Foremanship", "Time and Motion study", "Standardization", "Differential piece wage system"],
+    "bypass": "Hack: Look for the context. 'Eight specialists' = Functional Foremanship. 'Finding one best way' = Method Study. 'Differentiating efficient and inefficient workers' = Differential Piece Wage. Write the name of the technique, its primary objective, and quote the line.",
+    "visual_blueprint": "Hierarchy tree showing Factory Manager branching into Planning Incharge (4 clerks) and Production Incharge (4 bosses)."
+  },
+  {
+    "id": 3,
+    "title": "Steps in the Planning Process",
+    "category": "Planning",
+    "rank": 3,
+    "triggers": ["setting objectives", "developing premises", "evaluating alternative courses", "real point of decision making"],
+    "bypass": "Hack: Memorize the sequence: 1) Set Objectives, 2) Develop Premises (assumptions about future), 3) Identify Alternatives, 4) Evaluate Alternatives, 5) Select best alternative (Real decision making point), 6) Implement plan, 7) Follow-up. If the case mentions 'assumptions', write 'Developing Premises'.",
+    "visual_blueprint": "7-step downward vertical flowchart with arrows connecting each sequential step of planning."
+  },
+  {
+    "id": 4,
+    "title": "Functional vs Divisional Structure",
+    "category": "Organising",
+    "rank": 4,
+    "triggers": ["multi-product company", "occupational specialization", "autonomous unit", "product specialization"],
+    "bypass": "Hack: If the company makes ONE type of product but has big departments (HR, Sales) -> Functional Structure. If the company makes MULTIPLE products (Cosmetics, Garments, Footwear) -> Divisional Structure. CBSE requires 3 basis of differences (e.g., Formation, Specialization, Responsibility).",
+    "visual_blueprint": "Comparison table with three columns: Basis, Functional Structure, Divisional Structure."
+  },
+  {
+    "id": 5,
+    "title": "Delegation vs Decentralization",
+    "category": "Organising",
+    "rank": 5,
+    "triggers": ["sharing decision making authority with lower levels", "multiplier effect", "pushes authority down the chain"],
+    "bypass": "Hack: Delegation is sharing work with ONE subordinate (routine). Decentralization is a COMPANY-WIDE policy of pushing authority down to the lowest level. Elements of Delegation: Authority (flows down), Responsibility (flows up), Accountability (absolute, cannot be delegated).",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 6,
+    "title": "Internal vs External Sources of Recruitment",
+    "category": "Staffing",
+    "rank": 6,
+    "triggers": ["infusion of new blood", "inbreeding", "wider choice", "casual callers", "campus recruitment"],
+    "bypass": "Hack: If company wants 'fresh talent' or 'wider choice', it's External. If they want 'motivation for existing staff' or 'cheaper method', it's Internal (Transfer/Promotion). CBSE always asks for 2 merits and 2 demerits of the chosen source.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 7,
+    "title": "Selection Process Steps",
+    "category": "Staffing",
+    "rank": 7,
+    "triggers": ["eliminating unqualified job seekers", "measuring characteristics of individuals", "reference and background checks"],
+    "bypass": "Hack: Identify the step currently happening in the case. 1) Preliminary Screening, 2) Selection Tests (Aptitude, Trade, Personality), 3) Employment Interview, 4) Reference Checks, 5) Selection Decision, 6) Medical Exam, 7) Job Offer. You will be asked to state the NEXT 3 steps.",
+    "visual_blueprint": "Sequential flowchart showing the 7 steps of the Selection Process."
+  },
+  {
+    "id": 8,
+    "title": "Maslow's Need Hierarchy Theory",
+    "category": "Directing",
+    "rank": 8,
+    "triggers": ["stability about future income", "employee recognition programmes", "sense of belongingness", "self-actualization"],
+    "bypass": "Hack: Match the incentive to the need. Pension/Job Security = Safety/Security Needs. Friends/Clubs = Social/Belongingness Needs. Praise/Awards = Esteem Needs. Reaching full potential = Self-Actualization. State the need and how the company satisfied it.",
+    "visual_blueprint": "A 5-level pyramid starting from Physiological (bottom) to Self-Actualization (top)."
+  },
+  {
+    "id": 9,
+    "title": "Leadership Styles",
+    "category": "Directing",
+    "rank": 9,
+    "triggers": ["does not listen to any suggestions", "consultation with subordinates", "high degree of independence"],
+    "bypass": "Hack: Boss gives orders, no discussion = Autocratic (good for factories/unskilled). Boss discusses before deciding = Democratic/Participative. Boss gives full freedom to team = Laissez-Faire/Free-rein (good for highly skilled/scientists).",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 10,
+    "title": "Financial vs Non-Financial Incentives",
+    "category": "Directing",
+    "rank": 10,
+    "triggers": ["perquisites", "co-partnership", "job enrichment", "employee participation"],
+    "bypass": "Hack: If money is directly/indirectly involved (Bonus, Stock Options, Perks), it's Financial. If it's psychological (Praise, Job Security, Job Enrichment, Participation), it's Non-Financial. Name the incentive and explain it in 2 lines.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 11,
+    "title": "Controlling Process",
+    "category": "Controlling",
+    "rank": 11,
+    "triggers": ["setting up performance standards", "measuring actual performance", "analyzing deviations", "corrective action"],
+    "bypass": "Hack: Sequence is strict. 1) Set Standards, 2) Measure Actual, 3) Compare (Find Deviation), 4) Analyze Deviation, 5) Take Corrective Action. 'Analyzing' has two hacks: Critical Point Control (focus on Key Result Areas) and Management by Exception (ignore minor deviations).",
+    "visual_blueprint": "5-step circular flow diagram showing the continuous nature of the Controlling process."
+  },
+  {
+    "id": 12,
+    "title": "Factors Affecting Capital Structure",
+    "category": "Financial Management",
+    "rank": 12,
+    "triggers": ["mix between owners and borrowed funds", "Trading on Equity", "cost of debt", "Interest Coverage Ratio"],
+    "bypass": "Hack: Capital Structure = Debt / Equity. More Debt = Higher Financial Risk but higher Earnings Per Share (EPS) if ROI > Cost of Debt (Trading on Equity). Factors to write: Cash Flow Position, Interest Coverage Ratio (ICR), Return on Investment (ROI), Cost of Debt, Tax Rate.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 13,
+    "title": "Fixed vs Working Capital Decisions",
+    "category": "Financial Management",
+    "rank": 13,
+    "triggers": ["investment in long term projects", "day-to-day operations", "Capital Budgeting", "length of operating cycle"],
+    "bypass": "Hack: Buying machinery/expansion = Fixed Capital (Capital Budgeting). Factors: Scale of operations, Choice of technique. Buying raw materials/credit policy = Working Capital. Factors: Nature of business, Business cycle, Operating cycle length.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 14,
+    "title": "Dividend Decision Factors",
+    "category": "Financial Management",
+    "rank": 14,
+    "triggers": ["how much of the profit earned is to be distributed", "retained earnings", "growth opportunities"],
+    "bypass": "Hack: High Growth Company = Low Dividend (retains money). Stable Earnings/Cash Flow = High Dividend. Legal Constraints = Cannot pay dividend from capital. Always list 4 factors with a 1-line explanation for each.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 15,
+    "title": "Money Market Instruments",
+    "category": "Financial Markets",
+    "rank": 15,
+    "triggers": ["short term unsecured promissory note", "bridge financing", "Treasury Bills", "Commercial Paper"],
+    "bypass": "Hack: 'Zero Coupon Bonds' issued by RBI = Treasury Bills. 'Unsecured note by large companies' = Commercial Paper (used for bridge financing/flotation costs). 'Inter-bank lending' = Call Money. Duration is always less than 1 year.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 16,
+    "title": "Functions of Stock Exchange",
+    "category": "Financial Markets",
+    "rank": 16,
+    "triggers": ["providing liquidity and marketability", "pricing of securities", "economic growth", "speculation"],
+    "bypass": "Hack: The core functions are 1) Liquidity (easy to buy/sell), 2) Pricing (demand/supply determines share price), 3) Safety of transaction (regulated by SEBI), 4) Capital formation (savings channeled to industries).",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 17,
+    "title": "Objectives and Functions of SEBI",
+    "category": "Financial Markets",
+    "rank": 17,
+    "triggers": ["protect the interest of investors", "prevent insider trading", "regulatory body"],
+    "bypass": "Hack: Categorize functions correctly. Protective: Banning insider trading, preventing price rigging. Regulatory: Registering brokers, framing rules. Developmental: Training intermediaries, internet trading. Don't mix up protective and regulatory.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 18,
+    "title": "Trading Procedure on a Stock Exchange",
+    "category": "Financial Markets",
+    "rank": 18,
+    "triggers": ["screen-based trading", "Demat account", "Depository Participant", "Contract Note"],
+    "bypass": "Hack: Sequential steps: 1) Select a registered broker, 2) Open Demat Account with a DP, 3) Place order (buy/sell), 4) Execution of order, 5) Issue of Contract Note (contains Unique Order Code), 6) Settlement (T+1 or T+2 rolling settlement).",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 19,
+    "title": "Marketing Philosophies (Concepts)",
+    "category": "Marketing Management",
+    "rank": 19,
+    "triggers": ["availability and affordability", "product improvement", "aggressive selling", "customer satisfaction", "ecological aspects"],
+    "bypass": "Hack: Cheap/mass production = Production Concept. High quality/features = Product Concept. Aggressive ads/discounts = Selling Concept. Finding needs & satisfying them = Marketing Concept. Environment/Society welfare = Societal Marketing Concept.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 20,
+    "title": "Elements of Marketing Mix (The 4 Ps)",
+    "category": "Marketing Management",
+    "rank": 20,
+    "triggers": ["features, quality, packaging", "amount of money customers pay", "physical distribution", "communicating availability"],
+    "bypass": "Hack: The 4 Ps are Product (design, packaging, labeling, branding), Price (cost, demand, competition), Place (channels of distribution, warehousing, inventory), and Promotion (Advertising, Personal Selling, Sales Promotion, Public Relations).",
+    "visual_blueprint": "A 2x2 grid or 4-petal diagram showing Product, Price, Place, and Promotion."
+  },
+  {
+    "id": 21,
+    "title": "Factors Affecting Price Determination",
+    "category": "Marketing Management",
+    "rank": 21,
+    "triggers": ["lower limits of the price", "utility and demand", "pricing objectives", "extent of competition"],
+    "bypass": "Hack: 1) Product Cost sets the minimum price (floor). 2) Utility/Demand sets the maximum price (ceiling). 3) Competition determines where the price lands between floor and ceiling. 4) Government regulations prevent exorbitant pricing of essential goods.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 22,
+    "title": "Advertising vs Personal Selling",
+    "category": "Marketing Management",
+    "rank": 22,
+    "triggers": ["impersonal form of communication", "face-to-face dialogue", "mass reach", "direct feedback"],
+    "bypass": "Hack: Advertising is impersonal, paid, has mass reach, low cost per person, but lacks direct feedback and flexibility. Personal Selling is face-to-face, flexible, provides immediate feedback, but has high cost per person and limited reach.",
+    "visual_blueprint": "Comparison table with Basis: Form, Flexibility, Reach, Cost per person, and Feedback."
+  },
+  {
+    "id": 23,
+    "title": "Consumer Rights",
+    "category": "Consumer Protection",
+    "rank": 23,
+    "triggers": ["Right to Safety", "Right to be Informed", "Right to Choose", "Right to be Heard", "Right to seek Redressal"],
+    "bypass": "Hack: Identify the violation in the case. Electrical shock/danger = Right to Safety. Missing MRP/Expiry date = Right to be Informed. Forcing to buy a combo = Right to Choose. Customer care ignoring complaint = Right to be Heard. Getting refund/replacement = Right to seek Redressal.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 24,
+    "title": "Consumer Responsibilities",
+    "category": "Consumer Protection",
+    "rank": 24,
+    "triggers": ["ask for a cash memo", "buy only standardised goods", "read labels carefully", "be honest in your dealings"],
+    "bypass": "Hack: If the consumer lost the case in court, they failed a responsibility. Most common fails: Not taking a Cash Memo (Proof of purchase), buying non-standardized goods (No ISI/FPO mark), or not reading expiry dates. List 3-4 responsibilities directly.",
+    "visual_blueprint": "None"
+  },
+  {
+    "id": 25,
+    "title": "Consumer Redressal Machinery (Pecuniary Jurisdiction)",
+    "category": "Consumer Protection",
+    "rank": 25,
+    "triggers": ["file a complaint in appropriate forum", "District Commission", "State Commission", "National Commission"],
+    "bypass": "Hack: Memorize the limits (as per CPA 2019 limits often tested): District Commission = Claims up to Rs. 1 Crore. State Commission = Claims between Rs. 1 Crore and Rs. 10 Crores. National Commission = Claims above Rs. 10 Crores.",
+    "visual_blueprint": "None"
+  }
+]

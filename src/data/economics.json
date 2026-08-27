@@ -1,0 +1,373 @@
+[
+  {
+    "id": 1,
+    "title": "National Income - Value Added Method (Numerical and Theory)",
+    "category": "Macroeconomics - National Income and Related Aggregates",
+    "rank": 1,
+    "triggers": [
+      "calculate value added",
+      "value of output",
+      "intermediate consumption",
+      "Net Value Added at Factor Cost (NVA at FC)",
+      "Gross Value Added at Market Price (GVA at MP)"
+    ],
+    "bypass": "Step 1: Calculate Value of Output = Sales + Change in Stock (Closing Stock - Opening Stock) + Exports + Production for self-consumption. Step 2: Calculate GVA at MP = Value of Output - Intermediate Consumption (Purchases of raw materials). Step 3: Convert GVA at MP to NVA at FC = GVA at MP - Depreciation (Consumption of Fixed Capital) - Net Indirect Taxes (Indirect Taxes - Subsidies). Precautions: Exclude second-hand goods sale, include self-consumption production, exclude intermediate goods.",
+    "visual_blueprint": "Flowchart showing Value of Output minus Intermediate Consumption leading to GVA at MP, minus Depreciation to NDA at MP, minus NIT to NVA at FC."
+  },
+  {
+    "id": 2,
+    "title": "National Income - Income and Expenditure Methods",
+    "category": "Macroeconomics - National Income and Related Aggregates",
+    "rank": 2,
+    "triggers": [
+      "calculate national income by income method",
+      "calculate domestic income by expenditure method",
+      "compensation of employees",
+      "operating surplus",
+      "gross domestic capital formation"
+    ],
+    "bypass": "Income Method: Domestic Income (NDP at FC) = Compensation of Employees (Salaries + Employer contribution to SS) + Operating Surplus (Rent + Royalty + Interest + Profit) + Mixed Income. National Income (NNP at FC) = NDP at FC + NFIA. Expenditure Method: GDP at MP = Private Final Consumption Expenditure + Government Final Consumption Expenditure + Gross Domestic Capital Formation (Gross Fixed Capital Formation + Change in Stock) + Net Exports (Exports - Imports). NNP at FC = GDP at MP - Depreciation - NIT + NFIA.",
+    "visual_blueprint": "Table dividing Income Method components (COE, Operating Surplus, Mixed Income) and Expenditure Method components (PFCE, GFCE, GDCF, Net Exports)."
+  },
+  {
+    "id": 3,
+    "title": "Investment Multiplier Mechanism and Working",
+    "category": "Macroeconomics - Determination of Income and Employment",
+    "rank": 3,
+    "triggers": [
+      "working of investment multiplier",
+      "multiplier mechanism with numerical example",
+      "K = 1 / (1 - MPC)",
+      "K = 1 / MPS",
+      "change in income due to change in investment"
+    ],
+    "bypass": "Formula: Multiplier K = delta Y / delta I = 1 / (1 - MPC) = 1 / MPS. Working Process: Based on the axiom that one person's expenditure is another's income. Step 1: Initial increase in investment (delta I) increases income (delta Y) by same amount in Round 1. Step 2: Receivers spend a fraction (MPC) on consumption (delta C), generating income for next round. Step 3: Process continues until total increase in savings equals initial investment. Tabulate rounds showing delta I, delta Y, delta C, and delta S.",
+    "visual_blueprint": "Rounds table with columns: Round (1, 2, 3... Total), Increase in Investment (delta I), Increase in Income (delta Y), Increase in Consumption (delta C = delta Y * MPC), Increase in Saving (delta S = delta Y - delta C)."
+  },
+  {
+    "id": 4,
+    "title": "Measures to Correct Excess Demand and Deficient Demand",
+    "category": "Macroeconomics - Determination of Income and Employment",
+    "rank": 4,
+    "triggers": [
+      "correct inflationary gap",
+      "correct deflationary gap",
+      "role of repo rate / open market operations",
+      "margin requirement",
+      "fiscal measures to tackle excess demand"
+    ],
+    "bypass": "To correct Inflationary Gap (Excess Demand): 1) Monetary Policy (Tight): Increase Repo Rate, Bank Rate, CRR, SLR, and Reverse Repo Rate to make credit expensive; sell government securities in Open Market Operations (OMO) to soak liquidity; increase Margin Requirements. 2) Fiscal Policy (Contractionary): Increase taxes and decrease government expenditure. To correct Deflationary Gap (Deficient Demand): Apply exact opposite measures.",
+    "visual_blueprint": "Aggregate Demand and Aggregate Supply graph showing full employment equilibrium, inflationary gap (AD > AS at full employment), or deflationary gap (AD < AS at full employment)."
+  },
+  {
+    "id": 5,
+    "title": "Credit Creation Process by Commercial Banks",
+    "category": "Macroeconomics - Money and Banking",
+    "rank": 5,
+    "triggers": [
+      "process of credit creation by commercial banks",
+      "money multiplier = 1 / LRR",
+      "initial primary deposits",
+      "credit creation numerical table"
+    ],
+    "bypass": "Formula: Total Credit Created = Initial Primary Deposit * (1 / LRR). Money Multiplier = 1 / LRR. Process: 1) Banks keep a legally required fraction of deposits as Legal Reserve Ratio (LRR) and lend the remaining amount. 2) Loan amounts are credited as secondary deposits in bank accounts of borrowers. 3) Borrowers make payments via cheques, which re-enter the banking system as primary deposits. 4) Process repeats until total cumulative reserves equal initial primary deposit.",
+    "visual_blueprint": "Table showing Round 1, Round 2, ... Total, with columns: Deposits, Loans (1 - LRR), and Required Reserves (LRR)."
+  },
+  {
+    "id": 6,
+    "title": "Functions of Central Bank (RBI)",
+    "category": "Macroeconomics - Money and Banking",
+    "rank": 6,
+    "triggers": [
+      "banker to the government",
+      "banker's bank and supervisor",
+      "lender of last resort",
+      "controller of money supply",
+      "custodian of foreign exchange reserves"
+    ],
+    "bypass": "1) Banker to Government: Manages government accounts, processes receipts/payments, issues public loans, and provides short-term credit during financial crisis. 2) Banker's Bank & Supervisor: Holds statutory cash reserves of commercial banks, provides short-term liquidity (Lender of Last Resort), settles inter-bank claims, and regulates bank licensing/expansion. 3) Controller of Credit: Regulates money supply using quantitative (Repo Rate, OMO, CRR) and qualitative tools (Margin requirements).",
+    "visual_blueprint": "Concept map branching RBI into its key roles: Currency Authority, Government Banker, Banker's Bank/Supervisor, and Credit Controller."
+  },
+  {
+    "id": 7,
+    "title": "Government Budget - Classification of Receipts and Expenditures",
+    "category": "Macroeconomics - Government Budget and the Economy",
+    "rank": 7,
+    "triggers": [
+      "revenue receipts vs capital receipts",
+      "revenue expenditure vs capital expenditure",
+      "direct tax vs indirect tax",
+      "disinvestment",
+      "tax revenue vs non-tax revenue"
+    ],
+    "bypass": "1) Revenue Receipts: Neither create liability nor reduce assets (e.g. Taxes, Dividends, Fines, Fees). 2) Capital Receipts: Either create liability or reduce assets (e.g. Borrowings, Recovery of loans, Disinvestment). 3) Revenue Expenditure: Neither create assets nor reduce liabilities (e.g. Salaries, Interest payments, Subsidies). 4) Capital Expenditure: Either create assets or reduce liabilities (e.g. Construction of flyovers/roads, Purchase of machinery, Repayment of loans). 5) Direct Tax: Impact and incidence on same person (Income tax); Indirect Tax: Impact and incidence shifted (GST).",
+    "visual_blueprint": "Classification tree chart dividing Government Budget into Budget Receipts (Revenue/Capital) and Budget Expenditure (Revenue/Capital) with defining criteria."
+  },
+  {
+    "id": 8,
+    "title": "Government Budget - Fiscal Deficit and Primary Deficit",
+    "category": "Macroeconomics - Government Budget and the Economy",
+    "rank": 8,
+    "triggers": [
+      "calculate fiscal deficit",
+      "calculate primary deficit",
+      "implications of fiscal deficit",
+      "non-debt creating capital receipts"
+    ],
+    "bypass": "Formulas: 1) Revenue Deficit = Revenue Expenditure - Revenue Receipts. 2) Fiscal Deficit = Total Expenditure - Total Receipts excluding Borrowings = Borrowings. 3) Primary Deficit = Fiscal Deficit - Interest Payments. Implications of Fiscal Deficit: Causes debt trap, inflationary spiral, foreign dependence, and hampers future economic growth. Non-debt creating capital receipts include recovery of loans and disinvestment proceeds.",
+    "visual_blueprint": "Formula breakdown diagram linking Total Expenditure and Total Receipts (excluding borrowings) to Fiscal Deficit and subtracting Interest Payments to yield Primary Deficit."
+  },
+  {
+    "id": 9,
+    "title": "Balance of Payments - Current Account vs Capital Account",
+    "category": "Macroeconomics - Balance of Payments",
+    "rank": 9,
+    "triggers": [
+      "current account of BOP",
+      "capital account of BOP",
+      "visible and invisible items",
+      "foreign direct investment vs portfolio investment",
+      "unilateral transfers"
+    ],
+    "bypass": "Current Account: Records exports/imports of visible goods (merchandise), invisible services (banking, shipping, tourism), and unilateral transfers (gifts, remittances). Does NOT affect asset-liability status. Capital Account: Records transactions that change asset or liability status of domestic country relative to rest of world. Includes Foreign Direct Investment (FDI), Foreign Portfolio Investment (FPI/FII), Borrowings, and Banking Capital. Credit side = Inflow of foreign currency; Debit side = Outflow of foreign currency.",
+    "visual_blueprint": "T-account table of Balance of Payments split into Current Account (Goods, Services, Transfers) and Capital Account (Investments, Loans) with Debit and Credit sides."
+  },
+  {
+    "id": 10,
+    "title": "Balance of Payments - Autonomous vs Accommodating Transactions",
+    "category": "Macroeconomics - Balance of Payments",
+    "rank": 10,
+    "triggers": [
+      "autonomous transactions",
+      "accommodating transactions",
+      "above the line items",
+      "below the line items",
+      "BOP deficit or surplus"
+    ],
+    "bypass": "Autonomous Items ('Above the Line'): International economic transactions undertaken for individual profit/economic motive, independent of the state of Balance of Payments. Cause BOP surplus or deficit. Accommodating Items ('Below the Line'): Transactions undertaken by central monetary authority to cover surplus or deficit arising from autonomous items (e.g., drawing from IMF, official reserves operations). Maintain overall equilibrium in BOP.",
+    "visual_blueprint": "Diagram showing Autonomous transactions listed above a dividing line (above the line) and Accommodating balancing transactions listed below the line."
+  },
+  {
+    "id": 11,
+    "title": "Foreign Exchange Rate Determination and Devaluation vs Depreciation",
+    "category": "Macroeconomics - Balance of Payments",
+    "rank": 11,
+    "triggers": [
+      "flexible exchange rate determination",
+      "depreciation vs devaluation of domestic currency",
+      "effect of foreign currency inflow/outflow",
+      "managed floating exchange rate"
+    ],
+    "bypass": "Exchange Rate Determination: Fixed at equilibrium point where Demand for foreign exchange (imports, investments abroad) equals Supply of foreign exchange (exports, FDI inflows). Currency Depreciation: Fall in value of domestic currency under Flexible/Floating rate system due to market forces of demand and supply. Currency Devaluation: Deliberate reduction in value of domestic currency by Government/Central bank under Fixed exchange rate system. Both promote exports and reduce imports.",
+    "visual_blueprint": "Foreign Exchange market graph plotting Demand curve (downward sloping) and Supply curve (upward sloping) intersecting at equilibrium exchange rate."
+  },
+  {
+    "id": 12,
+    "title": "Real GDP vs Nominal GDP and GDP Deflator",
+    "category": "Macroeconomics - National Income and Related Aggregates",
+    "rank": 12,
+    "triggers": [
+      "calculate real GDP",
+      "calculate nominal GDP",
+      "GDP deflator = (Nominal GDP / Real GDP) * 100",
+      "limitations of GDP as an indicator of welfare",
+      "externalities"
+    ],
+    "bypass": "Formulas: Real GDP = GDP at constant base year prices. Nominal GDP = GDP at current year prices. Real GDP = (Nominal GDP / Price Index) * 100. GDP Deflator = (Nominal GDP / Real GDP) * 100. Limitations of GDP as Welfare Indicator: 1) Distribution of GDP (unequal growth). 2) Non-monetary exchanges (housewife services, barter). 3) Externalities (positive/negative impacts like pollution not priced). 4) Composition of GDP (war goods vs consumer goods).",
+    "visual_blueprint": "Numerical comparison table showing Base Year vs Current Year quantities and prices illustrating price inflation versus real output growth."
+  },
+  {
+    "id": 13,
+    "title": "Circular Flow of Income in a Two-Sector Economy",
+    "category": "Macroeconomics - National Income and Related Aggregates",
+    "rank": 13,
+    "triggers": [
+      "circular flow of income",
+      "real flow vs money flow",
+      "two sector economy circular flow diagram",
+      "factor payments and consumption expenditure"
+    ],
+    "bypass": "Principle: Production creates income, income generates expenditure, expenditure leads to production. Real Flow: Flow of factor services (land, labour, capital, enterprise) from Households to Firms, and flow of goods/services from Firms to Households. Money Flow: Flow of factor payments (rent, wages, interest, profit) from Firms to Households, and flow of consumption expenditure from Households to Firms. Total Factor Payments = Total Factor Income = Total Expenditure.",
+    "visual_blueprint": "Circular flow diagram featuring two boxes (Households and Firms) connected by an inner loop (Real Flow of services/goods) and an outer loop (Money Flow of payments/expenditure)."
+  },
+  {
+    "id": 14,
+    "title": "Derivation of Saving Curve from Consumption Curve",
+    "category": "Macroeconomics - Determination of Income and Employment",
+    "rank": 14,
+    "triggers": [
+      "derive saving curve from consumption curve",
+      "break-even level of income",
+      "APC + APS = 1",
+      "MPC + MPS = 1",
+      "45 degree reference line"
+    ],
+    "bypass": "Steps for Derivation: Step 1: Draw a 45-degree line representing Income (Y = C + S). Step 2: Draw Consumption curve C starting from positive intercept c-bar (autonomous consumption). Step 3: Identify Break-even point B where C intersects 45-degree line (Y = C, S = 0). Step 4: On Y-axis below origin, mark starting point A of Saving curve at -c-bar (dissaving). Step 5: Drop a perpendicular from Break-even point B to X-axis to get point B' where S = 0. Step 6: Join A and B' and extend upwards to get the Saving curve AS.",
+    "visual_blueprint": "Two stacked aligned graphs: Upper graph showing 45-degree line Y and Consumption curve C intersecting at Break-even point B; Lower graph showing Saving curve S starting at negative c-bar and crossing zero directly below B."
+  },
+  {
+    "id": 15,
+    "title": "Green Revolution and Marketed Surplus",
+    "category": "Indian Economic Development - Indian Economy 1950-1990",
+    "rank": 15,
+    "triggers": [
+      "Green Revolution",
+      "High Yielding Varieties (HYV) seeds",
+      "marketed surplus",
+      "buffer stock",
+      "self-sufficiency in food grains"
+    ],
+    "bypass": "Key Concepts: 1) Green Revolution (mid-1960s) introduced HYV seeds (wheat/rice), chemical fertilizers, pesticides, and expansion of irrigation. 2) Marketed Surplus: Portion of agricultural produce sold in market by farmers after meeting self-consumption needs. Enables growth of non-agricultural sectors and lowers food prices for poor. 3) Government Role: Purchased marketed surplus to build strategic buffer stocks through Food Corporation of India (FCI). 4) Drawbacks: Increased regional inequalities, benefited rich farmers initially, and risk of pest attacks/environmental degradation.",
+    "visual_blueprint": "Mind map connecting HYV Seeds, Fertilizers, and Irrigation to High Yields, leading to Marketed Surplus, Buffer Stock creation, and National Food Security."
+  },
+  {
+    "id": 16,
+    "title": "Land Reforms and Industrial Policy Resolution 1956",
+    "category": "Indian Economic Development - Indian Economy 1950-1990",
+    "rank": 16,
+    "triggers": [
+      "land ceiling promotes equity",
+      "abolition of intermediaries",
+      "Industrial Policy Resolution (IPR) 1956",
+      "three tier classification of industries",
+      "industrial licensing for regional equality"
+    ],
+    "bypass": "Land Reforms: 1) Abolition of Intermediaries (Zamindari system) to make tillers the owners of land. 2) Land Ceiling: Fixing maximum size of agricultural land holding an individual can own to reduce concentration of land ownership and promote equity. Obstacles: Big landlords used legal loopholes and court delays to retain land. IPR 1956: Classified industries into 3 categories: Schedule A (State-owned), Schedule B (State-led with private supplement), Schedule C (Private sector). Industrial Licensing: Mandatory permits to start/expand industries; easier licensing and tax holidays given in backward areas to promote regional equality.",
+    "visual_blueprint": "Diagram showing IPR 1956 three schedules (A, B, C) and policy tools (Industrial Licensing, Tax Concessions, Subsidized Power) aimed at Regional Equality."
+  },
+  {
+    "id": 17,
+    "title": "Economic Reforms 1991 - Liberalisation, Privatisation, and Globalisation (LPG)",
+    "category": "Indian Economic Development - Economic Reforms Since 1991",
+    "rank": 17,
+    "triggers": [
+      "reasons for economic reforms 1991",
+      "disinvestment policy",
+      "outsourcing hub",
+      "import substitution vs globalisation",
+      "tariff and non-tariff barriers"
+    ],
+    "bypass": "Need for Reforms 1991: High fiscal deficit, acute BOP crisis (reserves lasted only 2 weeks), high inflation, inefficient PSUs. Liberalisation: Abolition of industrial licensing, financial sector deregulation (RBI role shifted from regulator to facilitator), tax reforms, and removal of trade restrictions. Privatisation: Disinvestment (selling PSU equity to private sector) and granting autonomy to profit-making PSUs (Maharatnas, Navratnas). Globalisation: Integrating economy with world; reduction of tariffs, removal of quantitative restrictions (quotas), encouraging FDI/FPI, making India a global outsourcing hub due to low-cost skilled labor.",
+    "visual_blueprint": "Summary table outlining Liberalisation, Privatisation, and Globalisation policies, their implementation measures, and economic outcomes."
+  },
+  {
+    "id": 18,
+    "title": "Human Capital Formation - Sources and Economic Impact",
+    "category": "Indian Economic Development - Human Capital Formation in India",
+    "rank": 18,
+    "triggers": [
+      "sources of human capital formation",
+      "education and health expenditure",
+      "on-the-job training",
+      "human capital vs human development",
+      "liberty indicators"
+    ],
+    "bypass": "5 Major Sources of HCF: 1) Expenditure on Education (increases skill/productivity). 2) Expenditure on Health (increases efficiency/labour supply). 3) On-the-job Training (upgrades worker skills). 4) Expenditure on Migration (transfers talent to higher paying jobs). 5) Expenditure on Information (helps make informed labor market choices). Human Capital vs Human Development: Human capital treats education/health as a means to increase economic productivity; Human development considers education/health as ends in themselves (integral to human well-being). Liberty Indicators: Measure democratic/political participation and civil liberties.",
+    "visual_blueprint": "Concept bubble chart showing Human Capital Formation at center surrounded by its 5 sources: Education, Health, On-the-Job Training, Migration, and Information."
+  },
+  {
+    "id": 19,
+    "title": "Rural Credit System - NABARD, SHGs, and Micro-Finance",
+    "category": "Indian Economic Development - Rural Development",
+    "rank": 19,
+    "triggers": [
+      "sources of rural credit",
+      "role of NABARD",
+      "Self-Help Groups (SHGs) and micro-credit",
+      "institutional vs non-institutional credit",
+      "multi-agency rural banking"
+    ],
+    "bypass": "Institutional Sources: Commercial Banks, Regional Rural Banks (RRBs), Cooperative Credit Societies, Land Development Banks. NABARD (1982): Apex institution coordinating and funding rural credit agencies. Self-Help Groups (SHGs) / Micro-Finance: Promote thrift habits among poor, small farmers, and women; offer micro-loans without formal collateral, filling critical gaps in formal banking. Non-Institutional Sources: Moneylenders, traders, relatives (charge exorbitant interest rates and lead to debt traps). Critical Issues: Inadequate volume of credit, high default rates/overdues, neglect of small/marginal farmers.",
+    "visual_blueprint": "Hierarchy tree chart showing Rural Credit split into Non-Institutional (Moneylenders, Traders) and Institutional (Apex NABARD overseeing Commercial Banks, RRBs, Cooperatives, SHGs)."
+  },
+  {
+    "id": 20,
+    "title": "Agricultural Marketing and Organic Farming",
+    "category": "Indian Economic Development - Rural Development",
+    "rank": 20,
+    "triggers": [
+      "agricultural marketing process",
+      "measures taken by government to improve agricultural marketing",
+      "cooperative marketing",
+      "organic farming advantages and limitations",
+      "diversification of agricultural activities"
+    ],
+    "bypass": "Agricultural Marketing: Process involving assembling, storage, processing, transportation, packaging, grading, and distribution of farm commodities. Government Measures: Regulated markets, infrastructure development (warehouses, cold storage), cooperative marketing societies, Minimum Support Price (MSP) assurance. Organic Farming: System relying on organic inputs (manures, composts) avoiding synthetic chemicals. Advantages: Eco-friendly, restores soil fertility, healthier food, higher export demand. Limitations: Lower initial yields, shorter shelf-life, lack of marketing infrastructure, higher price for consumers.",
+    "visual_blueprint": "Two-panel comparison diagram contrasting Conventional Chemical Farming vs Organic Farming on yield, soil health, inputs, and environmental impact."
+  },
+  {
+    "id": 21,
+    "title": "Employment Trends - Jobless Growth, Informalisation, and Casualisation",
+    "category": "Indian Economic Development - Employment: Growth, Informalisation and Other Issues",
+    "rank": 21,
+    "triggers": [
+      "jobless growth",
+      "informalisation of workforce",
+      "casualisation of workforce",
+      "disguised unemployment",
+      "worker population ratio"
+    ],
+    "bypass": "Key Concepts: 1) Jobless Growth: Situation where economy experiences GDP growth without commensurate increase in employment opportunities. 2) Informalisation: Process of shift of workforce from formal/organized sector (social security, regular wages) to informal/unorganized sector (no social security, low job security). 3) Casualisation: Increase in proportion of casual wage labourers over self-employed and regular salaried workers. 4) Disguised Unemployment: Situation where marginal productivity of additional labour employed is zero (common in agriculture).",
+    "visual_blueprint": "Line graph showing rising GDP growth rate curve alongside a flat or declining employment growth rate curve illustrating Jobless Growth."
+  },
+  {
+    "id": 22,
+    "title": "Sustainable Development and Environmental Strategies",
+    "category": "Indian Economic Development - Environment and Sustainable Development",
+    "rank": 22,
+    "triggers": [
+      "definition of sustainable development",
+      "functions of environment",
+      "strategies for sustainable development",
+      "global warming and climate change",
+      "LiFE initiative and non-conventional energy"
+    ],
+    "bypass": "Sustainable Development: Development that meets needs of present generation without compromising ability of future generations to meet their own needs. 4 Functions of Environment: Supplies resources (renewable/non-renewable), assimilates waste, sustains life, provides aesthetic services. Environmental Crisis: Occurs when resource extraction exceeds regeneration, or waste generation exceeds absorption capacity. Strategies: Shift to non-conventional energy (solar, wind, hydel), use of LPG/CNG in urban areas, traditional pest control (Neem-coated urea), organic farming, biopesticides, and LiFE (Lifestyle for Environment) movement.",
+    "visual_blueprint": "Diagram showing 4 core Functions of Environment feeding into Carrying Capacity limits and Sustainable Development practices."
+  },
+  {
+    "id": 23,
+    "title": "Comparative Development Experiences of India, China, and Pakistan",
+    "category": "Indian Economic Development - Comparative Development Experiences of India and Its Neighbours",
+    "rank": 23,
+    "triggers": [
+      "Great Leap Forward (GLF) campaign",
+      "commune system",
+      "dual pricing in China",
+      "One Child Policy",
+      "comparison of growth rates and demographic indicators"
+    ],
+    "bypass": "China Reforms (1978): Great Leap Forward (1958) aimed at massive industrialisation; Commune System (collective farming); Great Proletarian Cultural Revolution (1966-76); Dual Pricing (fixed government price for quotas, market price for rest); Special Economic Zones (SEZs) to attract FDI; One Child Policy (1979) arrested population growth but led to skewed sex ratio and aging population. Pakistan Reforms (1988): Mixed economy, import substitution, Green Revolution, nationalisation in 1970s followed by privatisation; growth slowed due to political instability and debt-trap. India Reforms (1991): LPG policies. Comparative Growth: China highest growth led by manufacturing; India led by services; Pakistan faced slowdown.",
+    "visual_blueprint": "Comparative Timeline Chart marking reform years: India (1991), China (1978), and Pakistan (1988) along with major reform initiatives like GLF and SEZs."
+  },
+  {
+    "id": 24,
+    "title": "Infrastructure Development and Health Sector Challenges in India",
+    "category": "Indian Economic Development - Infrastructure",
+    "rank": 24,
+    "triggers": [
+      "economic vs social infrastructure",
+      "urban rural divide in health",
+      "low public expenditure on health",
+      "power sector challenges in India",
+      "women and child health issues"
+    ],
+    "bypass": "Infrastructure Types: 1) Economic Infrastructure: Energy, transport, communication (directly supports economic production). 2) Social Infrastructure: Education, health, housing (indirectly boosts productivity). Health Sector Issues in India: 1) Low Public Expenditure: Health spending is around 1.5 to 2.2 percent of GDP (well below recommended 6 percent). 2) Urban-Rural Divide: 70 percent population lives in rural areas, but only 20 percent hospital beds/doctors are available in rural India. 3) Women/Child Health: High rates of anemia, infant mortality rate (IMR), maternal mortality rate (MMR), and malnutrition. 4) Power Sector Issues: Insufficient installed capacity, transmission/distribution losses, underutilization, and financial losses of DISCOMs.",
+    "visual_blueprint": "Two-branch diagram dividing Infrastructure into Economic (Transport, Energy, Telecom) and Social (Education, Health, Housing) with key health statistics highlighted."
+  },
+  {
+    "id": 25,
+    "title": "State of Indian Economy on the Eve of Independence",
+    "category": "Indian Economic Development - Indian Economy on the Eve of Independence",
+    "rank": 25,
+    "triggers": [
+      "decline of handicraft industry",
+      "drain of Indian wealth",
+      "commercialisation of agriculture",
+      "occupational structure on eve of independence",
+      "1921 year of great divide"
+    ],
+    "bypass": "Key Features under British Rule: 1) Agriculture: Stagnant due to Zamindari system, commercialisation of crops (cash crops like indigo/cotton instead of food crops), and low productivity. 2) Industrial Sector: De-industrialisation via two-fold policy: (a) Destroy traditional Indian handicraft industry to make India exporter of raw materials, (b) Make India a consumer market for British manufactured goods. 3) Foreign Trade: Export surplus created, but used to meet administrative/war expenses of British government, leading to Drain of Indian Wealth. 4) Demographics: High mortality rates, low literacy (below 16 percent), low life expectancy (32 years). 1921 is the Year of Great Divide (transition from fluctuating to continuous population growth).",
+    "visual_blueprint": "Mind map summarizing colonial impacts across 4 sectors: Agriculture (Zamindari), Industry (De-industrialisation), Foreign Trade (Drain of Wealth), and Demographics (1921 Great Divide)."
+  }
+]

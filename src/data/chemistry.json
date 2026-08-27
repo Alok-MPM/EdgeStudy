@@ -1,0 +1,228 @@
+[
+  {
+    "id": 1,
+    "title": "Nernst Equation and Cell EMF Calculation",
+    "category": "Electrochemistry",
+    "rank": 1,
+    "triggers": ["Ecell = E0cell - (0.0591/n) log Q", "Calculate EMF of cell", "Nernst equation", "equilibrium constant from cell potential"],
+    "bypass": "Step 1: Write oxidation at anode and reduction at cathode to find net n (number of transferred electrons). Step 2: Write reaction quotient Q = [products]^coefficients / [reactants]^coefficients (solids count as 1). Step 3: Plug into Ecell = E0cell - (0.0591/n) log Q at 298 K.",
+    "visual_blueprint": "Animate electrochemical cell showing zinc anode losing electrons and copper cathode accepting electrons with voltmeter showing EMF reading."
+  },
+  {
+    "id": 2,
+    "title": "Arrhenius Equation and Activation Energy",
+    "category": "Chemical Kinetics",
+    "rank": 2,
+    "triggers": ["Calculate energy of activation", "log (k2/k1) = Ea / (2.303 R) * (T2 - T1) / (T1 * T2)", "rate constant triples when temperature changes", "slope = -Ea / 2.303R"],
+    "bypass": "Step 1: Identify temperatures T1 and T2 in Kelvin and rate constants k1, k2. Step 2: Apply log (k2/k1) = (Ea / (2.303 * R)) * ((T2 - T1) / (T1 * T2)) with R = 8.314 J per mol K. Step 3: Solve for Ea in Joules/mol, then convert to kJ/mol if needed.",
+    "visual_blueprint": "Plot of log k versus 1/T showing a straight line with negative slope equal to minus Ea divided by 2.303 R."
+  },
+  {
+    "id": 3,
+    "title": "Crystal Field Splitting Theory",
+    "category": "Coordination Compounds",
+    "rank": 3,
+    "triggers": ["Crystal field splitting diagram", "t2g and eg orbitals", "delta o less than P", "high spin vs low spin"],
+    "bypass": "Step 1: Find oxidation state and d-electron count of central metal. Step 2: Check spectrochemical series: if strong field ligand, delta o > P (pairing occurs, low spin); if weak field ligand, delta o < P (no pairing, high spin). Step 3: Fill electrons into 3 t2g orbitals and 2 eg orbitals.",
+    "visual_blueprint": "Diagram showing 5 degenerate 3d orbitals splitting into 3 lower t2g orbitals and 2 higher eg orbitals with crystal field splitting energy delta o."
+  },
+  {
+    "id": 4,
+    "title": "Aldol and Cross-Aldol Condensation",
+    "category": "Aldehydes, Ketones and Carboxylic Acids",
+    "rank": 4,
+    "triggers": ["Presence of alpha hydrogen in aldehydes", "dilute NaOH followed by heating", "cross aldol condensation product", "3-hydroxybutanal"],
+    "bypass": "Step 1: Verify presence of alpha-hydrogen atom next to C=O group. Step 2: Base removes alpha-H forming enolate ion which attacks another C=O carbon to form beta-hydroxy aldehyde/ketone. Step 3: On heating, lose H2O between alpha and beta carbons to form double bond.",
+    "visual_blueprint": "Step-by-step chemical structure transformation showing enolate formation, nucleophilic attack on carbonyl carbon, and loss of water to form double bond."
+  },
+  {
+    "id": 5,
+    "title": "SN1 vs SN2 Reaction Mechanisms",
+    "category": "Haloalkanes and Haloarenes",
+    "rank": 5,
+    "triggers": ["order of reactivity towards SN1", "racemic mixture formation", "inversion of configuration", "carbocation intermediate"],
+    "bypass": "SN1: 2-step process, via carbocation. Stability: 3-degree > 2-degree > 1-degree. Gives racematisation. SN2: 1-step concerted process via transition state. Reactivity: 1-degree > 2-degree > 3-degree. Gives complete inversion of configuration.",
+    "visual_blueprint": "3D animation comparing SN1 (carbocation formation followed by planar attack) versus SN2 (backside attack with transition state and inversion)."
+  },
+  {
+    "id": 6,
+    "title": "Kohlrausch Law of Independent Migration",
+    "category": "Electrochemistry",
+    "rank": 6,
+    "triggers": ["limiting molar conductivity", "Kohlrausch law", "Lambda0 m of weak electrolyte", "degree of dissociation"],
+    "bypass": "Step 1: Express limiting molar conductivity of electrolyte AxBy as sum: Lambda0 m = x * lambda0(A y+) + y * lambda0(B x-). Step 2: Calculate degree of dissociation alpha = Lambda m / Lambda0 m. Step 3: Dissociation constant Ka = (c * alpha^2) / (1 - alpha).",
+    "visual_blueprint": "Graph comparing molar conductivity vs sqrt(C) for strong electrolyte (linear curve) and weak electrolyte (steep upward curve at high dilution)."
+  },
+  {
+    "id": 7,
+    "title": "Van't Hoff Factor and Colligative Properties",
+    "category": "Solutions",
+    "rank": 7,
+    "triggers": ["depression in freezing point delta Tf = i * Kf * m", "Van't Hoff factor i", "degree of dissociation or association", "isotonic solutions"],
+    "bypass": "Step 1: Write dissociation/association equilibrium. Step 2: Calculate i = 1 + (n - 1) * alpha for dissociation, or i = 1 + (1/n - 1) * alpha for association. Step 3: Substitute i into delta Tf = i * Kf * m or osmotic pressure pi = i * C * R * T.",
+    "visual_blueprint": "Phase diagram graph showing vapor pressure vs temperature curves for pure solvent, solution 1, and solution 2 illustrating depression in freezing point."
+  },
+  {
+    "id": 8,
+    "title": "Cannizzaro Reaction",
+    "category": "Aldehydes, Ketones and Carboxylic Acids",
+    "rank": 8,
+    "triggers": ["absence of alpha hydrogen", "disproportionation reaction", "concentrated NaOH", "2-chlorobenzaldehyde to carboxylate"],
+    "bypass": "Applies ONLY to aldehydes with NO alpha-hydrogen. Reacts with concentrated (50%) NaOH: One molecule oxidizes to carboxylic acid salt (R-COONa) and the other reduces to primary alcohol (R-CH2OH).",
+    "visual_blueprint": "Chemical reaction diagram showing self oxidation-reduction where one benzaldehyde becomes sodium benzoate and another becomes benzyl alcohol."
+  },
+  {
+    "id": 9,
+    "title": "Chemical Tests to Distinguish Functional Groups",
+    "category": "Aldehydes, Ketones and Amines",
+    "rank": 9,
+    "triggers": ["distinguish between propanal and propanone", "Tollens test silver mirror", "Iodoform test yellow precipitate", "Hinsberg reagent"],
+    "bypass": "1) Tollens Test: Aldehydes give silver mirror; Ketones do not. 2) Iodoform Test: Compounds with CH3-C=O give yellow CHI3 precipitate. 3) Hinsberg Test: Primary amine gives alkali-soluble ppt; Secondary gives alkali-insoluble ppt; Tertiary does not react.",
+    "visual_blueprint": "Illustration of test tubes showing positive Tollens test (silver mirror), positive iodoform test (yellow precipitate), and Hinsberg reaction solubility behavior."
+  },
+  {
+    "id": 10,
+    "title": "Integrated Rate Equations and Half-Life",
+    "category": "Chemical Kinetics",
+    "rank": 10,
+    "triggers": ["first order reaction half life t1/2 = 0.693 / k", "integrated rate equation", "zero order reaction t1/2 = [R]0 / 2k", "thermal decomposition"],
+    "bypass": "First Order: k = (2.303/t) * log([R]0 / [R]) and t1/2 = 0.693 / k (half-life independent of initial concentration). Zero Order: k = ([R]0 - [R])/t and t1/2 = [R]0 / 2k.",
+    "visual_blueprint": "Plots of concentration vs time for zero-order (straight line with negative slope) and first-order (exponential decay curve) reactions."
+  },
+  {
+    "id": 11,
+    "title": "Basic Strength Trends of Amines",
+    "category": "Amines",
+    "rank": 11,
+    "triggers": ["pKb values of amines", "basic strength in aqueous solution", "order of basicity", "inductively +I effect"],
+    "bypass": "Aqueous Phase Basicity Order: Methyl substituted: 2-degree > 1-degree > 3-degree > NH3. Ethyl substituted: 2-degree > 3-degree > 1-degree > NH3. Gas Phase: 3-degree > 2-degree > 1-degree > NH3 (+I effect only). Aryl amines are weaker bases due to resonance.",
+    "visual_blueprint": "Diagram showing electron density on nitrogen atom increased by alkyl (+I) groups versus delocalized into aromatic pi-system."
+  },
+  {
+    "id": 12,
+    "title": "Valence Bond Theory (VBT) for Coordination",
+    "category": "Coordination Compounds",
+    "rank": 12,
+    "triggers": ["hybridization of coordination entity", "magnetic moment spin only value", "inner orbital vs outer orbital", "diamagnetic vs paramagnetic"],
+    "bypass": "Step 1: Find oxidation state and d-orbital configuration. Step 2: Strong field ligands (CN-, CO, NH3, en) force electron pairing leading to d2sp3 (inner orbital); Weak field ligands (Cl-, F-, H2O) do not pair electrons leading to sp3d2 (outer orbital). Step 3: Calculate magnetic moment mu = sqrt(n*(n+2)) BM.",
+    "visual_blueprint": "Orbital box diagram showing electron pairing in 3d, 4s, 4p, and 4d orbitals during d2sp3 and sp3d2 hybridization."
+  },
+  {
+    "id": 13,
+    "title": "Lanthanoid Contraction",
+    "category": "d and f Block Elements",
+    "rank": 13,
+    "triggers": ["lanthanoid contraction", "steady decrease in atomic/ionic radii", "similarity in radii of Zr and Hf"],
+    "bypass": "Definition: Continuous decrease in atomic and ionic radii of lanthanoids with increase in atomic number due to poor shielding effect of 4f electrons. Key Consequences: 1) Zr and Hf have almost identical atomic radii. 2) Basic strength of hydroxides decreases.",
+    "visual_blueprint": "Graph showing steady decline of ionic radius across 4f lanthanoid series from La3+ to Lu3+."
+  },
+  {
+    "id": 14,
+    "title": "Reimer-Tiemann and Kolbe's Reactions",
+    "category": "Alcohols, Phenols and Ethers",
+    "rank": 14,
+    "triggers": ["phenol to salicylaldehyde", "phenol with CHCl3 and NaOH", "Kolbe's reaction", "phenol with CO2 and NaOH"],
+    "bypass": "1) Reimer-Tiemann: Phenol + CHCl3 + 3 NaOH gives Salicylaldehyde. Electrophile is dichlorocarbene (:CCl2). 2) Kolbe's Reaction: Phenol + NaOH gives Sodium phenoxide + CO2 at 400 K followed by H+ gives Salicylic acid.",
+    "visual_blueprint": "Reaction pathway diagrams converting phenol into salicylaldehyde via Reimer-Tiemann and into salicylic acid via Kolbe's synthesis."
+  },
+  {
+    "id": 15,
+    "title": "Dehydration Mechanism of Alcohols",
+    "category": "Alcohols, Phenols and Ethers",
+    "rank": 15,
+    "triggers": ["dehydration of ethanol at 443 K vs 413 K", "mechanism of formation of ethene", "protonated alcohol intermediate"],
+    "bypass": "Temperature Dependence: Ethanol + conc H2SO4 at 443 K gives Ethene (elimination E1); at 413 K gives Diethyl ether (substitution SN2). Mechanism Steps: Step 1: Protonation of alcohol. Step 2: Loss of H2O to form carbocation (slow step). Step 3: Elimination of proton to form double bond.",
+    "visual_blueprint": "Three-step reaction mechanism schematic illustrating protonation, carbocation intermediate formation, and deprotonation to yield alkene."
+  },
+  {
+    "id": 16,
+    "title": "Raoult's Law and Azeotropes",
+    "category": "Solutions",
+    "rank": 16,
+    "triggers": ["positive deviation from Raoult's law", "negative deviation from Raoult's law", "maximum boiling azeotrope", "minimum boiling azeotrope"],
+    "bypass": "Positive Deviation: A-B interactions weaker than A-A and B-B. Forms minimum boiling azeotrope (e.g. ethanol + acetone). Negative Deviation: A-B interactions stronger (H-bonding). Forms maximum boiling azeotrope (e.g. chloroform + acetone).",
+    "visual_blueprint": "Total and partial vapor pressure vs mole fraction graphs showing positive curvature (above Raoult line) and negative curvature (below Raoult line)."
+  },
+  {
+    "id": 17,
+    "title": "Redox Titrations (KMnO4 and K2Cr2O7)",
+    "category": "d and f Block Elements",
+    "rank": 17,
+    "triggers": ["acidified K2Cr2O7 with FeSO4 or H2S", "acidified KMnO4 with oxalate or iodide", "disproportionation of manganate ion"],
+    "bypass": "Key Ionic Equations: 1) Cr2O7 2- + 14 H+ + 6 e- gives 2 Cr3+ + 7 H2O. Converts Fe2+ to Fe3+, I- to I2. 2) MnO4- + 8 H+ + 5 e- gives Mn2+ + 4 H2O. Converts C2O4 2- to CO2, Fe2+ to Fe3+.",
+    "visual_blueprint": "Color change visualization: Orange dichromate solution turning green Cr3+ upon reduction, and purple permanganate solution decoloring to colorless Mn2+."
+  },
+  {
+    "id": 18,
+    "title": "Reactions of Glucose",
+    "category": "Biomolecules",
+    "rank": 18,
+    "triggers": ["open chain structure of glucose reactions", "glucose with HI, Br2 water, HNO3", "reducing vs non-reducing sugars"],
+    "bypass": "Glucose Key Reactions: 1) HI + Heat gives n-hexane. 2) NH2OH gives Oxime. 3) Br2 water gives Gluconic acid (aldehyde group present). 4) HNO3 gives Saccharic acid (primary alcohol and aldehyde both oxidized). 5) Acetic anhydride gives Pentaacetate.",
+    "visual_blueprint": "Fischer projection formula of D-glucose showing transformations into gluconic acid, saccharic acid, and glucose oxime."
+  },
+  {
+    "id": 19,
+    "title": "Gabriel Phthalimide & Hoffmann Bromamide",
+    "category": "Amines",
+    "rank": 19,
+    "triggers": ["Gabriel phthalimide synthesis", "Hoffmann bromamide degradation", "convert amide to primary amine", "Br2 and NaOH"],
+    "bypass": "1) Hoffmann Bromamide: Converts primary amide to primary amine with ONE LESS carbon atom. 2) Gabriel Phthalimide: Used to prepare Primary aliphatic amine. CANNOT prepare aromatic primary amines because aryl halides do not undergo nucleophilic substitution.",
+    "visual_blueprint": "Reaction flow diagram showing phthalimide treated with KOH, alkyl halide, and base hydrolysis yielding pure primary amine."
+  },
+  {
+    "id": 20,
+    "title": "Diazonium Salt Reactions",
+    "category": "Amines",
+    "rank": 20,
+    "triggers": ["aniline with NaNO2 and HCl at 273-278 K", "Sandmeyer reaction", "Gattermann reaction", "coupling reaction azo dye"],
+    "bypass": "Preparation: Aniline + NaNO2 + 2 HCl at 0-5 degree C gives Benzene diazonium chloride. Reactions: 1) CuCl/HCl gives Chlorobenzene (Sandmeyer). 2) KI gives Iodobenzene. 3) HBF4 then heat gives Fluorobenzene. 4) Phenol/beta-naphthol gives Azo dye.",
+    "visual_blueprint": "Synthetic wheel diagram centered on benzene diazonium chloride branching out to chlorobenzene, fluorobenzene, phenol, benzene, and azo dyes."
+  },
+  {
+    "id": 21,
+    "title": "Henry's Law and Gas Solubility",
+    "category": "Solutions",
+    "rank": 21,
+    "triggers": ["p = KH * x", "solubility of nitrogen in water", "scuba divers air diluted with helium", "effect of temperature on KH"],
+    "bypass": "Formula: Partial pressure of gas p = KH * x. Key Concepts: 1) Higher KH means lower solubility of gas. 2) KH increases with temperature, so gas solubility decreases as temperature increases. 3) Scuba divers tanks diluted with 11.7 percent Helium to prevent decompression sickness.",
+    "visual_blueprint": "Linear graph plotting partial pressure p vs mole fraction x with slope equal to Henry constant KH."
+  },
+  {
+    "id": 22,
+    "title": "Hell-Volhard-Zelinsky (HVZ) Reaction",
+    "category": "Aldehydes, Ketones and Carboxylic Acids",
+    "rank": 22,
+    "triggers": ["carboxylic acid with Br2/red phosphorus", "alpha-halogenated carboxylic acid", "pKa values and acidic strength"],
+    "bypass": "HVZ Reaction: R-CH2-COOH + Br2 / Red P followed by H2O gives R-CH(Br)-COOH. Acidity Trends: Electron-withdrawing groups (-NO2, -Cl, -F) INCREASE acidity. Electron-donating groups (-CH3) DECREASE acidity. Order: F-CH2COOH > Cl-CH2COOH > CH3COOH.",
+    "visual_blueprint": "Chemical equation showing substitution of alpha-hydrogen by halogen in presence of red phosphorus and bromine."
+  },
+  {
+    "id": 23,
+    "title": "Acidity of Phenols, Cresols, and Alcohols",
+    "category": "Alcohols, Phenols and Ethers",
+    "rank": 23,
+    "triggers": ["phenols are more acidic than alcohols", "cresols are less acidic than phenol", "p-nitrophenol is more acidic"],
+    "bypass": "Phenols are more acidic than alcohols because phenoxide ion is resonance stabilized. Electron-withdrawing groups (-NO2) at ortho/para positions increase acidity. Electron-releasing groups (-CH3 in cresols) decrease acidity. Acidity order: p-nitrophenol > phenol > o-cresol > primary alcohol.",
+    "visual_blueprint": "Resonance structures of phenoxide ion showing delocalization of negative charge over ortho and para positions of benzene ring."
+  },
+  {
+    "id": 24,
+    "title": "Williamson Ether Synthesis",
+    "category": "Alcohols, Phenols and Ethers",
+    "rank": 24,
+    "triggers": ["sodium alkoxide with alkyl halide", "cleavage of anisole with HI", "unsymmetrical ether synthesis"],
+    "bypass": "1) Williamson Synthesis: R-X + R'-ONa gives R-O-R' + NaX. Best when R-X is 1-degree alkyl halide. If 3-degree alkyl halide is used, elimination dominates to give ALKENE. 2) Cleavage by HI: Iodide attaches to smaller alkyl group via SN2. BUT if one group is 3-degree, iodide attaches to 3-degree group via SN1.",
+    "visual_blueprint": "Reaction scheme showing primary alkyl halide reacting with alkoxide vs tertiary alkyl halide undergoing elimination to alkene."
+  },
+  {
+    "id": 25,
+    "title": "Products of Electrolysis and Faraday's Laws",
+    "category": "Electrochemistry",
+    "rank": 25,
+    "triggers": ["electrolysis of molten vs aqueous NaCl", "electrolysis of aqueous CuSO4", "charge Q = I * t", "mass deposited"],
+    "bypass": "Key Rules: 1) Molten NaCl gives Na at cathode, Cl2 at anode. 2) Aqueous NaCl gives H2 at cathode, Cl2 at anode (overpotential of oxygen). 3) Aqueous CuSO4 with inert Pt gives Cu at cathode, O2 at anode. Faraday's Law: m = (M * I * t) / (n * F) where F = 96500 C.",
+    "visual_blueprint": "Diagram of an electrolytic cell showing movement of cations to cathode and anions to anode with electrode half-reactions labeled."
+  }
+]
+
