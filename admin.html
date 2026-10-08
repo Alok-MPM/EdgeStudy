@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0e1a3a">
+<title>EdgeStudy Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<style>
+:root{--ink:#12214a;--mute:#5a6685;--bg:#f2f4f9;--line:#dfe5f0;--pri:#2456d8;--soft:#e8eefc;--ok:#1f7a52;--bad:#b3362f;--hd:'Manrope',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{font:400 16px/1.6 'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom)}
+h1,h2,h3{font-family:var(--hd);font-weight:800;line-height:1.2}h2{font-size:1.4rem}p{color:var(--mute)}a{color:inherit}
+header{position:sticky;top:0;z-index:20;background:#0e1a3a;color:#fff;padding-top:env(safe-area-inset-top)}
+header .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.logo{font:800 1.15rem var(--hd);margin-right:auto}.logo i{font-style:normal;color:#f2b134}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}.pg{padding-top:20px;padding-bottom:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:12px;border:2px solid var(--pri);background:var(--pri);color:#fff;font:600 1rem 'Inter',sans-serif;cursor:pointer;text-decoration:none;width:100%}
+.btn.alt{background:transparent;color:var(--pri)}.btn.sm{min-height:38px;padding:0 14px;font-size:.88rem;width:auto}.btn[disabled]{opacity:.6}
+header .btn{border-color:#5b6fa8;background:transparent;color:#fff}
+:focus-visible{outline:3px solid #f2b134;outline-offset:2px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:12px}
+label{display:block;font-weight:600;font-size:.92rem;margin:14px 0 6px}
+input,textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);min-height:48px}
+input:focus,textarea:focus{border-color:var(--pri);outline:none}textarea{min-height:90px;resize:vertical}
+.pw{position:relative}.pw input{padding-right:50px}.eye{position:absolute;right:2px;top:0;width:48px;height:48px;border:0;background:none;color:var(--mute);cursor:pointer;display:grid;place-items:center}
+.eye svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+form .btn{margin-top:18px}
+.msg{margin-top:12px;padding:10px 14px;border-radius:10px;font-size:.92rem;background:#fbe4e2;color:var(--bad)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.stats div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}.stats b{display:block;font:800 1.5rem var(--hd)}.stats span{font-size:.8rem;color:var(--mute)}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:#fff;font:500 .9rem 'Inter',sans-serif;cursor:pointer}.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tk{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;text-decoration:none}
+.tk small{color:var(--mute)}.tk b{overflow-wrap:anywhere}
+.st{flex:none;font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:99px;background:#fdf0d2;color:#8a5a00}.st.answered{background:#dff1e8;color:var(--ok)}.st.closed{background:#ececf1;color:#666}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.thread{display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.b{max-width:88%;padding:10px 14px;border-radius:16px;background:#fff;border:1px solid var(--line);overflow-wrap:anywhere}
+.b.f{align-self:flex-end;background:var(--ink);color:#fff;border-color:var(--ink)}
+.b small{display:block;opacity:.7;font-size:.74rem;margin-top:4px}.b img,.b video{max-width:100%;border-radius:10px;margin-top:6px;display:block}
+.tog{display:flex;align-items:center;gap:12px;min-height:48px}.tog input{width:24px;height:24px;min-height:0;flex:none}.tog label{margin:0}
+.comp{display:grid;gap:8px;margin-top:8px}.file{position:relative;overflow:hidden}.file input{position:absolute;inset:0;opacity:0;cursor:pointer;min-height:0}
+.empty{text-align:center;padding:32px 16px}
+@media(min-width:700px){.btn{width:auto}form .btn{width:100%}.comp{grid-template-columns:1fr auto auto;align-items:end}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><span class="logo">Edge<i>Study</i> Admin</span><span id="hb"></span></div></header>
+<main class="wrap pg" id="app"></main>
+<script>
+const SB_URL='https://xnlpqhxkqeockawecrlm.supabase.co', SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhubHBxaHhrcWVvY2thd2VjcmxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE0NzA1ODEsImV4cCI6MjEwNzA0NjU4MX0.sXuA1wnH46l-R2BqUz3MKp07hPhKSV7w_yF-fV6WE_4';
+const sb=supabase.createClient(SB_URL,SB_KEY),$=s=>document.querySelector(s),app=$('#app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=d=>new Date(d).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+const SL={open:'Needs reply',answered:'Answered',closed:'Closed'};
+const EYE='<svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>',OFF='<svg viewBox="0 0 24 24"><path d="M17.9 17.9A10.9 10.9 0 0 1 12 19C5 19 1 12 1 12a18 18 0 0 1 5.1-5.9M9.9 5.1A10.7 10.7 0 0 1 12 5c7 0 11 7 11 7a18 18 0 0 1-2.2 3.2M1 1l22 22"/></svg>';
+document.addEventListener('click',e=>{const b=e.target.closest('.eye');if(!b)return;const i=$('#'+b.dataset.t),s=i.type==='password';i.type=s?'text':'password';b.innerHTML=s?OFF:EYE;b.setAttribute('aria-label',s?'Hide password':'Show password')});
+let me=null,prof=null,rt=null,filter='open',all=[];
+
+async function load(){const {data}=await sb.auth.getSession();me=data.session?.user||null;prof=null;
+  if(me){const r=await sb.from('profiles').select('is_admin,full_name').eq('id',me.id).maybeSingle();prof=r.data}}
+async function init(){await load();sb.auth.onAuthStateChange(async(ev)=>{if(ev==='SIGNED_IN'||ev==='SIGNED_OUT'){await load();route()}});window.onhashchange=route;route()}
+function route(){
+  if(rt){sb.removeChannel(rt);rt=null}scrollTo(0,0);
+  $('#hb').innerHTML=me?'<button class="btn sm alt" id="lo">Log out</button>':'';
+  $('#lo')&&($('#lo').onclick=()=>sb.auth.signOut());
+  if(!me)return login();
+  if(!prof?.is_admin){app.innerHTML='<div class="card empty"><h2>Access denied</h2><p style="margin:8px 0 0">This account is not an admin.</p></div>';return}
+  const [,p,id]=(location.hash||'#/').split('/');p==='t'?thread(id):inbox();
+}
+function login(){
+  app.innerHTML=`<form class="card" id="f" style="max-width:440px;margin:24px auto"><h2>Admin login</h2>
+  <label for="e">Email</label><input id="e" type="email" required autocomplete="email" inputmode="email">
+  <label for="p">Password</label><div class="pw"><input id="p" type="password" required autocomplete="current-password"><button type="button" class="eye" data-t="p" aria-label="Show password">${EYE}</button></div>
+  <button class="btn" id="go">Log in</button><div class="msg" id="m" hidden></div></form>`;
+  $('#f').onsubmit=async e=>{e.preventDefault();const b=$('#go');b.disabled=true;
+    const r=await sb.auth.signInWithPassword({email:$('#e').value.trim(),password:$('#p').value});b.disabled=false;
+    if(r.error){const m=$('#m');m.textContent=r.error.message;m.hidden=false}};
+}
+async function inbox(){
+  const {data}=await sb.from('tickets').select('*, profiles(full_name)').order('created_at',{ascending:false});all=data||[];
+  const n=k=>all.filter(t=>t.status===k).length;
+  app.innerHTML=`<h2>Inbox</h2><div class="stats"><div><b>${n('open')}</b><span>Need reply</span></div><div><b>${n('answered')}</b><span>Answered</span></div><div><b>${n('closed')}</b><span>Closed</span></div></div>
+  <div class="chips">${['open','answered','closed','all'].map(k=>`<button class="chip ${k===filter?'on':''}" data-f="${k}">${k==='all'?'All':SL[k]}</button>`).join('')}</div><div id="list"></div>`;
+  const draw=()=>{const l=all.filter(t=>filter==='all'||t.status===filter);
+    $('#list').innerHTML=l.length?l.map(t=>`<a class="tk" href="#/t/${t.id}"><span><b>${esc(t.subject)}</b><br><small>${esc(t.profiles?.full_name||'Student')} &middot; ${fmt(t.created_at)}${t.chat_enabled?' &middot; chat on':''}</small></span><span class="st ${t.status}">${SL[t.status]}</span></a>`).join(''):'<div class="card empty"><p>Nothing here.</p></div>'};
+  draw();document.querySelectorAll('[data-f]').forEach(c=>c.onclick=()=>{filter=c.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===c));draw()});
+}
+async function media(path,type){
+  if(!path)return'';const {data}=await sb.storage.from('ticket-media').createSignedUrl(path,3600);const u=data?.signedUrl;if(!u)return'';
+  return type?.startsWith('image')?`<img src="${u}" alt="Attachment" loading="lazy">`:type?.startsWith('video')?`<video src="${u}" controls playsinline></video>`:`<a href="${u}" target="_blank" rel="noopener">Open attachment</a>`;
+}
+async function thread(id){
+  const {data:t}=await sb.from('tickets').select('*, profiles(full_name)').eq('id',id).maybeSingle();
+  if(!t){app.innerHTML='<div class="card empty"><h2>Ticket not found</h2><p style="margin:8px 0 16px">It may have been removed.</p><a class="btn" href="#/">Back to inbox</a></div>';return}
+  const closed=t.status==='closed';
+  app.innerHTML=`<a href="#/" style="text-decoration:none;color:var(--pri);font-weight:600">&larr; Inbox</a>
+  <div class="row" style="margin-top:12px"><h2>${esc(t.subject)}</h2><span class="st ${t.status}">${SL[t.status]}</span></div><p style="font-size:.9rem">${esc(t.profiles?.full_name||'Student')} &middot; ${fmt(t.created_at)}</p>
+  <div class="card tog" style="margin-top:12px;justify-content:space-between"><span class="tog"><input type="checkbox" id="ce" ${t.chat_enabled?'checked':''}><label for="ce">Let student reply</label></span><button class="btn sm alt" id="cl">${closed?'Reopen':'Close ticket'}</button></div>
+  <div class="thread" id="th"></div>
+  ${closed?'<div class="card empty"><p>This ticket is closed. Reopen it to reply.</p></div>':`<form class="comp" id="cf"><textarea id="cb" required placeholder="Write a reply"></textarea><div class="btn alt file sm">Add media<input type="file" id="cfi" accept="image/*,video/*"></div><button class="btn sm">Send reply</button></form><small id="cfn" style="color:var(--mute)"></small>`}`;
+  const th=$('#th');
+  const add=async m=>{const d=document.createElement('div');d.className='b'+(m.is_founder?' f':'');
+    d.innerHTML=`${esc(m.body).replace(/\n/g,'<br>')}${await media(m.media_path,m.media_type)}<small>${m.is_founder?'You (Founder)':'Student'} &middot; ${fmt(m.created_at)}</small>`;th.appendChild(d)};
+  const {data:ms}=await sb.from('ticket_messages').select('*').eq('ticket_id',id).order('created_at');
+  for(const m of ms||[])await add(m);
+  const seen=new Set((ms||[]).map(m=>m.id));
+  rt=sb.channel('a'+id).on('postgres_changes',{event:'INSERT',schema:'public',table:'ticket_messages',filter:`ticket_id=eq.${id}`},p=>{if(!seen.has(p.new.id)){seen.add(p.new.id);add(p.new)}}).subscribe();
+  $('#ce').onchange=e=>sb.from('tickets').update({chat_enabled:e.target.checked}).eq('id',id);
+  $('#cl').onclick=async()=>{await sb.from('tickets').update({status:closed?'open':'closed'}).eq('id',id);thread(id)};
+  $('#cfi')&&($('#cfi').onchange=e=>$('#cfn').textContent=e.target.files[0]?.name||'');
+  $('#cf')&&($('#cf').onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;
+    try{const f=$('#cfi').files[0];let up={};
+      if(f){const path=`${me.id}/${id}/${Date.now()}-${f.name.replace(/[^\w.-]/g,'_')}`;const u=await sb.storage.from('ticket-media').upload(path,f,{contentType:f.type});if(u.error)throw u.error;up={path,type:f.type}}
+      const {data:m,error}=await sb.from('ticket_messages').insert({ticket_id:id,sender_id:me.id,is_founder:true,body:$('#cb').value.trim(),media_path:up.path,media_type:up.type}).select().single();
+      if(error)throw error;seen.add(m.id);await add(m);$('#cb').value='';$('#cfi').value='';$('#cfn').textContent='';
+      await sb.from('tickets').update({status:'answered'}).eq('id',id);
+    }catch(x){alert(x.message)}btn.disabled=false});
+}
+init();
+</script>
+</body>
+</html>
