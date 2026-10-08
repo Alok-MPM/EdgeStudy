@@ -229,4 +229,30 @@ async function ticket(id,adminView=false){
   `<div class="lock">${t.status==='closed'?'Ye ticket band hai.':'Chat abhi band hai. Founder jab chat on karega, tab yahin reply kar paoge. Jawab aate hi yahan dikhega.'}</div>`}</div>`;
   const th=$('#th');
   const add=async m=>{const mine=m.sender_id===me.id;const d=document.createElement('div');d.className='b '+(m.is_founder?'f':'')+(mine?' me':'');
-    d.innerHTML=`
+    d.innerHTML=`${esc(m.body).replace(/\n/g,'<br>')}${await media(m.media_path,m.media_type)}<small>${m.is_founder?FOUNDER_NAME+' (Founder)':'Student'} · ${fmt(m.created_at)}</small>`;
+    if(m.is_founder&&mine)d.classList.remove('me');th.appendChild(d);th.scrollTop=th.scrollHeight};
+  const {data:ms}=await sb.from('ticket_messages').select('*').eq('ticket_id',id).order('created_at');
+  for(const m of ms||[])await add(m);
+  const seen=new Set((ms||[]).map(m=>m.id));
+  rt=sb.channel('t'+id).on('postgres_changes',{event:'INSERT',schema:'public',table:'ticket_messages',filter:`ticket_id=eq.${id}`},p=>{if(!seen.has(p.new.id)){seen.add(p.new.id);add(p.new)}})
+    .on('postgres_changes',{event:'UPDATE',schema:'public',table:'tickets',filter:`id=eq.${id}`},()=>ticket(id)).subscribe();
+  $('#cfi')&&($('#cfi').onchange=e=>$('#cfn').textContent=e.target.files[0]?.name||'');
+  $('#cf')&&($('#cf').onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;
+    try{const f=$('#cfi').files[0];const up=f?await upload(f,id):{};
+      const {data:m,error}=await sb.from('ticket_messages').insert({ticket_id:id,sender_id:me.id,is_founder:isF,body:$('#cb').value.trim(),media_path:up.path,media_type:up.type}).select().single();
+      if(error)throw error;seen.add(m.id);await add(m);$('#cb').value='';$('#cfi').value='';$('#cfn').textContent='';
+      if(isF)await sb.from('tickets').update({status:'answered'}).eq('id',id);
+    }catch(x){alert(x.message)}btn.disabled=false});
+  $('#ce')&&($('#ce').onchange=async e=>{await sb.from('tickets').update({chat_enabled:e.target.checked}).eq('id',id)});
+  $('#cl')&&($('#cl').onclick=async()=>{await sb.from('tickets').update({status:t.status==='closed'?'open':'closed'}).eq('id',id)});
+}
+
+/* ---------- Founder inbox ---------- */
+async function admin(){
+  const {data:ts}=await sb.from('tickets').select('*, profiles(full_name)').order('created_at',{ascending:false});
+  app.innerHTML=`<div class="wrap" style="max-width:760px;padding-top:36px"><h2>Founder inbox</h2>${ts?.length?ts.map(t=>`<a class="tk" href="#/ticket/${t.id}"><span><b>${esc(t.subject)}</b><br><small>${esc(t.profiles?.full_name||'Student')} · ${fmt(t.created_at)}${t.chat_enabled?' · chat on':''}</small></span><span class="st ${t.status}">${t.status}</span></a>`).join(''):'<div class="panel">Abhi koi ticket nahi aaya.</div>'}</div>`;
+}
+init();
+</script>
+</body>
+</html>
