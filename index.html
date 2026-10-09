@@ -4,370 +4,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#10141e">
-<meta name="description" content="Class 12 board exam prep: clear theory, important questions and quick revision, with direct help from the founder.">
+<meta name="description" content="EdgeStudy: Class 12 board exam prep with clear theory, important questions, quick revision, an automatic study journal, a smart planner and daily quests.">
 <title>EdgeStudy | Class 12 Board Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/live.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-<style>
-:root{color-scheme:dark;--bg:#10141e;--panel:#191f2c;--panel2:#202838;--line:#2c3648;--text:#f5f7fb;--muted:#a4afc0;--mint:#5ee2bc;--amber:#ffc36b;--coral:#ff8f83;--sky:#8dbbff;--violet:#b8a2ff}
-*{box-sizing:border-box;margin:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{background:radial-gradient(ellipse at 15% 0,#213a3a45,transparent 36%),radial-gradient(ellipse at 100% 30%,#493b5a25,transparent 32%),var(--bg);color:var(--text);font:400 16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden;min-height:100vh}
-body.hasTab{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
-h1,h2,h3{line-height:1.12;letter-spacing:-.03em}h1{font-size:clamp(2.2rem,9vw,4.4rem);letter-spacing:-.05em}h2{font-size:clamp(1.55rem,6vw,2.5rem);letter-spacing:-.04em}h3{font-size:1.1rem}
-p{color:var(--muted)}
-:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
-.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
-.topbar{position:sticky;top:0;z-index:30;background:#10141ef2;border-bottom:1px solid #ffffff12;backdrop-filter:blur(14px);padding-top:env(safe-area-inset-top)}
-#nav{min-height:60px;display:flex;align-items:center;gap:10px}
-.brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:850;letter-spacing:-.5px;margin-right:auto}
-.logo{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:var(--mint);color:#10201d;font-weight:950}
-.navl{display:none;gap:22px;color:var(--muted);font-size:14px;margin-right:12px}.navl a:hover{color:var(--mint)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border:1px solid var(--line);border-radius:12px;padding:0 18px;background:#ffffff06;font-weight:700;font-size:14px;transition:transform .15s,border-color .15s}
-.btn:hover{border-color:#5ee2bc88}.btn:active{transform:scale(.98)}.btn[disabled]{opacity:.6}
-.btn.primary{background:var(--mint);border-color:var(--mint);color:#10201d}.btn.sm{min-height:38px;padding:0 13px;font-size:13px}.btn.block{width:100%}
-.av{width:36px;height:36px;border-radius:50%;background:var(--mint);color:#10201d;display:grid;place-items:center;font-weight:850;flex:none}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #5ee2bc42;background:#5ee2bc0d;border-radius:99px;padding:6px 12px;color:var(--mint);font-size:12px;font-weight:700}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px #5ee2bc18}
-.kicker{color:var(--mint);font-size:13px;font-weight:700}
-.hero{padding:40px 0 36px;position:relative;overflow:hidden}.hero>.wrap{position:relative;z-index:1}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none;animation:float 11s ease-in-out infinite}
-.hero:before{width:340px;height:340px;top:-90px;right:-70px;background:radial-gradient(circle,#5ee2bc38,transparent 66%)}
-.hero:after{width:300px;height:300px;bottom:-110px;left:-80px;background:radial-gradient(circle,#b8a2ff30,transparent 66%);animation-delay:-5s}.heroGrid{display:grid;gap:30px}
-.hero h1{margin:18px 0 14px}.hero h1 span{background:linear-gradient(90deg,var(--mint),var(--sky),var(--violet),var(--mint));background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}.lead{font-size:1.02rem;max-width:34em;margin-bottom:22px}
-.acts{display:grid;gap:10px}
-.preview{padding:20px;border-radius:24px;border:1px solid #ffffff19;background:linear-gradient(145deg,#252e3e,#171d29 70%);box-shadow:0 24px 65px #0003}
-.preview h3{font-size:1.2rem;margin:4px 0 12px}
-.prow{display:flex;gap:12px;align-items:center;padding:13px 0;border-top:1px solid #ffffff10}
-.pic{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;font-size:18px;flex:none;background:#5ee2bc17;color:var(--mint)}
-.prow b{display:block;font-size:.95rem}.prow small{color:var(--muted);font-size:.82rem}
-.section{padding:40px 0}.alt{background:#ffffff03;border-block:1px solid #ffffff0c}
-.sh{margin-bottom:22px}.sh p{max-width:34em;margin-top:8px}
-.grid2,.steps{display:grid;gap:12px}
-.feat{--a:var(--mint);display:block;padding:20px;border:1px solid color-mix(in srgb,var(--a) 32%,transparent);border-radius:22px;background:radial-gradient(ellipse at 100% 0,color-mix(in srgb,var(--a) 30%,transparent),transparent 58%),linear-gradient(160deg,color-mix(in srgb,var(--a) 8%,var(--panel)),var(--panel));transition:transform .25s,box-shadow .25s}
-.feat:hover{transform:translateY(-5px);box-shadow:0 16px 38px color-mix(in srgb,var(--a) 24%,transparent)}
-.feat .tg{display:inline-block;padding:4px 11px;border-radius:99px;background:color-mix(in srgb,var(--a) 16%,transparent)}
-.feat .tg{color:var(--a);font-size:13px;font-weight:700}.feat h3{font-size:1.3rem;margin:10px 0 6px}.feat p{font-size:.92rem}
-.subjectGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.subject:last-child:nth-child(odd){grid-column:span 2}
-.subject{--a:var(--mint);position:relative;overflow:hidden;display:block;padding:15px;border:1px solid color-mix(in srgb,var(--a) 38%,transparent);border-radius:20px;background:radial-gradient(circle at 100% 0,color-mix(in srgb,var(--a) 34%,transparent),transparent 62%),linear-gradient(160deg,color-mix(in srgb,var(--a) 12%,#1b2231),#141a27);min-height:128px;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s}
-.subject:hover,.sc:hover{transform:translateY(-6px) rotate(-.8deg);border-color:var(--a);box-shadow:0 18px 40px color-mix(in srgb,var(--a) 28%,transparent)}
-.subject:active,.sc:active{transform:scale(.97)}
-.wm{position:absolute;right:-4px;bottom:-22px;font-style:normal;font-weight:900;font-size:92px;line-height:1;color:color-mix(in srgb,var(--a) 16%,transparent);transform:rotate(-12deg);pointer-events:none;transition:transform .35s}
-.subject:hover .wm,.sc:hover .wm{transform:rotate(-4deg) scale(1.12)}
-.subject>*:not(.wm),.sc>*:not(.wm){position:relative}
-.si{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--a),color-mix(in srgb,var(--a) 55%,#fff));color:#10141e;font-weight:850;flex:none;box-shadow:0 6px 18px color-mix(in srgb,var(--a) 45%,transparent)}
-.subject h3{font-size:.98rem;margin:12px 0 2px}.subject small{color:var(--muted);font-size:.8rem}
-.step{--a:var(--mint);display:grid;grid-template-columns:38px 1fr;column-gap:14px;padding:16px;border:1px solid color-mix(in srgb,var(--a) 30%,transparent);border-top:3px solid var(--a);border-radius:18px;background:linear-gradient(160deg,color-mix(in srgb,var(--a) 15%,var(--panel)),var(--panel) 68%);transition:transform .25s,box-shadow .25s}
-.step:hover{transform:translateY(-4px);box-shadow:0 14px 34px color-mix(in srgb,var(--a) 22%,transparent)}
-.step b{grid-row:span 2;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--a),color-mix(in srgb,var(--a) 55%,#fff));color:#10141e;font-weight:850;box-shadow:0 6px 16px color-mix(in srgb,var(--a) 40%,transparent)}.step p{font-size:.9rem}
-.ctaBox{text-align:center;padding:34px 20px;border:1px solid #ffffff18;border-radius:24px;background:radial-gradient(ellipse at 50% 0,#5ee2bc17,transparent 62%),var(--panel)}
-.ctaBox p{max-width:30em;margin:10px auto 20px}
-footer{border-top:1px solid #ffffff10;padding:22px 0 30px;color:#8693a6;font-size:.82rem;text-align:center;margin-top:20px}
-.authGrid{display:grid;gap:14px;padding:20px 0 36px;max-width:980px;margin:auto}
-.pitch{display:none;padding:34px;border-radius:24px;border:1px solid #ffffff14;background:radial-gradient(ellipse at 0 0,#5ee2bc1c,transparent 55%),var(--panel)}
-.pitch h1{font-size:2.6rem;margin:16px 0 12px}.pitch h1 span{color:var(--mint)}.pitch ul{list-style:none;padding:0;margin-top:22px;display:grid;gap:10px}.pitch li{color:var(--text);font-size:.95rem}.pitch li:before{content:"✓";color:var(--mint);margin-right:10px;font-weight:800}
-.card{padding:22px;border:1px solid #ffffff14;border-radius:22px;background:var(--panel)}
-label{display:block;font-weight:600;font-size:.9rem;margin:15px 0 6px}
-input,textarea,select{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#121823;color:var(--text);min-height:48px}
-input::placeholder,textarea::placeholder{color:#6f7b8e}input:focus,textarea:focus,select:focus{border-color:var(--mint);outline:none}input:disabled{opacity:.6}textarea{min-height:120px;resize:vertical}
-.pw{position:relative}.pw input{padding-right:52px}.eye{position:absolute;right:2px;top:0;width:48px;height:48px;border:0;background:none;color:var(--muted);display:grid;place-items:center}
-svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-form .btn.block{margin-top:20px}
-.msg{margin-top:12px;padding:11px 14px;border-radius:12px;font-size:.9rem;background:#8dbbff1a;color:var(--sky)}.msg.err{background:#ff8f8318;color:var(--coral)}.msg.ok{background:#5ee2bc15;color:var(--mint)}
-.hint{font-size:.84rem;min-height:1.3em;margin-top:6px}.hint.ok{color:var(--mint)}.hint.err{color:var(--coral)}
-.appLayout{display:block;padding:20px 0 40px}
-.sidebar{display:none}
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(4,1fr);background:#141a26f7;border-top:1px solid #ffffff14;backdrop-filter:blur(14px);padding-bottom:env(safe-area-inset-bottom)}
-.tabbar[hidden]{display:none}
-.tabbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:60px;font-size:.72rem;font-weight:600;color:var(--muted)}.tabbar a.on{color:var(--mint)}
-.main{min-width:0}
-.pageTop{margin-bottom:20px}.crumb{font-size:.82rem;color:#8592a5;margin-bottom:4px}.crumb a{color:var(--mint)}
-.pageTop h1{font-size:clamp(1.7rem,7vw,2.5rem);letter-spacing:-.04em}.pageTop p{font-size:.92rem;margin-top:6px}
-.banner{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px;border:1px solid #ffffff14;border-radius:22px;background:radial-gradient(ellipse at 100% 0,#5ee2bc20,transparent 48%),linear-gradient(125deg,#202c3a,#191f2c);margin-bottom:14px}
-.banner h2{font-size:1.5rem;margin:6px 0}.banner p{font-size:.9rem;max-width:28em;margin-bottom:14px}
-.mark{width:56px;height:56px;display:grid;place-items:center;border-radius:18px;background:#5ee2bc12;border:1px solid #5ee2bc22;color:var(--mint);font-size:26px;flex:none}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:14px}
-.stat{--a:var(--mint);padding:13px;border:1px solid color-mix(in srgb,var(--a) 35%,transparent);border-radius:16px;background:linear-gradient(150deg,color-mix(in srgb,var(--a) 20%,var(--panel)),var(--panel))}.stat strong{display:block;font-size:1.6rem;letter-spacing:-.04em;color:var(--a)}.stat small{color:var(--muted);font-size:.76rem;display:block;line-height:1.3}
-.box{border:1px solid #ffffff13;border-radius:20px;background:var(--panel);padding:18px;margin-bottom:14px;min-width:0}
-.bh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.bh h3{font-size:1rem}.tl{color:var(--mint);font-size:.85rem;font-weight:700}
-.li{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #ffffff0d}.li:first-of-type{border-top:0}.li>div{min-width:0;flex:1}.li strong{display:block;font-size:.95rem}.li small{color:var(--muted);font-size:.82rem}
-.subjectList,.chapterGrid{display:grid;gap:10px}
-.sc{--a:var(--mint);position:relative;overflow:hidden;display:flex;align-items:center;gap:13px;padding:16px;border:1px solid color-mix(in srgb,var(--a) 38%,transparent);border-radius:20px;background:radial-gradient(circle at 100% 0,color-mix(in srgb,var(--a) 30%,transparent),transparent 62%),linear-gradient(160deg,color-mix(in srgb,var(--a) 10%,#1b2231),#151b28);min-height:78px;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s}
-.sc .wm{font-size:78px;bottom:-16px}
-.sc strong{display:block}.sc small{color:var(--muted);font-size:.82rem}.sc .go{margin-left:auto;color:var(--muted)}
-.cc{--a:var(--mint);border:1px solid color-mix(in srgb,var(--a) 28%,transparent);border-left:4px solid var(--a);border-radius:18px;padding:16px;background:linear-gradient(145deg,color-mix(in srgb,var(--a) 11%,var(--panel2)),#171d29);transition:transform .25s,box-shadow .25s}
-.cc:hover{transform:translateY(-4px);box-shadow:0 14px 32px color-mix(in srgb,var(--a) 22%,transparent)}
-.cc .no{display:inline-block;font-size:.78rem;color:var(--a);font-weight:700;padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--a) 15%,transparent)}.cc h3{margin:6px 0 12px}.cc .ft{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid #ffffff0d;padding-top:12px}.cc .ft small{color:#8f9bad;font-size:.8rem}
-.tabs{display:flex;gap:7px;overflow-x:auto;margin:16px 0;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
-.tab{flex:none;border:1px solid #ffffff17;background:#ffffff04;color:#aab6c7;padding:10px 15px;border-radius:12px;font-size:.88rem;font-weight:700}.tab.on{background:#5ee2bc14;border-color:#5ee2bc60;color:var(--mint)}
-.lesson{border:1px solid #ffffff13;border-radius:20px;background:var(--panel);padding:20px;margin-bottom:14px;overflow-wrap:anywhere}
-.lesson h2{font-size:1.4rem;margin:0 0 10px}.lesson h3{margin:20px 0 8px}.lesson p,.lesson li{color:#c0c9d6;font-size:.95rem;line-height:1.8}.lesson ul,.lesson ol{padding-left:20px}
-.lesson .formula{padding:14px;border:1px solid #5ee2bc28;background:#5ee2bc0a;border-radius:13px;color:#dffcf3;font:600 .95rem/1.8 ui-monospace,monospace;margin:12px 0}
-.lesson .note{padding:12px 14px;border-left:3px solid var(--amber);background:#ffc36b0c;border-radius:0 12px 12px 0;color:#e6d5b7;margin:14px 0}
-.lesson details{border:1px solid #ffffff12;border-radius:14px;padding:12px 14px;margin:10px 0;background:#151b26}.lesson summary{cursor:pointer;font-weight:700}
-.lesson img{max-width:100%;height:auto;border-radius:12px}.lesson table{display:block;overflow-x:auto;border-collapse:collapse}.lesson td,.lesson th{border:1px solid var(--line);padding:8px 10px}
-.empty{text-align:center;padding:26px 8px}.empty h3{margin-bottom:6px}.empty p{margin:0 auto 16px;max-width:26em;font-size:.92rem}
-.pn{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.who{display:flex;gap:14px;align-items:center;margin-bottom:16px}.who .av{width:58px;height:58px;font-size:1.5rem}.who p{overflow-wrap:anywhere;font-size:.9rem}
-.tk{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 16px;border:1px solid #ffffff13;border-radius:16px;background:var(--panel);margin-bottom:10px}
-.tk small{color:var(--muted)}.tk b{overflow-wrap:anywhere}
-.st{flex:none;font-size:.76rem;font-weight:700;padding:4px 10px;border-radius:99px;background:#ffc36b1a;color:var(--amber)}.st.answered{background:#5ee2bc15;color:var(--mint)}.st.closed{background:#ffffff12;color:var(--muted)}
-.thread{display:flex;flex-direction:column;gap:10px;margin:18px 0}
-.b{max-width:90%;padding:10px 14px;border-radius:16px;background:var(--panel2);border:1px solid #ffffff12;overflow-wrap:anywhere}
-.b.f{align-self:flex-start;background:#5ee2bc16;border-color:#5ee2bc40}.b.me{align-self:flex-end}
-.b small{display:block;color:var(--muted);font-size:.74rem;margin-top:4px}.b img,.b video{max-width:100%;border-radius:10px;margin-top:6px;display:block}
-.comp{display:grid;gap:8px}.comp textarea{min-height:84px}
-.file{position:relative;overflow:hidden}.file input{position:absolute;inset:0;opacity:0;min-height:0;cursor:pointer}
-.lock{background:#ffc36b14;color:#e6d5b7;border-radius:14px;padding:14px 16px;font-size:.9rem}
-.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-@media(min-width:700px){
- .acts{display:flex}.grid2{grid-template-columns:repeat(2,1fr)}.subjectGrid{grid-template-columns:repeat(5,1fr)}.subject:last-child:nth-child(odd){grid-column:auto}.steps{grid-template-columns:repeat(3,1fr)}
- .step{display:block}.step b{margin-bottom:14px}.subjectList,.chapterGrid{grid-template-columns:repeat(2,1fr)}.subjectList>.sc:last-child:nth-child(odd){grid-column:span 2}.hero{padding:70px 0 56px}
-}
-@media(min-width:900px){
- .navl{display:flex}.heroGrid{grid-template-columns:1.05fr .95fr;align-items:center;gap:44px}
- .authGrid{grid-template-columns:1fr 1fr}.pitch{display:flex;flex-direction:column;justify-content:center}.authGrid .card{align-self:center}
- body.hasTab{padding-bottom:0}.tabbar{display:none!important}
- .appLayout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:26px;padding-top:28px}
- .sidebar{display:block;align-self:start;position:sticky;top:84px;border:1px solid #ffffff12;border-radius:20px;padding:12px;background:#151b27}
- .sidebar a,.sidebar button{width:100%;display:flex;align-items:center;gap:10px;border:0;background:none;color:#a9b5c6;border-radius:12px;padding:11px 12px;font-size:.92rem;margin:2px 0;text-align:left}
- .sidebar a:hover,.sidebar a.on,.sidebar button:hover{background:#5ee2bc12;color:var(--mint)}
-}
-@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.95)}to{opacity:1;transform:none}}
-@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-26px,28px)}}
-@keyframes shine{to{background-position:250% center}}
-.subject,.sc,.cc,.feat,.step,.stat{animation:pop .55s cubic-bezier(.2,.7,.2,1) both}
-.subject:nth-child(2),.sc:nth-child(2),.cc:nth-child(2),.feat:nth-child(2),.step:nth-child(2),.stat:nth-child(2){animation-delay:.07s}
-.subject:nth-child(3),.sc:nth-child(3),.cc:nth-child(3),.feat:nth-child(3),.step:nth-child(3),.stat:nth-child(3){animation-delay:.14s}
-.subject:nth-child(4),.sc:nth-child(4),.cc:nth-child(4),.feat:nth-child(4){animation-delay:.21s}
-.subject:nth-child(5),.sc:nth-child(5),.cc:nth-child(5){animation-delay:.28s}
-.cc:nth-child(n+6){animation-delay:.3s}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-</style>
+<noscript><style>#boot{display:none}body.locked{overflow:auto}</style></noscript>
 </head>
-<body>
+<body class="locked">
+
+<div id="boot" aria-hidden="true">
+  <div class="boot-bg"></div>
+  <canvas id="bootCanvas"></canvas>
+  <div class="boot-ui">
+    <div class="boot-log" id="bootLog"><span>Sharpening pencils</span></div>
+    <div class="boot-bar"><i id="bootBar"></i></div>
+    <div class="boot-meta"><span>Class 12 board prep</span><span id="bootPct">00</span></div>
+  </div>
+</div>
+
+<canvas id="field" aria-hidden="true"></canvas>
+<div id="sweep" aria-hidden="true"></div>
 <header class="topbar"><div class="wrap" id="nav"></div></header>
 <div id="view"></div>
 <nav class="tabbar" id="tabbar" aria-label="Main" hidden></nav>
+<div id="toasts" aria-live="polite"></div>
+<canvas id="spark" aria-hidden="true"></canvas>
 
-<script>
-/* ===== SETUP ===== */
-const SB_URL='https://xnlpqhxkqeockawecrlm.supabase.co', SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhubHBxaHhrcWVvY2thd2VjcmxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE0NzA1ODEsImV4cCI6MjEwNzA0NjU4MX0.sXuA1wnH46l-R2BqUz3MKp07hPhKSV7w_yF-fV6WE_4';
-
-/* ===== SUBJECTS AND CHAPTERS (titles only; content is added later) ===== */
-const SUBJECTS=[
-{n:'Physics',i:'∿',c:'var(--mint)',ch:['Electric Charges and Fields','Electrostatic Potential and Capacitance','Current Electricity','Moving Charges and Magnetism','Magnetism and Matter','Electromagnetic Induction','Alternating Current','Electromagnetic Waves','Ray Optics and Optical Instruments','Wave Optics','Dual Nature of Radiation and Matter','Atoms','Nuclei','Semiconductor Electronics']},
-{n:'Chemistry',i:'⚗',c:'var(--violet)',ch:['Solutions','Electrochemistry','Chemical Kinetics','The d- and f-Block Elements','Coordination Compounds','Haloalkanes and Haloarenes','Alcohols, Phenols and Ethers','Aldehydes, Ketones and Carboxylic Acids','Amines','Biomolecules']},
-{n:'Mathematics',i:'∑',c:'var(--amber)',ch:['Relations and Functions','Inverse Trigonometric Functions','Matrices','Determinants','Continuity and Differentiability','Applications of Derivatives','Integrals','Applications of Integrals','Differential Equations','Vector Algebra','Three Dimensional Geometry','Linear Programming','Probability']},
-{n:'English',i:'Aa',c:'var(--sky)',ch:['Reading Comprehension','Writing Skills','Flamingo: Prose','Flamingo: Poetry']},
-{n:'Painting',i:'✎',c:'#ffc0e1',ch:['The Rajasthani School of Painting','The Pahari School of Painting','The Mughal School of Miniature Painting','The Deccan Schools of Painting','The Bengal School and Cultural Nationalism','Modern Trends in Indian Art']}
-];
-/* Add content later. Key = 'Subject|Chapter title|tab' (tab = theory | questions | revision).
-   Value = path of an HTML fragment file, e.g. 'Physics|Nuclei|theory':'notes/physics/nuclei-theory.html' */
-const CONTENT={};
-const TABS=[['theory','Theory'],['questions','Important Questions'],['revision','Quick Revision']];
-
-let sb=null;try{if(window.supabase)sb=supabase.createClient(SB_URL,SB_KEY)}catch(e){console.error(e)}
-const $=s=>document.querySelector(s),view=$('#view');
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let me=null,prof=null,rt=null;
-const go=h=>location.hash=h;
-const fmt=d=>new Date(d).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
-const say=(el,t,k='err')=>{el.className='msg '+k;el.textContent=t;el.hidden=false};
-const SL={open:'Under review',answered:'Replied',closed:'Closed'};
-const sub=n=>SUBJECTS.find(s=>s.n===n);
-const total=SUBJECTS.reduce((a,s)=>a+s.ch.length,0);
-const P={home:'<path d="M3 11l9-8 9 8v10H3z"/>',book:'<path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/>',help:'<path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6A8 8 0 1 1 21 12z"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',eye:'<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/>',off:'<path d="M17.9 17.9A10.9 10.9 0 0 1 12 19C5 19 1 12 1 12a18 18 0 0 1 5.1-5.9M9.9 5.1A10.7 10.7 0 0 1 12 5c7 0 11 7 11 7a18 18 0 0 1-2.2 3.2M1 1l22 22"/>',out:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>'};
-const ic=n=>`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
-const pwf=(id,label,ac)=>`<label for="${id}">${label}</label><div class="pw"><input id="${id}" type="password" minlength="6" required autocomplete="${ac}"><button type="button" class="eye" data-t="${id}" aria-label="Show password">${ic('eye')}</button></div>`;
-document.addEventListener('click',e=>{const b=e.target.closest('.eye');if(!b)return;const i=document.getElementById(b.dataset.t),s=i.type==='password';i.type=s?'text':'password';b.innerHTML=ic(s?'off':'eye');b.setAttribute('aria-label',s?'Hide password':'Show password')});
-
-async function init(){
-  window.onhashchange=route;
-  if(!sb){route();return}
-  const {data}=await sb.auth.getSession();await setUser(data.session?.user);
-  sb.auth.onAuthStateChange((ev,s)=>{
-    if(ev==='SIGNED_OUT'||(ev==='SIGNED_IN'&&s?.user?.id!==me?.id))setTimeout(async()=>{await setUser(s?.user);route()},0)});
-  route();
-}
-async function setUser(u){me=u||null;prof=null;if(me){const {data}=await sb.from('profiles').select('*').eq('id',me.id).maybeSingle();prof=data}}
-const dname=()=>prof?.full_name||me?.user_metadata?.full_name||'';
-
-const PRIVATE=['app','subjects','c','help','ticket','profile'];
-const onTab=(p,k)=>p===k||(k==='subjects'&&p==='c')||(k==='help'&&p==='ticket');
-function chrome(p){
-  const priv=PRIVATE.includes(p);
-  $('#nav').innerHTML=`<a class="brand" href="${me&&priv?'#/app':'#/'}"><span class="logo">E</span>EdgeStudy</a>
-  ${me?`${priv?'':'<a class="btn sm primary" href="#/app">Study space</a>'}<a class="av" href="#/profile" aria-label="Profile">${esc((dname()||me.email)[0].toUpperCase())}</a>`
-  :`<span class="navl"><a href="#/" onclick="event.preventDefault();jump('subjects')">Subjects</a><a href="#/" onclick="event.preventDefault();jump('how')">How it works</a></span><a class="btn sm" href="#/login">Log in</a><a class="btn sm primary" href="#/signup">Get started</a>`}`;
-  const tb=$('#tabbar'),show=!!me&&priv;tb.hidden=!show;document.body.classList.toggle('hasTab',show);
-  const T=(h,k,i,t)=>`<a class="${onTab(p,k)?'on':''}" href="${h}">${ic(i)}<span>${t}</span></a>`;
-  tb.innerHTML=T('#/app','app','home','Home')+T('#/subjects','subjects','book','Subjects')+T('#/help','help','help','Report')+T('#/profile','profile','user','Profile');
-}
-function jump(id){if((location.hash||'#/')!=='#/'){go('#/');setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'}),80)}else document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
-function shell(p,inner){
-  const L=(h,k,i,t)=>`<a class="${onTab(p,k)?'on':''}" href="${h}">${ic(i)}${t}</a>`;
-  view.innerHTML=`<div class="wrap appLayout"><aside class="sidebar">${L('#/app','app','home','Dashboard')}${L('#/subjects','subjects','book','My subjects')}${L('#/help','help','help','Report a gap')}${L('#/profile','profile','user','Profile')}<button id="so">${ic('out')}Log out</button></aside><main class="main">${inner}</main></div>`;
-  $('#so').onclick=()=>sb.auth.signOut().then(()=>go('#/'));
-}
-function route(){
-  if(rt){sb.removeChannel(rt);rt=null}
-  const [,p='',a,b,c]=(location.hash||'#/').split('/');
-  chrome(p);scrollTo(0,0);
-  if(!sb&&p!==''){view.innerHTML='<div class="wrap authGrid"><div class="card empty"><h3>Service unavailable</h3><p>Could not connect. Check your internet connection and reload.</p></div></div>';return}
-  if(PRIVATE.includes(p)&&!me)return go('#/login');
-  ({'':landing,login:()=>auth('login'),signup:()=>auth('signup'),app:dashboard,subjects:()=>subjects(a),c:()=>chapter(a,b,c),help,ticket:()=>ticket(a),profile}[p]||landing)();
-}
-
-/* ---------- Landing ---------- */
-function landing(){
-  const tile=s=>`<a class="subject" style="--a:${s.c}" href="#/subjects/${encodeURIComponent(s.n)}"><i class="wm" aria-hidden="true">${s.i}</i><span class="si">${s.i}</span><h3>${s.n}</h3><small>${s.ch.length} chapters</small></a>`;
-  view.innerHTML=`<section class="hero"><div class="wrap heroGrid"><div><span class="eyebrow"><span class="dot"></span>Class 12 board exam prep</span>
-  <h1>Board prep, <span>made simple.</span></h1><p class="lead">Understand concepts, practise important questions and revise with clear notes. Found something missing? Tell us and we will work on it.</p>
-  <div class="acts"><a class="btn primary" href="${me?'#/app':'#/signup'}">${me?'Open study space':'Get started free'}</a><a class="btn" href="#/" onclick="event.preventDefault();jump('subjects')">Explore subjects</a></div></div>
-  <div class="preview"><span class="eyebrow">Inside every chapter</span><h3 style="margin-top:14px">Three parts, one flow.</h3>
-   <div class="prow"><span class="pic">▤</span><div><b>Theory</b><small>Concepts, definitions and worked examples</small></div></div>
-   <div class="prow"><span class="pic" style="background:#ffc36b1b;color:var(--amber)">✎</span><div><b>Important questions</b><small>Short answers, long answers and numericals</small></div></div>
-   <div class="prow"><span class="pic" style="background:#b8a2ff1b;color:var(--violet)">↻</span><div><b>Quick revision</b><small>Formulas, diagrams and key points</small></div></div></div></div></section>
-  <section class="section alt"><div class="wrap"><div class="sh"><span class="kicker">What you get</span><h2>Everything for one chapter, in one place.</h2></div><div class="grid2">
-   <div class="feat"><span class="tg">Understand</span><h3>Concepts and theory</h3><p>Clear explanations and essential definitions to build understanding.</p></div>
-   <div class="feat" style="--a:var(--amber)"><span class="tg">Practise</span><h3>Important questions</h3><p>Board-style short answers, long answers and numericals.</p></div>
-   <div class="feat" style="--a:var(--violet)"><span class="tg">Revise</span><h3>Formulas and key points</h3><p>Quick-recall notes you can scan the night before an exam.</p></div>
-   <div class="feat" style="--a:var(--sky)"><span class="tg">Help us improve</span><h3>Report a gap</h3><p>Missing a topic or found something unclear? Send a ticket and we will fix it.</p></div></div></div></section>
-  <section class="section" id="subjects"><div class="wrap"><div class="sh"><span class="kicker">Class 12 subjects</span><h2>Choose a subject to begin.</h2></div><div class="subjectGrid">${SUBJECTS.map(tile).join('')}</div></div></section>
-  <section class="section alt" id="how"><div class="wrap"><div class="sh"><span class="kicker">A routine that works</span><h2>Learn it. Try it. Recall it.</h2></div><div class="steps">
-   <div class="step" style="--a:var(--mint)"><b>1</b><h3>Understand</h3><p>Read the concept and follow a worked example until the idea makes sense.</p></div>
-   <div class="step" style="--a:var(--amber)"><b>2</b><h3>Practise</h3><p>Attempt questions before looking at answers, and learn from mistakes.</p></div>
-   <div class="step" style="--a:var(--violet)"><b>3</b><h3>Revise</h3><p>Recall key points, formulas and diagrams again after a short break.</p></div></div></div></section>
-  <section class="section"><div class="wrap"><div class="ctaBox"><h2>Ready to start?</h2><p>Create a free account, pick a subject and open your first chapter.</p><a class="btn primary" href="${me?'#/app':'#/signup'}">${me?'Open study space':'Create free account'}</a></div></div></section>
-  <footer><div class="wrap">&copy; ${new Date().getFullYear()} EdgeStudy &middot; Class 12 board prep</div></footer>`;
-}
-
-/* ---------- Auth ---------- */
-function auth(mode){
-  if(me)return go('#/app');
-  const su=mode==='signup';
-  view.innerHTML=`<div class="wrap authGrid"><div class="pitch"><div><span class="eyebrow"><span class="dot"></span>Your study space</span><h1>Make room for <span>better learning.</span></h1><p>A calm, clear way to prepare for your Class 12 board exams.</p><ul><li>Subject-wise study</li><li>Important questions</li><li>Quick revision notes</li><li>Tell us what is missing</li></ul></div></div>
-  <form class="card" id="f"><h2>${su?'Create your account':'Welcome back'}</h2><p style="margin-top:6px">${su?'Start your board preparation in under a minute.':'Log in to continue studying.'}</p>
-  ${su?'<label for="n">Full name</label><input id="n" required maxlength="60" autocomplete="name">':''}
-  <label for="e">Email</label><input id="e" type="email" required autocomplete="email" inputmode="email">
-  ${pwf('p','Password',su?'new-password':'current-password')}${su?pwf('p2','Confirm password','new-password')+'<div class="hint" id="h"></div>':''}
-  <button class="btn primary block" id="go">${su?'Create account':'Log in'}</button><div class="msg" id="m" hidden></div>
-  <p style="text-align:center;margin-top:16px;font-size:.92rem">${su?'Already have an account? <a class="tl" href="#/login">Log in</a>':'New here? <a class="tl" href="#/signup">Create an account</a>'}</p></form></div>`;
-  if(su){const chk=()=>{const h=$('#h'),a=$('#p').value,b=$('#p2').value;if(!b){h.textContent='';return}const ok=a===b;h.className='hint '+(ok?'ok':'err');h.textContent=ok?'Passwords match':'Passwords do not match'};$('#p').oninput=$('#p2').oninput=chk}
-  $('#f').onsubmit=async e=>{e.preventDefault();const b=$('#go'),m=$('#m'),pw=$('#p').value;
-    if(su&&pw!==$('#p2').value)return say(m,'Passwords do not match. Please re-enter them.');
-    b.disabled=true;const em=$('#e').value.trim();
-    const r=su?await sb.auth.signUp({email:em,password:pw,options:{data:{full_name:$('#n').value.trim()}}}):await sb.auth.signInWithPassword({email:em,password:pw});
-    b.disabled=false;if(r.error)return say(m,r.error.message);
-    if(su&&!r.data.session)return say(m,'Account created. Check your email to confirm it, then log in.','ok');
-    go('#/app')};
-}
-
-/* ---------- Dashboard ---------- */
-async function dashboard(){
-  const {data:ts}=await sb.from('tickets').select('id,subject,status,created_at').eq('user_id',me.id).order('created_at',{ascending:false});
-  const open=(ts||[]).filter(t=>t.status==='open').length,first=(dname().split(' ')[0])||'there';
-  shell('app',`<div class="pageTop"><h1>Hi, ${esc(first)}.</h1><p>Ready for a focused study session?</p></div>
-  <section class="banner"><div><span class="kicker">Your next step</span><h2>One chapter at a time.</h2><p>Choose a subject, open a chapter and work through theory, questions and revision.</p><a class="btn primary" href="#/subjects">Choose a subject</a></div><div class="mark">✦</div></section>
-  <div class="stats"><div class="stat" style="--a:var(--mint)"><strong>${SUBJECTS.length}</strong><small>Subjects</small></div><div class="stat" style="--a:var(--amber)"><strong>${total}</strong><small>Chapters</small></div><div class="stat" style="--a:var(--violet)"><strong>${open}</strong><small>Under review</small></div></div>
-  <section class="box"><div class="bh"><h3>Subjects</h3><a class="tl" href="#/subjects">View all</a></div>${SUBJECTS.slice(0,4).map(s=>`<div class="li"><span class="si" style="--a:${s.c}">${s.i}</span><div><strong>${s.n}</strong><small>${s.ch.length} chapters</small></div><a class="btn sm" href="#/subjects/${encodeURIComponent(s.n)}">Open</a></div>`).join('')}</section>
-  <section class="box"><div class="bh"><h3>Your reports</h3><a class="tl" href="#/help">Report a gap</a></div>${ts?.length?ts.slice(0,3).map(t=>`<a class="li" href="#/ticket/${t.id}"><div><strong>${esc(t.subject)}</strong><small>${fmt(t.created_at)}</small></div><span class="st ${t.status}">${SL[t.status]||t.status}</span></a>`).join(''):'<div class="empty"><p style="margin:0 auto">No reports yet. Found something missing? Let us know.</p></div>'}</section>`);
-}
-
-/* ---------- Subjects and chapters ---------- */
-function subjects(name){
-  const s=name&&sub(decodeURIComponent(name));
-  if(!s){shell('subjects',`<div class="pageTop"><h1>Your subjects</h1><p>Choose a subject to see its chapters.</p></div><div class="subjectList">${SUBJECTS.map(x=>`<a class="sc" style="--a:${x.c}" href="#/subjects/${encodeURIComponent(x.n)}"><i class="wm" aria-hidden="true">${x.i}</i><span class="si">${x.i}</span><span><strong>${x.n}</strong><small>${x.ch.length} chapters</small></span><span class="go">&rsaquo;</span></a>`).join('')}</div>`);return}
-  const has=(c,t)=>CONTENT[`${s.n}|${c}|${t}`];
-  shell('subjects',`<div class="pageTop"><div class="crumb"><a href="#/subjects">Subjects</a> / ${esc(s.n)}</div><h1>${esc(s.n)}</h1><p>${s.ch.length} chapters. Open a chapter for theory, questions and revision.</p></div>
-  <div class="chapterGrid" style="--a:${s.c}">${s.ch.map((c,i)=>{const live=TABS.some(([t])=>has(c,t));return `<article class="cc"><div class="no">Chapter ${String(i+1).padStart(2,'0')}</div><h3>${esc(c)}</h3><div class="ft"><small>${live?'Notes available':'Notes coming soon'}</small><a class="btn sm ${live?'primary':''}" href="#/c/${encodeURIComponent(s.n)}/${i}/theory">Open</a></div></article>`}).join('')}</div>`);
-}
-async function chapter(sn,idx,tab){
-  const s=sub(decodeURIComponent(sn||'')),i=Number(idx);
-  if(!s||!(i>=0&&i<s.ch.length))return go('#/subjects');
-  tab=TABS.some(t=>t[0]===tab)?tab:'theory';const c=s.ch[i],base=`#/c/${encodeURIComponent(s.n)}/`;
-  shell('c',`<div class="pageTop"><div class="crumb"><a href="#/subjects">Subjects</a> / <a href="#/subjects/${encodeURIComponent(s.n)}">${esc(s.n)}</a></div><h1>${esc(c)}</h1><p>Chapter ${i+1} of ${s.ch.length}</p></div>
-  <div class="tabs">${TABS.map(([k,l])=>`<a class="tab ${k===tab?'on':''}" href="${base}${i}/${k}">${l}</a>`).join('')}</div>
-  <article class="lesson" id="les"><p>Loading...</p></article>
-  <div class="pn">${i>0?`<a class="btn" href="${base}${i-1}/${tab}">&larr; Previous</a>`:'<span></span>'}${i<s.ch.length-1?`<a class="btn" href="${base}${i+1}/${tab}">Next &rarr;</a>`:''}</div>`);
-  const box=$('#les'),u=CONTENT[`${s.n}|${c}|${tab}`],label=TABS.find(t=>t[0]===tab)[1];
-  if(!u){box.innerHTML=`<div class="empty"><h3>${label} is coming soon</h3><p>This section is being prepared and will appear here as soon as it is published.</p><a class="btn" href="#/help">Report a gap</a></div>`;return}
-  try{const r=await fetch(u);if(!r.ok)throw 0;box.innerHTML=await r.text()}catch(e){box.innerHTML='<div class="empty"><h3>Could not load this section</h3><p>Check your connection and try again.</p></div>'}
-}
-
-/* ---------- Profile ---------- */
-function profile(){
-  const n=dname();
-  shell('profile',`<div class="who"><div class="av">${esc((n||me.email)[0].toUpperCase())}</div><div><h2>${esc(n||'Student')}</h2><p>${esc(me.email)}</p></div></div>
-  <form class="box" id="pf"><h3>Your details</h3><label for="pn">Full name</label><input id="pn" required maxlength="60" value="${esc(n)}" autocomplete="name"><label for="pe">Email</label><input id="pe" value="${esc(me.email)}" disabled>
-   <button class="btn primary block">Save changes</button><div class="msg" id="pm" hidden></div></form>
-  <form class="box" id="pw"><h3>Change password</h3>${pwf('np','New password','new-password')}${pwf('np2','Confirm new password','new-password')}<button class="btn primary block">Update password</button><div class="msg" id="wm" hidden></div></form>
-  <a class="tk" href="#/help"><span><b>My reports</b><br><small>See your reports and replies</small></span><span class="tl">Open</span></a>
-  <button class="btn block" id="lo" style="margin-top:6px">Log out</button>`);
-  $('#pf').onsubmit=async e=>{e.preventDefault();const m=$('#pm'),v=$('#pn').value.trim();
-    const [a,b]=await Promise.all([sb.from('profiles').update({full_name:v}).eq('id',me.id),sb.auth.updateUser({data:{full_name:v}})]);
-    if(a.error||b.error)return say(m,(a.error||b.error).message);prof={...prof,full_name:v};say(m,'Changes saved.','ok')};
-  $('#pw').onsubmit=async e=>{e.preventDefault();const m=$('#wm');
-    if($('#np').value!==$('#np2').value)return say(m,'Passwords do not match. Please re-enter them.');
-    const r=await sb.auth.updateUser({password:$('#np').value});if(r.error)return say(m,r.error.message);e.target.reset();say(m,'Password updated.','ok')};
-  $('#lo').onclick=()=>sb.auth.signOut().then(()=>go('#/'));
-}
-
-/* ---------- Media ---------- */
-async function upload(file,tid){
-  const path=`${me.id}/${tid}/${Date.now()}-${file.name.replace(/[^\w.-]/g,'_')}`;
-  const {error}=await sb.storage.from('ticket-media').upload(path,file,{contentType:file.type});if(error)throw error;return{path,type:file.type};
-}
-async function media(path,type){
-  if(!path)return'';const {data}=await sb.storage.from('ticket-media').createSignedUrl(path,3600);const u=data?.signedUrl;if(!u)return'';
-  return type?.startsWith('image')?`<img src="${u}" alt="Attachment" loading="lazy">`:type?.startsWith('video')?`<video src="${u}" controls playsinline></video>`:`<a class="tl" href="${u}" target="_blank" rel="noopener">Open attachment</a>`;
-}
-
-/* ---------- Report a gap ---------- */
-async function help(){
-  const {data:ts}=await sb.from('tickets').select('*').eq('user_id',me.id).order('created_at',{ascending:false});
-  shell('help',`<div class="pageTop"><h1>Report a gap</h1><p>Found something missing, unclear or wrong? Tell us what is lacking and we will work on it.</p></div>
-  <div class="box"><h3>How it works</h3><p style="font-size:.92rem;margin-top:6px">If we understand your report in one go, we will simply fix it. If we need more details, we will turn on chat on your report and ask you here. Our reply appears on the same page.</p></div>
-  <form class="box" id="f"><label for="sj" style="margin-top:0">Subject</label><select id="sj">${SUBJECTS.map(x=>`<option>${x.n}</option>`).join('')}<option>General</option></select>
-   <label for="s">What is missing?</label><input id="s" required maxlength="100" placeholder="e.g. Numericals for the Nuclei chapter">
-   <label for="b">Details</label><textarea id="b" required placeholder="Tell us what is lacking and what would help you."></textarea>
-   <label>Screenshot, photo or video (optional)</label><div class="btn file block">Choose file<input type="file" id="fi" accept="image/*,video/*"></div><small id="fn" style="color:var(--muted)"></small>
-   <button class="btn primary block" id="go">Send report</button><div class="msg" id="m" hidden></div></form>
-  <h3 style="margin:22px 0 12px">Your reports</h3>${ts?.length?ts.map(t=>`<a class="tk" href="#/ticket/${t.id}"><span><b>${esc(t.subject)}</b><br><small>${fmt(t.created_at)}</small></span><span class="st ${t.status}">${SL[t.status]||t.status}</span></a>`).join(''):'<div class="box empty"><p style="margin:0 auto">No reports yet. Anything you send will show up here.</p></div>'}`);
-  $('#fi').onchange=e=>$('#fn').textContent=e.target.files[0]?.name||'';
-  $('#f').onsubmit=async e=>{e.preventDefault();const b=$('#go'),m=$('#m');b.disabled=true;
-    try{const {data:t,error}=await sb.from('tickets').insert({user_id:me.id,subject:`${$('#sj').value} \u00b7 ${$('#s').value.trim()}`}).select().single();if(error)throw error;
-      const f=$('#fi').files[0],up=f?await upload(f,t.id):{};
-      const r=await sb.from('ticket_messages').insert({ticket_id:t.id,sender_id:me.id,body:$('#b').value.trim(),media_path:up.path,media_type:up.type});if(r.error)throw r.error;go('#/ticket/'+t.id);
-    }catch(x){say(m,x.message);b.disabled=false}};
-}
-
-/* ---------- Ticket thread ---------- */
-async function ticket(id){
-  const {data:t,error}=await sb.from('tickets').select('*').eq('id',id).maybeSingle();
-  if(error||!t){shell('help','<div class="box empty"><h3>Report not found</h3><p>It may have been removed.</p><a class="btn" href="#/help">Back to reports</a></div>');return}
-  const canType=t.chat_enabled&&t.status!=='closed';
-  shell('ticket',`<div class="crumb"><a href="#/help">&larr; All reports</a></div>
-  <div class="row" style="margin-top:8px"><h2>${esc(t.subject)}</h2><span class="st ${t.status}">${SL[t.status]||t.status}</span></div><div class="thread" id="th"></div>
-  ${canType?`<form class="comp" id="cf"><textarea id="cb" required placeholder="Write your reply"></textarea><div class="btn file">Add media<input type="file" id="cfi" accept="image/*,video/*"></div><button class="btn primary">Send</button><small id="cfn" style="color:var(--muted)"></small></form>`:`<div class="lock">${t.status==='closed'?'This report is closed. Thank you for helping us improve.':'Nothing more is needed from you right now. If we need more details, chat will be turned on here and you can reply.'}</div>`}`);
-  const th=$('#th');
-  const add=async m=>{const d=document.createElement('div');d.className='b '+(m.is_founder?'f':'me');
-    d.innerHTML=`${esc(m.body).replace(/\n/g,'<br>')}${await media(m.media_path,m.media_type)}<small>${m.is_founder?'Founder':'You'} &middot; ${fmt(m.created_at)}</small>`;th.appendChild(d)};
-  const {data:ms}=await sb.from('ticket_messages').select('*').eq('ticket_id',id).order('created_at');
-  for(const m of ms||[])await add(m);
-  const seen=new Set((ms||[]).map(m=>m.id));
-  rt=sb.channel('t'+id).on('postgres_changes',{event:'INSERT',schema:'public',table:'ticket_messages',filter:`ticket_id=eq.${id}`},p=>{if(!seen.has(p.new.id)){seen.add(p.new.id);add(p.new)}})
-   .on('postgres_changes',{event:'UPDATE',schema:'public',table:'tickets',filter:`id=eq.${id}`},()=>ticket(id)).subscribe();
-  $('#cfi')&&($('#cfi').onchange=e=>$('#cfn').textContent=e.target.files[0]?.name||'');
-  $('#cf')&&($('#cf').onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;
-    try{const f=$('#cfi').files[0],up=f?await upload(f,id):{};
-      const {data:m,error}=await sb.from('ticket_messages').insert({ticket_id:id,sender_id:me.id,is_founder:false,body:$('#cb').value.trim(),media_path:up.path,media_type:up.type}).select().single();
-      if(error)throw error;seen.add(m.id);await add(m);$('#cb').value='';$('#cfi').value='';$('#cfn').textContent='';
-    }catch(x){alert(x.message)}btn.disabled=false});
-}
-init();
-</script>
+<script src="js/store.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/study.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
