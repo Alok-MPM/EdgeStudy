@@ -262,8 +262,8 @@ function journalView(param) {
       <div class="jstats"><div><b data-count="${Math.round(wsum / 60)}">${Math.round(wsum / 60)}</b><small>Minutes in the last 7 days</small></div><div><b data-count="${active}">${active}</b><small>Active days this week</small></div><div><b data-count="${Journal.streak()}">${Journal.streak()}</b><small>Day streak</small></div></div>
     </section>
     <section class="glass jheat rv" data-rv="scale" style="--i:1"><div class="dh"><h3>Study map</h3><small class="quiet">Last ${WEEKS} weeks</small></div>
-      <div class="heat" role="list">${cells.map(([ck, v], i) => ck > today ? '<span class="hc f" aria-hidden="true"></span>' : `<a role="listitem" class="hc l${lvl(v.sec)} ${ck === today ? 'now' : ''} ${ck === k ? 'sel' : ''}" style="--w:${Math.floor(i / 7)}" href="#/journal/${ck}" aria-label="${parseDay(ck).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}: ${dur(v.sec)}"></a>`).join('')}</div>
-      <div class="hkey" aria-hidden="true"><small>Less</small><i class="hc l0"></i><i class="hc l1"></i><i class="hc l2"></i><i class="hc l3"></i><i class="hc l4"></i><small>More</small></div>
+      <div class="heat" role="list">${cells.map(([ck, v], i) => ck > today ? '<span class="hc f" aria-hidden="true"></span>' : `<a role="listitem" class="hc h${lvl(v.sec)} ${ck === today ? 'now' : ''} ${ck === k ? 'sel' : ''}" style="--w:${Math.floor(i / 7)}" href="#/journal/${ck}" aria-label="${parseDay(ck).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}: ${dur(v.sec)}"></a>`).join('')}</div>
+      <div class="hkey" aria-hidden="true"><small>Less</small><i class="hc h0"></i><i class="hc h1"></i><i class="hc h2"></i><i class="hc h3"></i><i class="hc h4"></i><small>More</small></div>
     </section>
     <section class="glass jlog rv" data-rv="scale" style="--i:2"><div class="dh"><h3>Timeline</h3><small class="quiet">${d.log.length} entries</small></div>${logList(d.log)}</section>
     <section class="glass jsplit rv" data-rv="scale" style="--i:3"><div class="dh"><h3>Where the time went</h3></div>
@@ -350,7 +350,7 @@ function landingLive() {
     <div class="sh"><span class="kicker rv">It notices you studying</span><h2 class="split">${words('Your study, recorded automatically.')}</h2><p class="rv" style="--i:2">Open a chapter and EdgeStudy starts a quiet timer. Your journal, streak, quests and planner update themselves. No manual logging.</p></div>
     <div class="lbento">
       <article class="glass tint lb-heat rv" data-rv="scale" style="--a:var(--mint)"><span class="tag">Journal</span><h3>A study map that fills itself</h3><p>Every day you study lights up a square. Tap a day to see what you opened and for how long.</p>
-        <div class="heat demo" aria-hidden="true">${demo.map((l, i) => `<i class="hc l${l}" style="--w:${Math.floor(i / 7)}"></i>`).join('')}</div></article>
+        <div class="heat demo" aria-hidden="true">${demo.map((l, i) => `<i class="hc h${l}" style="--w:${Math.floor(i / 7)}"></i>`).join('')}</div></article>
       <article class="glass tint lb-xp rv" data-rv="scale" style="--a:var(--amber);--i:1"><span class="tag">Progress</span><h3>XP, levels and streaks</h3><p>Earn XP for every five minutes of study, every new part you open and every quest you finish.</p>
         <div class="xpdemo" aria-hidden="true"><div class="lring" style="--off:.32"><svg viewBox="0 0 120 120"><circle class="trk" cx="60" cy="60" r="50"/><circle class="arc" cx="60" cy="60" r="50" pathLength="1"/></svg><span><small>Level</small><b>7</b></span></div><span class="fl">${ic('flame')}<b>12</b> day streak</span></div></article>
       <article class="glass tint lb-plan rv" data-rv="scale" style="--a:var(--violet);--i:2"><span class="tag">Planner</span><h3>Tasks that tick themselves off</h3>
