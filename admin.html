@@ -98,26 +98,33 @@ async function thread(id){
   const closed=t.status==='closed';
   app.innerHTML=`<a href="#/" style="text-decoration:none;color:var(--pri);font-weight:600">&larr; Inbox</a>
   <div class="row" style="margin-top:12px"><h2>${esc(t.subject)}</h2><span class="st ${t.status}">${SL[t.status]}</span></div><p style="font-size:.9rem">${esc(t.profiles?.full_name||'Student')} &middot; ${fmt(t.created_at)}</p>
-  <div class="card tog" style="margin-top:12px;justify-content:space-between"><span class="tog"><input type="checkbox" id="ce" ${t.chat_enabled?'checked':''}><label for="ce">Let student reply</label></span><button class="btn sm alt" id="cl">${closed?'Reopen':'Close ticket'}</button></div>
+  <div class="card tog" style="margin-top:12px;justify-content:space-between"><span class="tog"><input type="checkbox" id="ce" ${t.chat_enabled?'checked':''}><label for="ce" id="cel">${t.chat_enabled?'Chat ON \u2014 student can reply':'Chat OFF \u2014 student cannot reply'}</label></span><button class="btn sm alt" id="cl">${closed?'Reopen':'Close ticket'}</button></div>
   <div class="thread" id="th"></div>
   ${closed?'<div class="card empty"><p>This ticket is closed. Reopen it to reply.</p></div>':`<form class="comp" id="cf"><textarea id="cb" required placeholder="Write a reply"></textarea><div class="btn alt file sm">Add media<input type="file" id="cfi" accept="image/*,video/*"></div><button class="btn sm">Send reply</button></form><small id="cfn" style="color:var(--mute)"></small>`}`;
-  const th=$('#th');
+  const th=$('#th');let live=false;
   const add=async m=>{const d=document.createElement('div');d.className='b'+(m.is_founder?' f':'');
-    d.innerHTML=`${esc(m.body).replace(/\n/g,'<br>')}${await media(m.media_path,m.media_type)}<small>${m.is_founder?'You (Founder)':'Student'} &middot; ${fmt(m.created_at)}</small>`;th.appendChild(d)};
-  const {data:ms}=await sb.from('ticket_messages').select('*').eq('ticket_id',id).order('created_at');
+    d.innerHTML=`${esc(m.body).replace(/\n/g,'<br>')}${await media(m.media_path,m.media_type)}<small>${m.is_founder?'You (Founder)':'Student'} &middot; ${fmt(m.created_at)}</small>`;th.appendChild(d);if(live)scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})};
+  const {data:ms,error:lerr}=await sb.from('ticket_messages').select('*').eq('ticket_id',id).order('created_at');
+  if(lerr)th.innerHTML='<div class="card empty"><p>Messages could not be loaded: '+esc(lerr.message)+'</p></div>';
   for(const m of ms||[])await add(m);
+  live=true;scrollTo(0,document.documentElement.scrollHeight);
   const seen=new Set((ms||[]).map(m=>m.id));
   rt=sb.channel('a'+id).on('postgres_changes',{event:'INSERT',schema:'public',table:'ticket_messages',filter:`ticket_id=eq.${id}`},p=>{if(!seen.has(p.new.id)){seen.add(p.new.id);add(p.new)}}).subscribe();
-  $('#ce').onchange=e=>sb.from('tickets').update({chat_enabled:e.target.checked}).eq('id',id);
-  $('#cl').onclick=async()=>{await sb.from('tickets').update({status:closed?'open':'closed'}).eq('id',id);thread(id)};
+  $('#ce').onchange=async e=>{const box=e.target,want=box.checked;box.disabled=true;
+    const {data:u,error}=await sb.from('tickets').update({chat_enabled:want}).eq('id',id).select('id');box.disabled=false;
+    if(error||!u||!u.length){box.checked=!want;alert(error?error.message:'Could not change chat setting (permission). Check Supabase policies.');return}
+    $('#cel').textContent=want?'Chat ON \u2014 student can reply':'Chat OFF \u2014 student cannot reply'};
+  $('#cl').onclick=async()=>{const {data:u,error}=await sb.from('tickets').update({status:closed?'open':'closed'}).eq('id',id).select('id');
+    if(error||!u||!u.length){alert(error?error.message:'Could not update the ticket (permission).');return}thread(id)};
   $('#cfi')&&($('#cfi').onchange=e=>$('#cfn').textContent=e.target.files[0]?.name||'');
-  $('#cf')&&($('#cf').onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;
+  const cbx=$('#cb');cbx&&cbx.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&matchMedia('(hover:hover) and (pointer:fine)').matches){e.preventDefault();$('#cf').requestSubmit()}});
+  $('#cf')&&($('#cf').onsubmit=async e=>{e.preventDefault();const btn=e.submitter||$('#cf button');if(!$('#cb').value.trim())return;btn.disabled=true;
     try{const f=$('#cfi').files[0];let up={};
       if(f){const path=`${me.id}/${id}/${Date.now()}-${f.name.replace(/[^\w.-]/g,'_')}`;const u=await sb.storage.from('ticket-media').upload(path,f,{contentType:f.type});if(u.error)throw u.error;up={path,type:f.type}}
       const {data:m,error}=await sb.from('ticket_messages').insert({ticket_id:id,sender_id:me.id,is_founder:true,body:$('#cb').value.trim(),media_path:up.path,media_type:up.type}).select().single();
       if(error)throw error;seen.add(m.id);await add(m);$('#cb').value='';$('#cfi').value='';$('#cfn').textContent='';
       await sb.from('tickets').update({status:'answered'}).eq('id',id);
-    }catch(x){alert(x.message)}btn.disabled=false});
+    }catch(x){alert(x.message)}btn.disabled=false;$('#cb').focus()});
 }
 init();
 </script>
