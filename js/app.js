@@ -284,20 +284,23 @@ async function ticket(id){
   shell('ticket',`<div class="crumb"><a href="#/help">&larr; All reports</a></div>
   <div class="row" style="margin-top:8px"><h2>${esc(t.subject)}</h2><span class="st ${t.status}">${SL[t.status]||t.status}</span></div><div class="thread norv" id="th" aria-live="polite"></div>
   ${canType?`<form class="comp" id="cf"><textarea id="cb" required placeholder="Write your reply" aria-label="Your reply"></textarea><div class="btn file">Add media<input type="file" id="cfi" accept="image/*,video/*" aria-label="Add media"></div><button class="btn primary">Send</button><small id="cfn" style="color:var(--muted)"></small></form>`:`<div class="lock">${t.status==='closed'?'This report is closed. Thank you for helping us improve.':'Nothing more is needed from you right now. If we need more details, chat will be turned on here and you can reply.'}</div>`}`);
-  const th=$('#th');
+  const th=$('#th');let live=false;
   const add=async m=>{const d=document.createElement('div');d.className='b '+(m.is_founder?'f':'me');
-    d.innerHTML=`${esc(m.body).replace(/\n/g,'<br>')}${await media(m.media_path,m.media_type)}<small>${m.is_founder?'Founder':'You'} &middot; ${fmt(m.created_at)}</small>`;th.appendChild(d)};
-  const {data:ms}=await sb.from('ticket_messages').select('*').eq('ticket_id',id).order('created_at');
+    d.innerHTML=`${esc(m.body).replace(/\n/g,'<br>')}${await media(m.media_path,m.media_type)}<small>${m.is_founder?'Founder':'You'} &middot; ${fmt(m.created_at)}</small>`;th.appendChild(d);if(live)scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})};
+  const {data:ms,error:lerr}=await sb.from('ticket_messages').select('*').eq('ticket_id',id).order('created_at');
+  if(lerr)th.innerHTML='<div class="box empty"><p style="margin:0 auto">Messages could not be loaded. Please try again in a moment.</p></div>';
   for(const m of ms||[])await add(m);
+  live=true;scrollTo(0,document.documentElement.scrollHeight);
   const seen=new Set((ms||[]).map(m=>m.id));
   rt=sb.channel('t'+id).on('postgres_changes',{event:'INSERT',schema:'public',table:'ticket_messages',filter:`ticket_id=eq.${id}`},p=>{if(!seen.has(p.new.id)){seen.add(p.new.id);add(p.new)}})
-   .on('postgres_changes',{event:'UPDATE',schema:'public',table:'tickets',filter:`id=eq.${id}`},()=>ticket(id)).subscribe();
+   .on('postgres_changes',{event:'UPDATE',schema:'public',table:'tickets',filter:`id=eq.${id}`},p=>{const n=p.new;if(n.chat_enabled!==t.chat_enabled||(n.status==='closed')!==(t.status==='closed'))ticket(id);else{t.status=n.status;const s=$('.st');if(s){s.className='st '+n.status;s.textContent=SL[n.status]||n.status}}}).subscribe();
   $('#cfi')&&($('#cfi').onchange=e=>$('#cfn').textContent=e.target.files[0]?.name||'');
-  $('#cf')&&($('#cf').onsubmit=async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;
+  const cbx=$('#cb');cbx&&cbx.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&matchMedia('(hover:hover) and (pointer:fine)').matches){e.preventDefault();$('#cf').requestSubmit()}});
+  $('#cf')&&($('#cf').onsubmit=async e=>{e.preventDefault();const btn=e.submitter||$('#cf button');if(!$('#cb').value.trim())return;btn.disabled=true;
     try{const f=$('#cfi').files[0],up=f?await upload(f,id):{};
       const {data:m,error}=await sb.from('ticket_messages').insert({ticket_id:id,sender_id:me.id,is_founder:false,body:$('#cb').value.trim(),media_path:up.path,media_type:up.type}).select().single();
       if(error)throw error;seen.add(m.id);await add(m);$('#cb').value='';$('#cfi').value='';$('#cfn').textContent='';
-    }catch(x){alert(x.message)}btn.disabled=false});
+    }catch(x){alert(x.message)}btn.disabled=false;$('#cb').focus()});
 }
 
 Boot.run(init().catch(e=>{console.error(e);route()}),()=>{introDone=true;scan()});
