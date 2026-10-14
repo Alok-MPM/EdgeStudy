@@ -75,135 +75,13 @@ const Study = {
   onUser(u) {
     Store.bind(u?.id); if (!u) return;
     Prefs.adoptPending();
-    Store.global('last', { name: dname() || u.email.split('@')[0], streak: Journal.streak() });
+    Accounts.remember(u.email, dname() || u.email.split('@')[0], Journal.streak());
   }
 };
 const focusHTML = () => `<div class="focus"><div class="fring" style="--p:0"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="52"/><circle class="arc" cx="60" cy="60" r="52" pathLength="1"/></svg><span><b data-focus="time">${clock(Focus.remaining())}</b><small data-focus="state">Ready</small></span></div>
   <div class="fside"><div class="seg" role="group" aria-label="Session length">${[25, 45, 60].map(m => `<button type="button" data-min="${m}" aria-pressed="${m * 60 === Focus.len}">${m}m</button>`).join('')}</div>
   <div class="row2"><button type="button" class="btn primary sm" data-focus="toggle">Start</button><button type="button" class="btn sm" data-focus="reset">Reset</button></div></div></div>`;
 const questHTML = () => `<ul class="quests">${Quests.list().map(q => `<li data-quest="${q.id}" class="${q.done ? 'done' : ''}" style="--a:${q.a}"><span class="qchk">${CHECK}</span><span class="qt"><strong>${q.t}</strong><em>${q.fmt(q.v, q.goal)}</em><span class="qbar"><i style="width:${q.v / q.goal * 100}%"></i></span></span><small>+${q.xp}</small></li>`).join('')}</ul>`;
-
-/* ---------- Auth: login ---------- */
-const orbitHTML = () => `<div class="orbit" aria-hidden="true"><div class="ocore">${LOGO}</div>${SUBJECTS.slice(0, 3).map((s, k) => `<span class="osat" style="--k:${k};--a:${s.c}"><i>${s.i}</i></span>`).join('')}<span class="oring r1"></span><span class="oring r2"></span></div>`;
-function authView(mode) {
-  if (me) return go('#/app');
-  mode === 'signup' ? signupView() : loginView();
-}
-function loginView() {
-  const last = Store.global('last'), first = last?.name?.split(' ')[0];
-  view.innerHTML = `<div class="wrap authGrid au">
-  <section class="pitch au-pitch rv" data-rv="left">
-    <span class="eyebrow"><span class="dot"></span>${first ? 'Welcome back' : 'Your study space'}</span>
-    <h1 class="split">${first ? `${words('Good to see you,')} <em>${words(esc(first) + '.', 4)}</em>` : `${words('Pick up where')} <em>${words('you left off.', 3)}</em>`}</h1>
-    <p>${last?.streak ? `Your ${last.streak}-day streak is waiting. Log in to keep it alive.` : 'Your journal, planner and every chapter you opened are right where you left them.'}</p>
-    ${orbitHTML()}
-  </section>
-  <form class="card au-card rv" data-rv="scale" style="--i:1" id="f">
-    <h2>Log in</h2><p class="sub">Continue your board preparation.</p>
-    <label for="e">Email</label><div class="fxin"><input id="e" type="email" required autocomplete="email" inputmode="email">${CHECK}</div>
-    ${pwf('p', 'Password', 'current-password')}
-    <button class="btn primary block morph" id="go"><span class="lbl">Log in</span><span class="spin" aria-hidden="true"></span>${CHECK}</button>
-    <div class="msg" id="m" role="alert" hidden></div>
-    <p class="switch">New here? <a class="tl" href="#/signup">Create an account</a></p>
-  </form></div>`;
-  wireEmail();
-  $('#f').onsubmit = async e => {
-    e.preventDefault(); const b = $('#go'), m = $('#m'); m.hidden = true;
-    b.disabled = true; b.classList.add('busy'); holdRoute = true;
-    const r = await sb.auth.signInWithPassword({ email: $('#e').value.trim(), password: $('#p').value });
-    if (r.error) { holdRoute = false; b.disabled = false; b.classList.remove('busy'); shake($('#f')); return say(m, r.error.message); }
-    b.classList.replace('busy', 'done'); burstAt(b, 40);
-    await Gate.play('Opening your study space'); holdRoute = false; go('#/app');
-  };
-}
-function wireEmail() { const e = $('#e'); e.addEventListener('input', () => e.parentElement.classList.toggle('valid', !!e.value && e.validity.valid)); }
-
-/* ---------- Auth: signup, a three-step flow that builds a student pass ---------- */
-const strength = v => !v ? 0 : (v.length >= 6) + (v.length >= 10) + ((/[a-z]/i.test(v) && /\d/.test(v)) || (/[a-z]/.test(v) && /[A-Z]/.test(v))) + /[^\w\s]/.test(v);
-const SLABEL = ['Use at least 6 characters', 'Weak', 'Okay', 'Strong', 'Excellent'];
-function signupView() {
-  const pick = new Set(['Physics', 'Chemistry', 'Mathematics']), no = String(1000 + Math.floor(Math.random() * 9000));
-  const since = new Date().toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
-  const subsHTML = () => [...pick].map((n, k) => `<span class="el" style="--a:${subColor(n)};--k:${k}">${subTag(n)}</span>`).join('') || '<span class="idc-empty">No subjects yet</span>';
-  view.innerHTML = `<div class="wrap authGrid au">
-  <section class="pitch au-pitch rv" data-rv="left">
-    <span class="eyebrow"><span class="dot"></span>Your student pass</span>
-    <div class="idcard" id="idc"><div class="idc-in">
-      <div class="idc-face front">
-        <div class="idc-top">${LOGO}<span>EdgeStudy pass</span><span class="idc-no">No. ${no}</span></div>
-        <div class="idc-name"><span id="idName">Your name</span><i class="caret" aria-hidden="true"></i></div>
-        <div class="idc-subs" id="idSubs">${subsHTML()}</div>
-        <div class="idc-foot"><span>Level 1 &middot; 0 XP</span><span>Since ${since}</span></div>
-      </div>
-      <div class="idc-face back" id="idBack"></div>
-    </div></div>
-    <p class="quiet">Fill in the steps and watch your pass come to life.</p>
-  </section>
-  <form class="card au-card rv" data-rv="scale" style="--i:1" id="f">
-    <div class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-    <p class="stepc" id="sc" aria-live="polite">Step 1 of 3</p>
-    <fieldset class="stp on"><legend><h2>What should we call you?</h2></legend>
-      <label for="n">Full name</label><input id="n" required maxlength="60" autocomplete="name">
-      <button type="button" class="btn primary block nx">Continue ${ic('arrow')}</button></fieldset>
-    <fieldset class="stp"><legend><h2>Which subjects are you taking?</h2></legend>
-      <p class="sub">Your dashboard and planner will focus on these. You can still open every subject.</p>
-      <div class="pick">${SUBJECTS.map(s => `<button type="button" class="pk" data-s="${s.n}" style="--a:${s.c}" aria-pressed="${pick.has(s.n)}"><span class="el" style="--a:${s.c}">${s.i}</span>${s.n}${CHECK}</button>`).join('')}</div>
-      <div class="row2"><button type="button" class="btn bk">Back</button><button type="button" class="btn primary nx">Continue ${ic('arrow')}</button></div></fieldset>
-    <fieldset class="stp"><legend><h2>Secure your account</h2></legend>
-      <label for="e">Email</label><div class="fxin"><input id="e" type="email" required autocomplete="email" inputmode="email">${CHECK}</div>
-      ${pwf('p', 'Password', 'new-password')}
-      <div class="meter" id="mt" data-s="0" aria-live="polite"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><small id="ml">${SLABEL[0]}</small></div>
-      ${pwf('p2', 'Confirm password', 'new-password')}<div class="hint" id="h" aria-live="polite"></div>
-      <div class="row2"><button type="button" class="btn bk">Back</button><button class="btn primary morph" id="go"><span class="lbl">Create account</span><span class="spin" aria-hidden="true"></span>${CHECK}</button></div></fieldset>
-    <div class="msg" id="m" role="alert" hidden></div>
-    <p class="switch">Already have an account? <a class="tl" href="#/login">Log in</a></p>
-  </form></div>`;
-  const f = $('#f'), steps = [...f.querySelectorAll('.stp')], m = $('#m'); let step = 0;
-  const show = n => {
-    m.hidden = true; f.style.setProperty('--dir', n > step ? 1 : -1); step = n;
-    steps.forEach((s, i) => s.classList.toggle('on', i === n));
-    f.querySelectorAll('.steps i').forEach((d, i) => d.classList.toggle('on', i <= n));
-    $('#sc').textContent = `Step ${n + 1} of 3`;
-    steps[n].querySelector('input,button.pk')?.focus({ preventScroll: true });
-  };
-  f.querySelectorAll('.nx').forEach(b => b.onclick = () => {
-    if (step === 0 && !$('#n').reportValidity()) return shake(f);
-    if (step === 1 && !pick.size) { shake(f); return say(m, 'Pick at least one subject.'); }
-    show(step + 1);
-  });
-  f.querySelectorAll('.bk').forEach(b => b.onclick = () => show(step - 1));
-  $('#n').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing && e.keyCode !== 229) { e.preventDefault(); f.querySelector('.nx').click(); } });
-  $('#n').oninput = () => { $('#idName').textContent = $('#n').value.trim() || 'Your name'; $('#idc').classList.add('live'); };
-  f.querySelectorAll('.pk').forEach(b => b.onclick = () => {
-    const s = b.dataset.s; pick.has(s) ? pick.delete(s) : pick.add(s);
-    b.setAttribute('aria-pressed', String(pick.has(s))); $('#idSubs').innerHTML = subsHTML();
-  });
-  wireEmail();
-  const chk = () => {
-    const a = $('#p').value, b2 = $('#p2').value, sc = strength(a), h = $('#h');
-    $('#mt').dataset.s = sc; $('#ml').textContent = SLABEL[sc];
-    if (!b2) { h.textContent = ''; return; }
-    const ok = a === b2; h.className = 'hint ' + (ok ? 'ok' : 'err'); h.textContent = ok ? 'Passwords match' : 'Passwords do not match';
-  };
-  $('#p').oninput = $('#p2').oninput = chk;
-  f.onsubmit = async e => {
-    e.preventDefault(); const b = $('#go'), pw = $('#p').value;
-    if (pw !== $('#p2').value) { shake(f); return say(m, 'Passwords do not match. Please re-enter them.'); }
-    b.disabled = true; b.classList.add('busy'); holdRoute = true;
-    const name = $('#n').value.trim(), em = $('#e').value.trim();
-    const r = await sb.auth.signUp({ email: em, password: pw, options: { data: { full_name: name } } });
-    if (r.error) { holdRoute = false; b.disabled = false; b.classList.remove('busy'); shake(f); return say(m, r.error.message); }
-    Store.global('pending', { subjects: [...pick] });
-    b.classList.replace('busy', 'done');
-    const first = esc(name.split(' ')[0]), idc = $('#idc');
-    $('#idBack').innerHTML = r.data.session
-      ? `<span class="kicker">Pass activated</span><h3>Welcome aboard, ${first}.</h3><p>Setting up your study space now.</p>`
-      : `<span class="kicker">One last step</span><h3>Check your inbox, ${first}.</h3><p>We sent a confirmation link to ${esc(em)}. Confirm it, then log in.</p><a class="btn primary sm" href="#/login">Go to log in</a>`;
-    idc.classList.add('flip'); idc.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => burstAt(idc, 120), 420);
-    if (r.data.session) { setTimeout(async () => { await Gate.play('Setting up your study space'); holdRoute = false; go('#/app'); }, 1500); }
-    else { holdRoute = false; say(m, 'Account created. Check your email to confirm it, then log in.', 'ok'); }
-  };
-}
 
 /* ---------- Dashboard ---------- */
 function renderDashboard(ts) {
