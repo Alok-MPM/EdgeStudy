@@ -13,7 +13,7 @@ const SUBJECTS=[
    Value = path of an HTML fragment file, e.g. 'Physics|Nuclei|theory':'notes/physics/nuclei-theory.html' */
 const TABS=[['theory','Theory'],['questions','Important Questions'],['revision','Quick Revision']];
 
-let sb=null;try{if(window.supabase)sb=supabase.createClient(SB_URL,SB_KEY)}catch(e){console.error(e)}
+let sb=null;try{if(window.supabase)sb=supabase.createClient(SB_URL,SB_KEY,{auth:{lock:async(name,timeout,fn)=>await fn()}})}catch(e){console.error(e)}
 const $=s=>document.querySelector(s),view=$('#view');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let me=null,prof=null,rt=null;
