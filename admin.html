@@ -52,7 +52,7 @@ form .btn{margin-top:18px}
 <main class="wrap pg" id="app"></main>
 <script>
 const SB_URL='https://xnlpqhxkqeockawecrlm.supabase.co', SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhubHBxaHhrcWVvY2thd2VjcmxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE0NzA1ODEsImV4cCI6MjEwNzA0NjU4MX0.sXuA1wnH46l-R2BqUz3MKp07hPhKSV7w_yF-fV6WE_4';
-const sb=supabase.createClient(SB_URL,SB_KEY),$=s=>document.querySelector(s),app=$('#app');
+const sb=supabase.createClient(SB_URL,SB_KEY,{auth:{lock:async(name,timeout,fn)=>await fn()}}),$=s=>document.querySelector(s),app=$('#app');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=d=>new Date(d).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
 const SL={open:'Needs reply',answered:'Answered',closed:'Closed'};
@@ -64,7 +64,11 @@ let me=null,prof=null,rt=null,filter='open',all=[];
 async function load(){const {data}=await sb.auth.getSession();me=data.session?.user||null;prof=null;
   if(me){const r=await sb.from('profiles').select('is_admin,full_name').eq('id',me.id).maybeSingle();prof=r.data}
   if(prof&&prof.is_admin)ChatKit.watch(sb,'admin');else ChatKit.stopWatch()}
-async function init(){await load();sb.auth.onAuthStateChange(async(ev)=>{if(ev==='SIGNED_IN'||ev==='SIGNED_OUT'){await load();route()}});window.onhashchange=route;route()}
+async function init(){
+  /* callback must not await supabase calls directly (that deadlocks login), so defer the work */
+  sb.auth.onAuthStateChange((ev)=>{if(ev==='SIGNED_IN'||ev==='SIGNED_OUT')setTimeout(async()=>{try{await load()}catch(e){console.error(e)}route()},0)});
+  try{await load()}catch(e){console.error(e)}
+  window.onhashchange=route;route()}
 function route(){
   if(rt){sb.removeChannel(rt);rt=null}scrollTo(0,0);
   $('#hb').innerHTML=me?'<button class="btn sm alt" id="lo">Log out</button>':'';
@@ -79,7 +83,7 @@ function login(){
   <label for="p">Password</label><div class="pw"><input id="p" type="password" required autocomplete="current-password"><button type="button" class="eye" data-t="p" aria-label="Show password">${EYE}</button></div>
   <button class="btn" id="go">Log in</button><div class="msg" id="m" hidden></div></form>`;
   $('#f').onsubmit=async e=>{e.preventDefault();const b=$('#go');b.disabled=true;
-    const r=await sb.auth.signInWithPassword({email:$('#e').value.trim(),password:$('#p').value});b.disabled=false;
+    let r;try{r=await Promise.race([sb.auth.signInWithPassword({email:$('#e').value.trim(),password:$('#p').value}),new Promise((_,j)=>setTimeout(()=>j(new Error('This is taking too long. Reload the page and try again.')),20000))])}catch(x){r={error:{message:x.message||'Network problem. Please try again.'}}}b.disabled=false;
     if(r.error){const m=$('#m');m.textContent=r.error.message;m.hidden=false}};
 }
 async function inbox(){
