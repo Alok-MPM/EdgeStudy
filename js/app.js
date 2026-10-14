@@ -71,13 +71,21 @@ new MutationObserver(scan).observe(view,{childList:true,subtree:true});
 
 let booted=false;
 async function init(){
-  window.onhashchange=()=>{if(booted)route()};Study.init();
+  window.onhashchange=()=>{if(booted)route()};
+  try{Study.init()}catch(e){console.error(e)}
   if(!sb)return;
-  const {data}=await sb.auth.getSession();await setUser(data.session?.user);
+  /* register the auth listener FIRST so a later error can never leave login broken */
   sb.auth.onAuthStateChange((ev,s)=>{
     if(ev==='SIGNED_OUT'||(ev==='SIGNED_IN'&&s?.user?.id!==me?.id))setTimeout(async()=>{await setUser(s?.user);if(!holdRoute&&booted)route()},0)});
+  try{const {data}=await sb.auth.getSession();await setUser(data.session?.user)}catch(e){console.error(e)}
 }
-async function setUser(u){me=u||null;prof=null;if(me){const {data}=await sb.from('profiles').select('*').eq('id',me.id).maybeSingle();prof=data}Study.onUser(me);Avatar.init();if(me)ChatKit.watch(sb,'student');else ChatKit.stopWatch()}
+async function setUser(u){
+  me=u||null;prof=null;
+  if(me){try{const {data}=await sb.from('profiles').select('*').eq('id',me.id).maybeSingle();prof=data}catch(e){console.error(e)}}
+  try{Study.onUser(me)}catch(e){console.error(e)}
+  try{Avatar.init()}catch(e){console.error(e)}
+  try{me?ChatKit.watch(sb,'student'):ChatKit.stopWatch()}catch(e){console.error(e)}
+}
 const dname=()=>prof?.full_name||me?.user_metadata?.full_name||'';
 
 const PRIVATE=['app','subjects','c','help','ticket','profile','planner','journal'];
