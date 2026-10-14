@@ -1,0 +1,28 @@
+/* ===== Intro: atom + wordmark. Only transform/opacity are animated, so it stays smooth on low-end phones. ===== */
+#boot{position:fixed;inset:0;z-index:100;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#17202d 0%,var(--bg) 68%);cursor:pointer;touch-action:manipulation;contain:strict}
+#boot:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);background-size:34px 34px;opacity:.9;pointer-events:none}
+#boot.out{opacity:0;transform:scale(1.035);visibility:hidden;pointer-events:none;transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1),visibility 0s .6s}
+.in-stage{position:relative;display:grid;justify-items:center;gap:16px;padding:20px;text-align:center}
+.atomwrap{position:relative;width:208px;height:208px}
+.in-glow{position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;background:radial-gradient(circle,rgba(94,226,188,.22),rgba(94,226,188,0) 66%);animation:inBreathe 3.2s ease-in-out infinite;will-change:transform}
+@keyframes inBreathe{50%{transform:scale(1.14)}}
+.atomsvg{position:relative;width:100%;height:100%;overflow:visible}
+.atomsvg .orbit{opacity:0;transform-origin:center;transform-box:fill-box;animation:orbIn .7s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes orbIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+.atomsvg .nuc{transform-box:fill-box;transform-origin:center;animation:nucPulse 1.6s ease-in-out infinite}
+@keyframes nucPulse{50%{transform:scale(1.1)}}
+.glyph{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:11px;display:grid;place-items:center;font:700 .92rem var(--hd);color:#10141e;background:var(--c);opacity:0;animation:absorb 1.4s cubic-bezier(.6,0,.3,1) var(--dl) both;will-change:transform,opacity}
+@keyframes absorb{0%{opacity:0;transform:translate(var(--x),var(--y)) scale(.5)}30%{opacity:1;transform:translate(var(--x),var(--y)) scale(1)}100%{opacity:0;transform:translate(0,0) scale(.15)}}
+.wordmark{display:flex;font:750 clamp(2.3rem,10vw,3.4rem)/1 var(--hd);letter-spacing:-.05em}
+.wordmark span{display:inline-block;opacity:0;animation:letterIn .6s cubic-bezier(.2,.9,.3,1.25) both;animation-delay:calc(.8s + var(--i)*.06s)}
+.wordmark span:nth-child(n+5){color:var(--mint)}
+@keyframes letterIn{from{opacity:0;transform:translateY(26px) scale(.8)}to{opacity:1;transform:none}}
+.in-bar{width:min(280px,70vw);height:3px;border-radius:3px;background:var(--line2);overflow:hidden}
+.in-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--mint),var(--violet));transform-origin:0;transform:scaleX(0);will-change:transform}
+.in-meta{width:min(280px,70vw);display:flex;justify-content:space-between;gap:12px;font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#bootPct{color:var(--amber)}
+.in-skip{font:500 .66rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+/* returning visitors / refresh: show the finished composition at once, no entrance choreography */
+#boot.quick .atomsvg .orbit,#boot.quick .wordmark span{animation:none;opacity:1;transform:none}
+#boot.quick .glyph{display:none}
+@media (prefers-reduced-motion:reduce){#boot .in-glow,#boot .nuc,#boot .glyph{animation:none}#boot .glyph{display:none}}

@@ -1,0 +1,78 @@
+/* ===== Log in / Sign up: one combined card (stage + form). Stage folds away while the keyboard is open. ===== */
+.au{padding:20px 0 56px}
+.au-box{max-width:1040px;margin:0 auto;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.012) 60%);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
+.au-stage{position:relative;display:flex;align-items:center;gap:14px;padding:18px 18px 4px;background:radial-gradient(ellipse at 25% 0,color-mix(in srgb,var(--mint) 12%,transparent),transparent 65%);transition:padding .35s var(--ease)}
+.au-robot{flex:none;width:92px;transition:width .4s var(--ease)}
+.au-side{flex:1;min-width:0}
+.au-fold{overflow:hidden;max-height:460px;transition:max-height .45s var(--ease),opacity .3s}
+.au-h{font-size:1.5rem;margin:8px 0 4px;line-height:1.1}.au-h em{font-style:normal;color:var(--mint)}
+.au-p{display:none;color:var(--muted);font-size:.95rem;margin:0}
+.au-bub{position:relative;margin-top:10px;padding:9px 13px;border-radius:14px;background:#1b2332;border:1px solid var(--line2);font-size:.88rem;line-height:1.4;min-height:44px;color:var(--text)}
+.au-bub:before{content:"";position:absolute;left:-6px;top:15px;width:10px;height:10px;background:#1b2332;border-left:1px solid var(--line2);border-bottom:1px solid var(--line2);transform:rotate(45deg)}
+.au-form{padding:8px 18px 22px;position:relative}
+.au-form h2{margin-bottom:4px}
+.au-box.kb .au-robot{width:46px}.au-box.kb .au-fold{max-height:0;opacity:0}.au-box.kb .au-stage{padding-top:10px;padding-bottom:0}.au-box.kb .au-bub{margin-top:0;min-height:0}.au-box.kb .au-bub:before{top:50%;margin-top:-5px}
+.au-ready{height:3px;border-radius:3px;background:var(--line2);overflow:hidden;margin:10px 0 4px}
+.au-ready i{display:block;height:100%;background:var(--mint);transform-origin:0;transform:scaleX(0);transition:transform .45s var(--ease)}
+.caps{margin-top:8px;padding:6px 10px;border-radius:10px;background:color-mix(in srgb,var(--amber) 12%,transparent);border:1px solid color-mix(in srgb,var(--amber) 30%,transparent);color:var(--amber);font-size:.8rem;font-weight:600}
+.caps[hidden]{display:none}
+.hint button.tl{font:inherit;color:var(--mint)}
+
+/* ---- Edgy ---- */
+.edgy{animation:eBob 3.6s ease-in-out infinite}.edgy svg{width:100%;height:auto;overflow:visible;display:block}
+@keyframes eBob{50%{transform:translateY(-6px)}}
+.edgy .pup{transition:transform .12s linear}
+.edgy .eyew{transform-box:fill-box;transform-origin:center;animation:eBlink 5s infinite}
+@keyframes eBlink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.08)}}
+.edgy .hand{transform-box:fill-box;transform-origin:center;transition:transform .55s cubic-bezier(.3,1.5,.5,1)}
+.edgy.m-shy .hL{transform:translate(10px,-74px) rotate(10deg)}.edgy.m-shy .hR{transform:translate(-10px,-74px) rotate(-10deg)}
+.edgy.m-peek .hR{transform:translate(24px,-44px) rotate(30deg)}.edgy.m-peek .hL{transform:translate(10px,-74px) rotate(10deg)}
+.edgy .mo{opacity:0;transition:opacity .2s}.edgy .mo.s{opacity:1}
+.edgy.m-sad .mo.s,.edgy.m-happy .mo.s{opacity:0}.edgy.m-sad .mo.d,.edgy.m-happy .mo.h{opacity:1}
+.edgy .hy{opacity:0}.edgy.m-happy .hy{opacity:1}.edgy.m-happy .eyew,.edgy.m-happy .pup{opacity:0}
+.edgy.m-happy{animation:eJump .8s cubic-bezier(.3,1.5,.5,1) 2}.edgy.m-sad{animation:eShake .5s}
+@keyframes eJump{40%{transform:translateY(-22px) scale(1.05,.97)}70%{transform:translateY(0) scale(.97,1.04)}}
+@keyframes eShake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.edgy .ball{transform-box:fill-box;transform-origin:center}.edgy .ball.hit{animation:eHit .28s ease-out}
+@keyframes eHit{40%{transform:scale(1.9);fill:#fff}}
+
+/* ---- student pass, compact inside the stage ---- */
+.au-side .idcard{margin:10px 0 0;max-width:420px;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .16s ease-out}
+.au-side .idc-in{aspect-ratio:1.85}
+.au-side .idc-face{padding:12px 14px;border-radius:16px}
+.au-side .idc-top{font-size:.62rem;gap:8px}.au-side .idc-top svg{width:20px;height:20px}.idc-t{display:none}
+.au-side .idc-name{font-size:1.15rem}
+.au-side .idc-subs{margin:6px 0;min-height:24px;gap:5px}.au-side .idc-subs .el{width:24px;height:24px;font-size:.62rem;border-radius:7px}
+.au-side .idc-foot{font-size:.6rem;align-items:flex-end}
+.idc-face.back{padding:14px 16px}.au-side .idc-face.back h3{font-size:1.1rem}.au-side .idc-face.back p{font-size:.8rem}
+.idc-sec{display:flex;gap:3px;align-items:flex-end}.idc-sec i{width:5px;border-radius:2px;background:var(--line2);transition:background .3s}
+.idc-sec i:nth-child(1){height:5px}.idc-sec i:nth-child(2){height:7px}.idc-sec i:nth-child(3){height:9px}.idc-sec i:nth-child(4){height:11px}
+.idc-sec[data-s="1"] i:nth-child(-n+1){background:var(--coral)}.idc-sec[data-s="2"] i:nth-child(-n+2){background:var(--amber)}.idc-sec[data-s="3"] i:nth-child(-n+3){background:var(--mint)}.idc-sec[data-s="4"] i{background:var(--mint)}
+.idc-sec[data-s="4"]{filter:drop-shadow(0 0 5px var(--mint))}
+
+/* ---- tablet: still ONE card, stage on the left and form on the right ---- */
+@media (min-width:640px) and (max-width:899px){
+  .au-box{display:grid;grid-template-columns:1fr 1fr}
+  .au-stage{flex-direction:column;align-items:flex-start;justify-content:center;gap:14px;padding:26px 22px;border-right:1px solid var(--line2)}
+  .au-robot{width:110px}.au-side{width:100%}
+  .au-h{font-size:1.7rem}.au-p{display:block}
+  .au-form{padding:26px 22px;align-self:center}
+  .au-side .idcard{max-width:340px}
+}
+/* ---- desktop: two cards side by side ---- */
+@media (min-width:900px){
+  .au{padding:36px 0 64px}
+  .au-box{display:grid;grid-template-columns:1fr 1fr;gap:16px;border:0;background:none;overflow:visible;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .au-stage,.au-form{border:1px solid var(--line2);border-radius:var(--r);background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.012) 60%);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
+  .au-stage{flex-direction:column;align-items:flex-start;justify-content:center;gap:18px;padding:36px}
+  .au-robot{width:150px}.au-side{width:100%}
+  .au-h{font-size:clamp(2.2rem,3.4vw,3rem);margin:16px 0 10px}.au-p{display:block}
+  .au-bub{min-height:52px;font-size:.95rem;margin-top:14px}
+  .au-form{padding:36px;align-self:center}
+  .au-side .idcard{max-width:400px;margin:16px 0 0}.au-side .idc-in{aspect-ratio:1.6}.au-side .idc-face{padding:22px;border-radius:22px}
+  .idc-t{display:inline}.au-side .idc-top{font-size:.7rem}.au-side .idc-top svg{width:28px;height:28px}.au-side .idc-name{font-size:1.9rem}
+  .au-side .idc-subs{margin:12px 0;min-height:30px}.au-side .idc-subs .el{width:30px;height:30px;font-size:.72rem;border-radius:8px}.au-side .idc-foot{font-size:.7rem}
+  .au-side .idc-face.back h3{font-size:1.5rem}.au-side .idc-face.back p{font-size:.95rem}.idc-face.back{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){.edgy,.edgy .eyew{animation:none}}
+#idMail{text-transform:none;letter-spacing:.02em}

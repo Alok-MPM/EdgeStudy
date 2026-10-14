@@ -1,0 +1,7 @@
+/* ===== Touch glow: a soft light follows your finger inside the card you press (no sparks, no confetti) ===== */
+#glow{position:fixed;z-index:41;pointer-events:none;opacity:0;overflow:hidden;transition:opacity .5s ease;background:radial-gradient(170px circle at var(--gx,50%) var(--gy,50%),rgba(94,226,188,.24),rgba(94,226,188,.08) 55%,transparent 78%)}
+#glow.on{opacity:1;transition-duration:.1s}
+#glow.hov{opacity:.7;transition-duration:.2s}
+#glow.lt{background:radial-gradient(170px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.4),rgba(255,255,255,.12) 55%,transparent 78%)}
+.glow-on{border-color:color-mix(in srgb,var(--mint) 55%,transparent)!important;box-shadow:0 0 0 1px color-mix(in srgb,var(--mint) 30%,transparent),0 0 28px color-mix(in srgb,var(--mint) 22%,transparent)!important}
+@media (prefers-reduced-motion:reduce){#glow{display:none}}

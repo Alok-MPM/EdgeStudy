@@ -5,23 +5,13 @@
    ========================================================= */
 
 /* ---------- Intro ---------- */
-#boot{position:fixed;inset:0;z-index:100;display:grid;background:var(--bg);transition:opacity .9s var(--ease) .25s,visibility 0s 1.2s}
-.boot-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:30px 30px;mask:radial-gradient(60% 50% at 50% 42%,#000,transparent)}
-#bootCanvas{position:absolute;inset:0}
-.boot-ui{position:absolute;left:50%;top:calc(var(--wordY,52vh) + 28px);transform:translateX(-50%);width:min(340px,78vw);display:flex;flex-direction:column;gap:12px;transition:opacity .4s,transform .8s var(--ease)}
-.boot-log{height:20px;overflow:hidden;font:500 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
-.boot-log span{display:block;animation:logIn .5s var(--ease)}
 @keyframes logIn{from{transform:translateY(100%);opacity:0}}
-.boot-bar{height:2px;background:var(--line2);border-radius:2px;overflow:hidden}
-.boot-bar i{display:block;height:100%;background:var(--mint);transform-origin:0;transform:scaleX(0)}
-.boot-meta{display:flex;justify-content:space-between;font:500 .7rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-#bootPct{color:var(--amber)}
-#boot.out{opacity:0;visibility:hidden;pointer-events:none}
-#boot.out .boot-ui{opacity:0;transform:translate(-50%,16px)}
 
 /* ---------- Living field and route sweep ---------- */
 #field,#spark{position:fixed;inset:0;pointer-events:none}
 #field{z-index:-1}
+/* html already paints --bg; an opaque body would hide the dot canvas that sits behind the page */
+body{background:transparent}
 #spark{z-index:90}
 #sweep{position:fixed;left:0;right:0;top:0;height:2px;z-index:80;pointer-events:none;background:linear-gradient(90deg,transparent,var(--mint),var(--amber),var(--violet),transparent);transform:scaleX(0);opacity:0}
 #sweep.go{animation:sweep .9s var(--ease)}
@@ -229,9 +219,9 @@
 .fside{display:flex;flex-direction:column;gap:12px;flex:1;min-width:150px}
 .seg{display:flex;gap:4px;padding:4px;border:1px solid var(--line2);border-radius:12px}
 .seg button,.seg label span{display:block;flex:1;padding:7px 10px;border-radius:8px;font:600 .82rem var(--mono);text-align:center;color:var(--muted);cursor:pointer}
-.seg label{flex:1;display:flex}
+.seg label{flex:1;display:flex;position:relative}
 .seg label span{flex:1}
-.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg input{position:absolute;left:0;top:0;width:1px;height:1px;margin:0;padding:0;border:0;opacity:0;pointer-events:none}
 .seg button[aria-pressed=true],.seg input:checked+span{background:var(--text);color:var(--bg)}
 .seg input:focus-visible+span{outline:2px solid var(--amber)}
 .wrapseg{flex-wrap:wrap}
@@ -349,3 +339,6 @@
 @media (prefers-reduced-motion:reduce){
   *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* never let hidden radios/checkboxes inherit full width and stretch the page */
+input[type=radio],input[type=checkbox]{width:auto;min-height:0}
