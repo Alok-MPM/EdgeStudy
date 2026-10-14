@@ -89,6 +89,7 @@ function wireTyping(f, { onType } = {}) {
 }
 function mailHint(i) { const h = $('#eh'); if (!h) return; const fix = mailFix(i.value); h.innerHTML = fix ? `Did you mean <button type="button" class="tl" data-fix="${esc(fix)}">${esc(fix)}</button>?` : ''; i.parentElement.classList.toggle('valid', !!i.value && i.validity.valid && !fix); }
 const holdUntil = (b, ms) => new Promise(r => setTimeout(r, ms));
+const withTimeout = (p, ms) => Promise.race([Promise.resolve(p), new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
 
 function authView(mode) {
   if (me) return go('#/app');
@@ -135,14 +136,15 @@ function loginView() {
     ev.preventDefault(); const b = $('#go'), m = $('#m'); m.hidden = true;
     b.disabled = true; b.classList.add('busy'); holdRoute = true; Edgy.mood('idle'); Edgy.say('Checking your details...');
     let r;
-    try { r = await sb.auth.signInWithPassword({ email: e.value.trim(), password: p.value }); }
-    catch (err) { console.error(err); r = { error: { message: 'Network problem. Please try again.' } }; }
+    try { r = await withTimeout(sb.auth.signInWithPassword({ email: e.value.trim(), password: p.value }), 20000); }
+    catch (err) { console.error(err); r = { error: { message: err.message === 'timeout' ? 'This is taking too long. Reload the page and try again.' : 'Network problem. Please try again.' } }; }
     if (r.error) { holdRoute = false; b.disabled = false; b.classList.remove('busy'); shake(f); Edgy.mood('sad'); Edgy.say('That did not work. Check your details and try again.'); setTimeout(() => Edgy.mood('idle'), 1800); return say(m, r.error.message); }
     const nm = r.data.user?.user_metadata?.full_name || Accounts.find(e.value)?.name || e.value.split('@')[0];
     Accounts.remember(e.value, nm, Accounts.find(e.value)?.streak || 0);
-    try { await setUser(r.data.user); } catch (err) { console.error(err); }
+    me = r.data.user;
+    try { await withTimeout(setUser(r.data.user), 3000); } catch (err) { console.error(err); }
     b.classList.replace('busy', 'done'); Edgy.mood('happy'); Edgy.say(`Welcome back, ${nm.split(' ')[0]}!`);
-    try { await Gate.play('Opening your study space'); } catch (err) { console.error(err); }
+    try { await withTimeout(Gate.play('Opening your study space'), 5000); } catch (err) { console.error(err); }
     holdRoute = false; go('#/app');
   };
 }
@@ -234,12 +236,12 @@ function signupView() {
     b.disabled = true; b.classList.add('busy'); holdRoute = true; Edgy.mood('idle'); Edgy.say('Creating your pass...');
     const name = $('#n').value.trim(), em = $('#e').value.trim();
     let r;
-    try { r = await sb.auth.signUp({ email: em, password: pw, options: { data: { full_name: name } } }); }
-    catch (err) { console.error(err); r = { error: { message: 'Network problem. Please try again.' } }; }
+    try { r = await withTimeout(sb.auth.signUp({ email: em, password: pw, options: { data: { full_name: name } } }), 20000); }
+    catch (err) { console.error(err); r = { error: { message: err.message === 'timeout' ? 'This is taking too long. Reload the page and try again.' : 'Network problem. Please try again.' } }; }
     if (r.error) { holdRoute = false; b.disabled = false; b.classList.remove('busy'); shake(f); Edgy.mood('sad'); Edgy.say('Something went wrong. Please check the details.'); setTimeout(() => Edgy.mood('idle'), 1800); return say(m, r.error.message); }
     Store.global('pending', { subjects: [...pick] });
     Accounts.remember(em, name, 0);
-    if (r.data?.session) { try { await setUser(r.data.user); } catch (err) { console.error(err); } }
+    if (r.data?.session) { me = r.data.user; try { await withTimeout(setUser(r.data.user), 3000); } catch (err) { console.error(err); } }
     b.classList.replace('busy', 'done'); Edgy.mood('happy');
     const first = esc(name.split(' ')[0]);
     $('#idBack').innerHTML = r.data.session
@@ -247,7 +249,7 @@ function signupView() {
       : `<span class="kicker">One last step</span><h3>Check your inbox, ${first}.</h3><p>We sent a confirmation link to ${esc(em)}. Confirm it, then log in.</p><a class="btn primary sm" href="#/login">Go to log in</a>`;
     Edgy.say(r.data.session ? `Welcome, ${name.split(' ')[0]}!` : 'Check your inbox to confirm your account.');
     $('.au-box').classList.remove('kb'); idc.classList.add('flip'); idc.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => burstAt(idc, 120), 420);
-    if (r.data.session) { setTimeout(async () => { try { await Gate.play('Setting up your study space'); } catch (err) { console.error(err); } holdRoute = false; go('#/app'); }, 1500); }
+    if (r.data.session) { setTimeout(async () => { try { await withTimeout(Gate.play('Setting up your study space'), 5000); } catch (err) { console.error(err); } holdRoute = false; go('#/app'); }, 1500); }
     else { holdRoute = false; say(m, 'Account created. Check your email to confirm it, then log in.', 'ok'); }
   };
 }
